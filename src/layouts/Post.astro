@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { simpleDate } from "../lib";
 import "../post.css";
 
 const { content } = Astro.props;
@@ -8,7 +9,7 @@ const { content } = Astro.props;
 <Layout title={`Barely Laughing - ${content.title}`}>
   <article class="text-justify">
     <h2>{content.title}</h2>
-    <p class="pt-0 mb-5">{content.date.split("T")[0]}</p>
+    <p class="pt-0 mb-5">{simpleDate(content.date)}</p>
     <slot />
   </article>
 </Layout>

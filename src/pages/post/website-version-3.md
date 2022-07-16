@@ -2,6 +2,7 @@
 title: b5 version 3 (in nim)
 date: 2021-01-14
 layout: ../../layouts/Post.astro
+tags: programming, nim
 ---
 
 Another installment in the long line of barely laughing websites has arrived - version three! This one
