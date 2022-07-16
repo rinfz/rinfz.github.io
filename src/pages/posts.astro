@@ -8,9 +8,9 @@ const allPosts = (await Astro.glob("./post/*.md")).sort(
 ---
 
 <Layout title="Barely Laughing - Posts">
-  {allPosts.map((post) => (<div class="flex space-x-5">
+  {allPosts.map((post) => (<div class="flex items-center space-x-5">
     <span>{simpleDate(post.frontmatter.date)}</span>
-    <span class="flex-1"><a href={post.url}>{post.frontmatter.title}</a></span>
-    <span>{post.frontmatter.tags}</span>
+    <span class="flex-1 text-sm"><a href={post.url}>{post.frontmatter.title}</a></span>
+    <span class="text-xs">{post.frontmatter.tags}</span>
   </div>))}
 </Layout>

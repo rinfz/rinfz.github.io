@@ -14,9 +14,23 @@ article > p {
 
 article > pre {
   @apply p-4;
+  @apply my-2;
 }
 
 article a {
   @apply text-fuchsia-300;
   @apply underline;
+}
+
+article h3 {
+  @apply font-semibold;
+  @apply text-lg;
+}
+
+article table {
+  @apply table-auto;
+}
+
+article td {
+  @apply px-2 py-1;
 }
