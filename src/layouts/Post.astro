@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../post.css";
+
+const { content } = Astro.props;
+---
+
+<Layout title={`Barely Laughing - ${content.title}`}>
+  <article class="text-justify">
+    <h2>{content.title}</h2>
+    <p class="pt-0 mb-5">{content.date.split("T")[0]}</p>
+    <slot />
+  </article>
+</Layout>
