@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-MQCNRQCS">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - Building and deploying a site with SvelteKit and docker</title>
+<link rel="stylesheet" href="/b5.re/assets/d5ffc890.3178ec55.css" />
+<link rel="stylesheet" href="/b5.re/assets/b653fb57.e8bea6cd.css" /></head>
+
+<body class="astro-MQCNRQCS">
+  <div class="w-full sm:w-2/3 xl:w-3/5 mx-auto px-5 sm:px-0 astro-MQCNRQCS">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-MQCNRQCS">
+      <h1 class="astro-MQCNRQCS">Barely Laughing</h1>
+    </header>
+
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-MQCNRQCS">
+      <ul class="flex gap-5 flex-1 items-center astro-MQCNRQCS">
+        <li class="astro-MQCNRQCS"><a href="/" class="astro-MQCNRQCS">Home</a></li>
+        <li class="astro-MQCNRQCS"><a href="/posts" class="astro-MQCNRQCS">Posts</a></li>
+        <li class="astro-MQCNRQCS"><a href="/photos" class="astro-MQCNRQCS">Photography</a></li>
+        <li class="astro-MQCNRQCS"><a href="https://github.com/rinfz" target="_blank" class="astro-MQCNRQCS">Github</a></li>
+      </ul>
+      <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>Building and deploying a site with SvelteKit and docker</h2>
+    <p class="pt-0 mb-5">2021-07-26</p>
+    <h2 id="tldr">Tldr</h2><p>Use <a href="https://github.com/sveltejs/kit/tree/master/packages/adapter-node">adapter-node</a>, build a docker image and host it anywhere you can figure out the configuration for.</p><p>If you want to read my life story instead, carry on.</p><h2 id="intro">Intro</h2><p>For a while at work, I’ve been building a full stack web app using React on the frontend. All in all it’s not too bad really. The ecosystem is fantastic that’s for sure. But when it comes to personal projects, I just can’t resist a little experimentation.</p><p>I was playing around with the idea of writing a game based on electron (no longer the case, by the way - but it was enlightening). I didn’t really fancy using something popular like React. Plus, based on benchmarks at the time, it was a little inefficient / bloated. That’s when I came across <a href="https://svelte.dev">Svelte</a>. It seemed like it ticked all the boxes - lightweight, highly performant, good developer experience (by eschewing webpack - and at this current point using <a href="https://vitejs.dev">Vite</a> which is lovely and quick). So I thought I’d definitely give it a punt.</p><p>Later on in time, after I had moved on from the idea of a game written with electron, I wanted to build a <a href="https://swiftwpm.com">little app for speed reading</a>. Svelte fit the bill perfectly here too. Not only Svelte, but now <a href="https://kit.svelte.dev">SvelteKit</a> is a thing too. It’s an application framework the same as <a href="https://nextjs.org">Next</a> or <a href="https://nuxtjs.org">Nuxt</a> but with all those perks like the small footprint which initially drew me to Svelte. They added a few other things too such as file based routing, code splitting, offline support, SSR and so on. There’s a <a href="https://svelte.dev/blog/whats-the-deal-with-sveltekit">talk and blog post</a> if you want to read more about it.</p><p>At this point, this is definitely my favourite way to build an web app or interactive website. Especially having access to a very easy to use server alongside for integration with node packages.</p><h2 id="building">Building</h2><p>I won’t go into massive amounts of detail since most of the other articles about SvelteKit right now just seem to use the example repo. This was pretty frustrating to me since I had built more functionality into my app before thinking about building. Generally their methods didn’t work for my code. So I’m going to assume you have your SvelteKit site ready to go at this point. If not, you can run the example on their homepage:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #a6accd">$ npm init svelte@next my-app</span></span>
+<span class="line"><span style="color: #a6accd">$ cd my-app</span></span>
+<span class="line"><span style="color: #a6accd">$ npm i</span></span>
+<span class="line"><span style="color: #a6accd">$ npm run dev</span></span></code></pre><p>The first step will put you in a wizard for setting up your project. If you just want to test deploying then go for the SvelteKit demo app, otherwise pick the skeleton project and add your stuff to that.</p><p>Since we’re going to deploy using docker, we are going to be running our site with node (see: <a href="https://kit.svelte.dev/docs#adapters">adapters</a>). The reason for this is even though there are other adapters available at the moment:</p><ol>
+<li>adapter-static won’t support the server/api backend side of things and I am not interested in building a static site with SvelteKit (even though it’s probably decent).</li>
+<li>I tried all of: adapter-(vercel, netlify, cloudflare-workers, etc) and while they are a breeze to use, I had a lot of errors in actual deployment. For example, in vercel the serverless function would just completely crash with no warning message. In netlify, I got a warning message but it was to do with some package I can only assume was a very very deep dependency since I trawled npm a bit to try and find the relation and nothing came up - essentially I had no way to fix this.</li>
+</ol><p>Well if you can’t get it working on their systems, bring your system to them: docker.</p><p>Back on topic - install <a href="https://github.com/sveltejs/kit/tree/master/packages/adapter-node">@sveltejs/adapter-node</a> according to their readme, something like <code>npm i -D @sveltejs/adapter-node@next</code>. The <code>@next</code> is important (for now) - it wouldn’t work for me without it.</p><p>Bosh out a little Dockerfile. The following worked for me (taken from somewhere else lost to the mists of time).</p><p><code>Dockerfile</code></p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">FROM</span><span style="color: #A6ACCD"> node:14.17-alpine</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">WORKDIR</span><span style="color: #A6ACCD"> /app</span></span>
+<span class="line"><span style="color: #5DE4C7">COPY</span><span style="color: #A6ACCD"> package.json package-lock.json ./</span></span>
+<span class="line"><span style="color: #5DE4C7">RUN</span><span style="color: #A6ACCD"> npm i --no-optional</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">COPY</span><span style="color: #A6ACCD"> . .</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">RUN</span><span style="color: #A6ACCD"> npm run build</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">FROM</span><span style="color: #A6ACCD"> node:14.17-slim</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">WORKDIR</span><span style="color: #A6ACCD"> /app</span></span>
+<span class="line"><span style="color: #5DE4C7">COPY</span><span style="color: #A6ACCD"> --from=0 /app .</span></span>
+<span class="line"><span style="color: #5DE4C7">COPY</span><span style="color: #A6ACCD"> . .</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">EXPOSE</span><span style="color: #A6ACCD"> 3000</span></span>
+<span class="line"><span style="color: #5DE4C7">CMD</span><span style="color: #A6ACCD"> [</span><span style="color: #5DE4C7">&quot;node&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">&quot;./build&quot;</span><span style="color: #A6ACCD">]</span></span></code></pre><p>Note: node images are interchangeable and node 14 will probably break everything if you’re reading this in a month or two (ah, the joys of both javascript and using beta quality software - I wouldn’t change it for the world).</p><h2 id="deploying">Deploying</h2><p>Right, with a site and a Dockerfile setup it’s time to stick it somewhere. I tried a lot of different options here but I went with the easiest since I’m lazy and too dumb to set things up properly. I already mentioned trying vercel and netlify and neither worked. I also tried Azure but lost motivation after trying for a few hours.</p><p>I ended up choosing <a href="https://www.digitalocean.com/">DigitalOcean</a>. I pretty much followed their new user wizard using their <a href="https://www.digitalocean.com/products/app-platform/">App Platform</a>. I just hooked it up to my github account, pointed it at the repo and it detected my Dockerfile and the default settings just worked. No hassle https and everything. This is my first time using DigitalOcean though and I’m not a guru so for any problems you’ll have to look elsewhere.</p><p>If you don’t fancy DO though, you’ve already got the site in a container so you can pretty much stick it anywhere that supports it. So no worries if you are already a whizz with ECS etc.</p><h2 id="extras">Extras</h2><p>I’ve also really been enjoying using <a href="https://tailwindcss.com/">Tailwind CSS</a> lately. It really just takes all of the hassle out of working with css. It does have a little bit of a learning curve but I can assure you it’s worth it - especially if you kind of just hate css.</p><p>Anyway, the reason I’m mentioning this is because I’ve found in other projects with React or Vue, setting up tailwind can be a bit of a pain, faffing around with various different config files (man, do js people LOVE config files). But with SvelteKit it’s trivial using <a href="https://github.com/svelte-add/tailwindcss">svelte-add tailwind</a>. Just follow the instructions in their readme to set it up, but for me it was entirely just a case of running:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #a6accd">npx svelte-add@latest tailwindcss</span></span></code></pre><p>Oh and by the way, if you wanted to check out my speed reading app, it’s at <a href="https://swiftwpm.com">Swift</a>. Next step: build a phone app with SvelteKit!</p>
+  </article>
+  </div>
+</body></html>

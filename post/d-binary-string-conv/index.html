@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-MQCNRQCS">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - Convert binary string representation to integer</title>
+<link rel="stylesheet" href="/b5.re/assets/d5ffc890.3178ec55.css" />
+<link rel="stylesheet" href="/b5.re/assets/b653fb57.e8bea6cd.css" /></head>
+
+<body class="astro-MQCNRQCS">
+  <div class="w-full sm:w-2/3 xl:w-3/5 mx-auto px-5 sm:px-0 astro-MQCNRQCS">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-MQCNRQCS">
+      <h1 class="astro-MQCNRQCS">Barely Laughing</h1>
+    </header>
+
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-MQCNRQCS">
+      <ul class="flex gap-5 flex-1 items-center astro-MQCNRQCS">
+        <li class="astro-MQCNRQCS"><a href="/" class="astro-MQCNRQCS">Home</a></li>
+        <li class="astro-MQCNRQCS"><a href="/posts" class="astro-MQCNRQCS">Posts</a></li>
+        <li class="astro-MQCNRQCS"><a href="/photos" class="astro-MQCNRQCS">Photography</a></li>
+        <li class="astro-MQCNRQCS"><a href="https://github.com/rinfz" target="_blank" class="astro-MQCNRQCS">Github</a></li>
+      </ul>
+      <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>Convert binary string representation to integer</h2>
+    <p class="pt-0 mb-5">2019-07-15</p>
+    <pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">void</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">main</span><span style="color: #A6ACCD">() {</span></span>
+<span class="line"><span style="color: #A6ACCD">  import </span><span style="color: #E4F0FB">std</span><span style="color: #5DE4C7">;</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #ADD7FF">write</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">&quot;enter binary number: &quot;</span><span style="color: #A6ACCD">);</span></span>
+<span class="line"><span style="color: #A6ACCD">  readln</span></span>
+<span class="line"><span style="color: #A6ACCD">    .strip</span></span>
+<span class="line"><span style="color: #A6ACCD">    .compose!(retro</span><span style="color: #91B4D5">,</span><span style="color: #E4F0FB">s</span><span style="color: #A6ACCD">=&gt;s.all</span><span style="color: #91B4D5">!</span><span style="color: #5DE4C7">&quot;a==&#39;0&#39;||a==&#39;1&#39;&quot;</span><span style="color: #A6ACCD">?</span><span style="color: #91B4D5">s:</span><span style="color: #5DE4C7">&quot;&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">    .enumerate</span></span>
+<span class="line"><span style="color: #A6ACCD">    .map</span><span style="color: #91B4D5">!</span><span style="color: #5DE4C7">&quot;a[1]&amp;&#39;1&#39;-48?2^^a[0]:0&quot;</span></span>
+<span class="line"><span style="color: #A6ACCD">    .sum</span></span>
+<span class="line"><span style="color: #A6ACCD">    .writeln;</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Example output:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #a6accd">enter binary number: 111</span></span>
+<span class="line"><span style="color: #a6accd">7</span></span></code></pre><p>Where 111 is user input.</p>
+  </article>
+  </div>
+</body></html>

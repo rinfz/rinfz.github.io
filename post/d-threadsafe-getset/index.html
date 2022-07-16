@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-MQCNRQCS">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - Thread-safe getters/setters for Global State in D</title>
+<link rel="stylesheet" href="/b5.re/assets/d5ffc890.3178ec55.css" />
+<link rel="stylesheet" href="/b5.re/assets/b653fb57.e8bea6cd.css" /></head>
+
+<body class="astro-MQCNRQCS">
+  <div class="w-full sm:w-2/3 xl:w-3/5 mx-auto px-5 sm:px-0 astro-MQCNRQCS">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-MQCNRQCS">
+      <h1 class="astro-MQCNRQCS">Barely Laughing</h1>
+    </header>
+
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-MQCNRQCS">
+      <ul class="flex gap-5 flex-1 items-center astro-MQCNRQCS">
+        <li class="astro-MQCNRQCS"><a href="/" class="astro-MQCNRQCS">Home</a></li>
+        <li class="astro-MQCNRQCS"><a href="/posts" class="astro-MQCNRQCS">Posts</a></li>
+        <li class="astro-MQCNRQCS"><a href="/photos" class="astro-MQCNRQCS">Photography</a></li>
+        <li class="astro-MQCNRQCS"><a href="https://github.com/rinfz" target="_blank" class="astro-MQCNRQCS">Github</a></li>
+      </ul>
+      <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>Thread-safe getters/setters for Global State in D</h2>
+    <p class="pt-0 mb-5">2019-10-26</p>
+    <p>First, note that to make an object globally shared across threads in D we use the <code>__gshared</code> attribute. Caveat: using this is basically cowboy mode since <code>__gshared</code> provides no safety checks or guarantees, so really it should be limited in scope and for plumbing code generally speaking, but this is more of a proof of concept. Plus - as of writing - the safe(r) <code>shared</code> attribute still needs some work according to Walter/Andrei/Atila.</p><p>Nonetheless! We create a state struct anyway.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">struct</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">State</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> serverName;</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> accessToken;</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">// ...</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">__gshared static State STATE;</span></span></code></pre><p>Now across any threads, we can access our state. But we might get race conditions so the lazy way is to use <code>@property</code> methods and put everything in synchronized blocks. Luckily D can help us live up to our true lazy potential with template mixins. These will just let us drop the body of the mixin template into our struct. Combine that with the <code>mixin</code> function which will parse a string at compile time and output code and we get the full power of stringly typed programming.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">mixin template</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">StateProperty</span><span style="color: #A6ACCD">(T</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> Name)</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    mixin(</span><span style="color: #5DE4C7">`private `</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> T.stringof </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">` _`</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> Name </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">`;</span></span>
+<span class="line"><span style="color: #5DE4C7">        @property `</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> T.stringof </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">` `</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> Name </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">`() nothrow</span></span>
+<span class="line"><span style="color: #5DE4C7">        {</span></span>
+<span class="line"><span style="color: #5DE4C7">            synchronized</span></span>
+<span class="line"><span style="color: #5DE4C7">            {</span></span>
+<span class="line"><span style="color: #5DE4C7">                return _`</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> Name </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">`;</span></span>
+<span class="line"><span style="color: #5DE4C7">            }</span></span>
+<span class="line"><span style="color: #5DE4C7">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">        @property void `</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> Name </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">`(`</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> T.stringof </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">` prop) nothrow</span></span>
+<span class="line"><span style="color: #5DE4C7">        {</span></span>
+<span class="line"><span style="color: #5DE4C7">            synchronized</span></span>
+<span class="line"><span style="color: #5DE4C7">            {</span></span>
+<span class="line"><span style="color: #5DE4C7">                _`</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> Name </span><span style="color: #91B4D5">~</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">` = prop;</span></span>
+<span class="line"><span style="color: #5DE4C7">            }</span></span>
+<span class="line"><span style="color: #5DE4C7">        }`</span></span>
+<span class="line"><span style="color: #A6ACCD">    );</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>When expanded, this will create a private member variable (an opaque type means we can’t access members here in a thread-unsafe manner) with a given type T and a given name prefixed with an ”_“. Then create getter and setter property methods which retrieve or update the value of the variable within a mutex.</p><p>So from our state example above, the serverName variable would expand to the following when using <code>StateProperty</code>:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">private</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> _serverName;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">@property</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">serverName</span><span style="color: #A6ACCD">() nothrow</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    synchronized</span></span>
+<span class="line"><span style="color: #A6ACCD">    {</span></span>
+<span class="line"><span style="color: #A6ACCD">        return _serverName;</span></span>
+<span class="line"><span style="color: #A6ACCD">    }</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">@property</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">void</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">serverName</span><span style="color: #A6ACCD">(</span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD"> prop) nothrow</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    synchronized</span></span>
+<span class="line"><span style="color: #A6ACCD">    {</span></span>
+<span class="line"><span style="color: #A6ACCD">        _serverName </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> prop;</span></span>
+<span class="line"><span style="color: #A6ACCD">    }</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>But all it takes is one line of code, making this metaprogramming technique rather cost efficient and scalable. And of course we pay nothing for this at runtime when compared to hand writing all those awful getters and setters.</p><p>Note that we do pollute the namespace of the struct with the additional variables prefixed with underscores. Personally I find this an acceptable trade off.</p><p>So our updated struct code looks like the following:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">struct</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">State</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    mixin StateProperty!(</span><span style="color: #91B4D5">string,</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">&quot;serverName&quot;</span><span style="color: #A6ACCD">);</span></span>
+<span class="line"><span style="color: #A6ACCD">    mixin StateProperty!(</span><span style="color: #91B4D5">string,</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">&quot;accessToken&quot;</span><span style="color: #A6ACCD">);</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">// ...</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Finally, you could also alias the <code>StateProperty</code> within the struct body for shorter mixin template instantiations:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">struct</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">State</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">alias</span><span style="color: #A6ACCD"> _ </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> StateProperty;</span></span>
+<span class="line"><span style="color: #A6ACCD">    mixin _!(</span><span style="color: #767C9DB0; font-style: italic">/* ... */</span><span style="color: #A6ACCD">);</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">// etc</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre>
+  </article>
+  </div>
+</body></html>

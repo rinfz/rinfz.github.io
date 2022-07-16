@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-MQCNRQCS">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - Sqlite, Json and Nim</title>
+<link rel="stylesheet" href="/b5.re/assets/d5ffc890.3178ec55.css" />
+<link rel="stylesheet" href="/b5.re/assets/b653fb57.e8bea6cd.css" /></head>
+
+<body class="astro-MQCNRQCS">
+  <div class="w-full sm:w-2/3 xl:w-3/5 mx-auto px-5 sm:px-0 astro-MQCNRQCS">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-MQCNRQCS">
+      <h1 class="astro-MQCNRQCS">Barely Laughing</h1>
+    </header>
+
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-MQCNRQCS">
+      <ul class="flex gap-5 flex-1 items-center astro-MQCNRQCS">
+        <li class="astro-MQCNRQCS"><a href="/" class="astro-MQCNRQCS">Home</a></li>
+        <li class="astro-MQCNRQCS"><a href="/posts" class="astro-MQCNRQCS">Posts</a></li>
+        <li class="astro-MQCNRQCS"><a href="/photos" class="astro-MQCNRQCS">Photography</a></li>
+        <li class="astro-MQCNRQCS"><a href="https://github.com/rinfz" target="_blank" class="astro-MQCNRQCS">Github</a></li>
+      </ul>
+      <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>Sqlite, Json and Nim</h2>
+    <p class="pt-0 mb-5">2021-07-06</p>
+    <p>While doing a db revamp, I realised that coming up with a normalised database design might be too cumbersome for my problem-space. Turns out sqlite <a href="https://www.sqlite.org/json1.html">supports json</a> so I can distribute a poor man’s document db instead. I’m sure this will come back to bite me.</p><p>First check if json support is available with: <code>pragma compile_options;</code>. You are looking for <code>ENABLE_JSON1</code> in the output.</p><p>If it’s there, here is an example script written in nim for inserting and retrieving data.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> json</span></span>
+<span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> strutils </span><span style="color: #767C9DB0; font-style: italic"># for parseInt</span></span>
+<span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> db_sqlite</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #5DE4C7">let</span></span>
+<span class="line"><span style="color: #A6ACCD">  db </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> open(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">example.db</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">  data </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">%*</span><span style="color: #A6ACCD">{ </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">id</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">123</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">value</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">foobar</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD"> }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">exec(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">create table example ( data json not null )</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #767C9DB0; font-style: italic"># insert the json data from above as a string ($ stringifies the JSONObject)</span></span>
+<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">exec(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">insert into example (data) values (?)</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #91B4D5">$</span><span style="color: #A6ACCD">data)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #767C9DB0; font-style: italic"># extract the id on it&#39;s own from the row</span></span>
+<span class="line"><span style="color: #5DE4C7">let</span><span style="color: #A6ACCD"> id </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">getValue(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">select json_extract(data, &#39;$.id&#39;) from example limit 1</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #767C9DB0; font-style: italic"># do something with the row to show it worked - should print 246</span></span>
+<span class="line"><span style="color: #5DE4C7">echo</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">2</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD"> parseInt(id)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">close()</span></span></code></pre><p>Sqlite seems to ship with a decent set of functions for working with json data. If those don’t cover your needs, it’s just stored as text. You can extract it and work with it just like any other json data your application might use.</p>
+  </article>
+  </div>
+</body></html>

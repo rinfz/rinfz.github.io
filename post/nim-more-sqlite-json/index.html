@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-MQCNRQCS">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - More Sqlite and Json</title>
+<link rel="stylesheet" href="/b5.re/assets/d5ffc890.3178ec55.css" />
+<link rel="stylesheet" href="/b5.re/assets/b653fb57.e8bea6cd.css" /></head>
+
+<body class="astro-MQCNRQCS">
+  <div class="w-full sm:w-2/3 xl:w-3/5 mx-auto px-5 sm:px-0 astro-MQCNRQCS">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-MQCNRQCS">
+      <h1 class="astro-MQCNRQCS">Barely Laughing</h1>
+    </header>
+
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-MQCNRQCS">
+      <ul class="flex gap-5 flex-1 items-center astro-MQCNRQCS">
+        <li class="astro-MQCNRQCS"><a href="/" class="astro-MQCNRQCS">Home</a></li>
+        <li class="astro-MQCNRQCS"><a href="/posts" class="astro-MQCNRQCS">Posts</a></li>
+        <li class="astro-MQCNRQCS"><a href="/photos" class="astro-MQCNRQCS">Photography</a></li>
+        <li class="astro-MQCNRQCS"><a href="https://github.com/rinfz" target="_blank" class="astro-MQCNRQCS">Github</a></li>
+      </ul>
+      <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>More Sqlite and Json</h2>
+    <p class="pt-0 mb-5">2021-07-12</p>
+    <p>Ok just writing this so that I remember how to do it - a couple of examples of working with json and sqlite.</p><p>Given an example schema:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">create</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">table</span><span style="color: #A6ACCD"> players ( </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">text</span><span style="color: #A6ACCD">, batting </span><span style="color: #5DE4C7">json</span><span style="color: #A6ACCD"> );</span></span></code></pre><p>And batting data looks something like this (keyed game format with data objects per format):</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #A6ACCD">&quot;</span><span style="color: #E4F0FB">T20I</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: {</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #A6ACCD">&quot;</span><span style="color: #ADD7FF">runs</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: </span><span style="color: #5DE4C7">1000</span><span style="color: #A6ACCD">,</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #A6ACCD">&quot;</span><span style="color: #ADD7FF">average</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: </span><span style="color: #5DE4C7">50</span></span>
+<span class="line"><span style="color: #A6ACCD">  }</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>We can:</p><h3 id="extract-a-specific-stat-per-format">Extract a specific stat per format</h3><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select</span><span style="color: #A6ACCD"> json_extract(batting, </span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">$.T20I.average</span><span style="color: #A6ACCD">&#39;</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players;</span></span></code></pre><h3 id="alias-and-filter">Alias and filter</h3><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD">, cast(json_extract(batting, </span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">$.T20I.average</span><span style="color: #A6ACCD">&#39;</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">decimal</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> average</span></span>
+<span class="line"><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players</span></span>
+<span class="line"><span style="color: #5DE4C7">where</span><span style="color: #A6ACCD"> average </span><span style="color: #91B4D5">&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">50</span></span>
+<span class="line"><span style="color: #5DE4C7">order by</span><span style="color: #A6ACCD"> average </span><span style="color: #5DE4C7">desc</span></span></code></pre><table>
+<thead>
+<tr>
+<th>name</th>
+<th>average</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>V. Kohli</td>
+<td>52.65</td>
+</tr>
+<tr>
+<td>M. Hayden</td>
+<td>51.33</td>
+</tr>
+<tr>
+<td>etc</td>
+<td>…</td>
+</tr>
+</tbody>
+</table><h3 id="join-based-on-json-data">Join based on json data</h3><p>Note: an extra table is required to demonstrate the join:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">create</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">table</span><span style="color: #A6ACCD"> teams ( id </span><span style="color: #5DE4C7">integer</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">text</span><span style="color: #A6ACCD"> );</span></span></code></pre><p>And players requires an extra column <code>teams json</code> which is just a json array of integers representing ids in the teams table. Obviously this has the negative of no enforced constraint so data integrity takes a hit, but it might be good enough - not sure. I was just feeling lazy and couldn’t be bothered to introduce a many-to-many table.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select distinct</span><span style="color: #A6ACCD"> teams.name, players.name</span></span>
+<span class="line"><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players, json_each(players.teams) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> player_teams</span></span>
+<span class="line"><span style="color: #5DE4C7">join</span><span style="color: #A6ACCD"> teams </span><span style="color: #5DE4C7">on</span><span style="color: #A6ACCD"> teams.id </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> player_teams.value</span></span>
+<span class="line"><span style="color: #5DE4C7">where</span><span style="color: #A6ACCD"> player_teams.value </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">2</span></span></code></pre><p>Note: json_each can be aliased just like any other table.</p><table>
+<thead>
+<tr>
+<th>teams.name</th>
+<th>players.name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Australia</td>
+<td>Kane Richardson</td>
+</tr>
+<tr>
+<td>Australia</td>
+<td>Glenn Maxwell</td>
+</tr>
+<tr>
+<td>etc</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+  </article>
+  </div>
+</body></html>
