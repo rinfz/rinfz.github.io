@@ -1,0 +1,587 @@
+[
+  {
+    "title": "Assign Multiple Engineers to the Same Task",
+    "link": "https://dpc.pw/focus-assign-multiple-engineers-to-the-same-task",
+    "date": "2021/08/02"
+  },
+  {
+    "title": "Polymorphism in Python",
+    "link": "https://neverworkintheory.org/2016/06/13/polymorphism-in-python.html",
+    "date": "2021/07/31"
+  },
+  {
+    "title": "Hash Visualisation (pdf)",
+    "link": "https://users.ece.cmu.edu/~adrian/projects/validation/validation.pdf",
+    "date": "2021/07/31"
+  },
+  {
+    "title": "Open Logic Project",
+    "link": "http://openlogicproject.org/download/",
+    "date": "2021/07/31"
+  },
+  {
+    "title": "HAVOC (pdf)",
+    "link": "http://www.kmschaal.de/Diplomarbeit_KevinSchaal.pdf",
+    "date": "2021/07/31"
+  },
+  {
+    "title": "An Integer Formula for Fibonacci Numbers",
+    "link": "https://blog.paulhankin.net/fibonacci/",
+    "date": "2021/07/31"
+  },
+  {
+    "title": "Book: The War of Art",
+    "link": "https://www.goodreads.com/book/show/1319.The_War_of_Art",
+    "date": "2021/07/18"
+  },
+  {
+    "title": "Book: The Now Habit",
+    "link": "https://www.goodreads.com/book/show/95708.The_Now_Habit",
+    "date": "2021/07/18"
+  },
+  {
+    "title": "Book: Daily Rituals",
+    "link": "https://www.goodreads.com/book/show/15799151-daily-rituals",
+    "date": "2021/07/18"
+  },
+  {
+    "title": "Generating JSON Directly from Postgres",
+    "link": "https://blog.crunchydata.com/blog/generating-json-directly-from-postgres",
+    "date": "2021/07/16"
+  },
+  {
+    "title": "Against SQL",
+    "link": "https://scattered-thoughts.net/writing/against-sql/",
+    "date": "2021/07/16"
+  },
+  {
+    "title": "F# is the best coding language today",
+    "link": "https://danielbmarkham.com/fsharp-is-the-best-programming-language-today/",
+    "date": "2021/07/16"
+  },
+  {
+    "title": "Umami",
+    "link": "https://umami.is/",
+    "date": "2021/06/21"
+  },
+  {
+    "title": "Obsidian",
+    "link": "https://obsidian.md/",
+    "date": "2021/06/21"
+  },
+  {
+    "title": "Working in Godot with SQLite and C#",
+    "link": "https://unintuitive.net/code/working-in-godot-with-sqlite-and-c/",
+    "date": "2021/06/21"
+  },
+  {
+    "title": "How to Get Rich",
+    "link": "https://nav.al/rich",
+    "date": "2021/06/21"
+  },
+  {
+    "title": "Docker Compose Production Best Practices",
+    "link": "https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose",
+    "date": "2021/06/21"
+  },
+  {
+    "title": "Use Google like a pro",
+    "link": "https://markodenic.com/use-google-like-a-pro/",
+    "date": "2021/04/27"
+  },
+  {
+    "title": "Functorio",
+    "link": "https://bartoszmilewski.com/2021/02/16/functorio/",
+    "date": "2021/02/16"
+  },
+  {
+    "title": "Code Browser",
+    "link": "https://tibleiz.net/code-browser/index.html",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Preql",
+    "link": "https://github.com/erezsh/Preql",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Are You User Friendly?",
+    "link": "https://www.over-yonder.net/~fullermd/rants/userfriendly/1",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Complicated Haskell Words - Isomorphism",
+    "link": "https://juliu.is/complicated-haskell-words-isomorphism/",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "aria2",
+    "link": "http://aria2.github.io/",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Redux vs. XState",
+    "link": "https://stackoverflow.com/a/54521035/11754352",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Roam",
+    "link": "https://roamresearch.com/",
+    "date": "2021/02/09"
+  },
+  {
+    "title": "Serverless SQLite",
+    "link": "https://sql.lspgn.workers.dev/",
+    "date": "2021/01/21"
+  },
+  {
+    "title": "Building a Desktop App using Svelte and Electron",
+    "link": "https://joshuaj.co.uk/blog/building-desktop-app-svelte-electron",
+    "date": "~2020"
+  },
+  {
+    "title": "C++20 Concepts: Testing constrained functions",
+    "link": "https://andreasfertig.blog/2020/08/cpp20-concepts-testing-constrained-functions/",
+    "date": "~2020"
+  },
+  {
+    "title": "NOAA Satellite Signals With a PVC QFH Antenna and Laptop",
+    "link": "https://www.instructables.com/NOAA-Satellite-Signals-with-a-PVC-QFH-Antenna-and-/",
+    "date": "~2020"
+  },
+  {
+    "title": "Typeclassopedia",
+    "link": "https://wiki.haskell.org/Typeclassopedia",
+    "date": "~2020"
+  },
+  {
+    "title": "Org Mode Reference Card",
+    "link": "https://orgmode.org/orgcard.pdf",
+    "date": "~2020"
+  },
+  {
+    "title": "Getting Started with Org Mode",
+    "link": "https://www.youtube.com/watch?v=SzA2YODtgK4",
+    "date": "~2020"
+  },
+  {
+    "title": "prefers-color-scheme",
+    "link": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme",
+    "date": "~2020"
+  },
+  {
+    "title": "OWASP Authentication Cheat Sheet",
+    "link": "https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html",
+    "date": "~2020"
+  },
+  {
+    "title": "OWASP Session Management Cheat Sheet",
+    "link": "https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html",
+    "date": "~2020"
+  },
+  {
+    "title": "Lambda? You Keep Using that Letter",
+    "link": "https://www.youtube.com/watch?v=Y7StjYhXvpE",
+    "date": "~2020"
+  },
+  {
+    "title": "To compute a constant of calculus",
+    "link": "http://blogs.perl.org/users/damian_conway/2019/09/to-compute-a-constant-of-calculusa-treatise-on-multiple-ways.html",
+    "date": "~2020"
+  },
+  {
+    "title": "On The Shoulders of Giants (Damian Conway)",
+    "link": "https://www.youtube.com/watch?v=Nq2HkAYbG5o",
+    "date": "~2020"
+  },
+  {
+    "title": "Modern Object Pascal Introduction for Programmers",
+    "link": "https://castle-engine.io/modern_pascal_introduction.html",
+    "date": "~2020"
+  },
+  {
+    "title": "pg_cron",
+    "link": "https://github.com/citusdata/pg_cron",
+    "date": "~2020"
+  },
+  {
+    "title": "Haskell for Imperative Programmers",
+    "link": "https://www.youtube.com/playlist?list=PLe7Ei6viL6jGp1Rfu0dil1JH1SHk9bgDV",
+    "date": "~2020"
+  },
+  {
+    "title": "Beginning Raku",
+    "link": "https://arnesom.github.io/Beginning-v1.00.pdf",
+    "date": "~2020"
+  },
+  {
+    "title": "The Construction and Use of C++ Algorithms",
+    "link": "https://www.youtube.com/watch?v=jCfbyjAyAKU",
+    "date": "~2020"
+  },
+  {
+    "title": "Functional Design and Architecture",
+    "link": "https://graninas.com/functional-design-and-architecture-book/",
+    "date": "~2020"
+  },
+  {
+    "title": "Game of Life (32b)",
+    "link": "http://www.sizecoding.org/wiki/Game_of_Life_32b",
+    "date": "~2020"
+  },
+  {
+    "title": "re2c Manual",
+    "link": "https://re2c.org/manual/manual.html",
+    "date": "2019/11/14"
+  },
+  {
+    "title": "Bison Manual",
+    "link": "https://www.gnu.org/software/bison/manual/bison.pdf",
+    "date": "2019/11/14"
+  },
+  {
+    "title": "Functional Programming in OCaml",
+    "link": "https://www.cs.cornell.edu/courses/cs3110/2019sp/textbook/",
+    "date": "2019/08/29"
+  },
+  {
+    "title": "3D Cube World Level Generation",
+    "link": "http://accidentalnoise.sourceforge.net/minecraftworlds.html",
+    "date": "2019/08/22"
+  },
+  {
+    "title": "Postmodernism",
+    "link": "https://plato.stanford.edu/entries/postmodernism/",
+    "date": "2019/08/09"
+  },
+  {
+    "title": "Lazy Functional State Threads",
+    "link": "https://www.microsoft.com/en-us/research/wp-content/uploads/1994/06/lazy-functional-state-threads.pdf",
+    "date": "2019/08/08"
+  },
+  {
+    "title": "The Surprising Rigidness of Higher Rank Kinds",
+    "link": "https://ryanglscott.github.io/2019/07/10/the-surprising-rigidness-of-higher-rank-kinds/",
+    "date": "2019/08/08"
+  },
+  {
+    "title": "Use constexpr for faster, smaller, and safer code",
+    "link": "https://blog.trailofbits.com/2019/06/27/use-constexpr-for-faster-smaller-and-safer-code/",
+    "date": "2019/06/27"
+  },
+  {
+    "title": "Recursive Permutations | Programming Abstractions",
+    "link": "https://www.youtube.com/watch?v=NdF1QDTRkck",
+    "date": "2019/06/14"
+  },
+  {
+    "title": "Flex Manual",
+    "link": "http://poincare.matf.bg.ac.rs/~aspasic/ppj/literatura/flex.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "A high-performance parallel radio coverage prediction tool for GRASS GIS",
+    "link": "https://github.com/lichinka/prato",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "GRASS RaPlaT User Guide",
+    "link": "http://www-e6.ijs.si/RaPlaT/files/doc/GRASS-RaPlaT_User_Manual_1_0a.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "An IO-efficient parallel implementation of an R2 viewshed algorithm for large terrain maps on a CUDA GPU",
+    "link": "https://www.tandfonline.com/doi/full/10.1080/13658816.2014.918319",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Pharo by Example 5",
+    "link": "http://books.pharo.org/updated-pharo-by-example/pdf/2018-09-29-UpdatedPharoByExample.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "The Smalltalk-80 System",
+    "link": "https://archive.org/details/byte-magazine-1981-08/page/n37",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Eiffel Standard",
+    "link": "https://www.ecma-international.org/publications/files/ECMA-ST-WITHDRAWN/ECMA-367,%201st%20edition,%20June%202005.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Game Engine Programming: Animation Playback (part 1)",
+    "link": "https://www.youtube.com/watch?v=wys4hGQTFvo",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Game Engine Programming: Animation Groundwork",
+    "link": "https://www.youtube.com/watch?v=WJhfMNxxtf8",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Fortune's Algorithm: The Details",
+    "link": "https://pvigier.github.io/2018/11/18/fortune-algorithm-details.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Links to Ada Gems",
+    "link": "http://www.horstpeterhermann.de/ada_related/gems.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Empirical Analysis of Programming Language Adoption",
+    "link": "https://sns.cs.princeton.edu/docs/asr-oopsla13.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "FreeCAD",
+    "link": "https://www.freecadweb.org/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Terrain Erosion 3 Ways",
+    "link": "https://github.com/dandrino/terrain-erosion-3-ways",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Code Review Checklist",
+    "link": "https://two-wrongs.com/code-review-checklist.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "CMMI",
+    "link": "https://en.wikipedia.org/wiki/Capability_Maturity_Model_Integration",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Ada Concurrency",
+    "link": "http://sworthodoxy.blogspot.com/2018/10/ada-concurrency.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Programming from the Ground Up",
+    "link": "http://mirror.netcologne.de/savannah/pgubook/ProgrammingGroundUp-1-0-booksize.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Marian Petre and Andre van der Hoek on Software Design",
+    "link": "http://www.se-radio.net/2018/08/se-radio-episode-333-marian-petre-and-andre-van-der-hoek-on-software-design/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Creating a language using only assembly language",
+    "link": "https://speakerdeck.com/nineties/creating-a-language-using-only-assembly-language",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "How to Solve It",
+    "link": "https://en.wikipedia.org/wiki/How_to_Solve_It",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Software Requirements Spec (wiki)",
+    "link": "https://en.wikipedia.org/wiki/Software_requirements_specification",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Painless Functional Specs (Part 1 of 4)",
+    "link": "https://www.joelonsoftware.com/2000/10/02/painless-functional-specifications-part-1-why-bother/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Learning Skills You Can Practice",
+    "link": "https://jvns.ca/blog/2018/09/01/learning-skills-you-can-practice/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "A Practical Theory of Programming",
+    "link": "http://www.cs.toronto.edu/~hehner/aPToP/aPToP.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Smooth Voxel Terrain",
+    "link": "https://0fps.net/2012/07/10/smooth-voxel-terrain-part-1/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "TRPL PDFs",
+    "link": "https://github.com/killercup/trpl-ebook/pull/52#issuecomment-401637639",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Generating call graphs for understanding and refactoring python code",
+    "link": "http://blog.prashanthellina.com/generating-call-graphs-for-understanding-and-refactoring-python-code.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "PyColorPalette",
+    "link": "https://github.com/Dilan1020/PyColorPalette",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Functional Data Structures",
+    "link": "https://cs.uwaterloo.ca/~plragde/flaneries/FDS/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Code generation with templates",
+    "link": "https://www.researchgate.net/publication/254811332_Code_generation_with_templates",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "DASH: A New Language for Declarative Behavioural Requirements with Control State Hierachy",
+    "link": "https://cs.uwaterloo.ca/~nday/pdf/refereed/2017-SeDaFa-modre.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Write code that is easy to delete, not easy to extend",
+    "link": "https://programmingisterrible.com/post/139222674273/write-code-that-is-easy-to-delete-not-easy-to",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "How to build static checking systems using orders of magnitude less code",
+    "link": "https://blog.acolyer.org/2016/05/31/how-to-build-static-checking-systems-using-orders-of-magnitude-less-code/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Lessons from Building Static Analysis Tools at Google",
+    "link": "https://cacm.acm.org/magazines/2018/4/226371-lessons-from-building-static-analysis-tools-at-google/fulltext",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Precomputed Atmospheric Scattering",
+    "link": "https://hal.inria.fr/inria-00288758/document",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Alloy",
+    "link": "http://alloytools.org/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "AVL Tree Tutorial",
+    "link": "http://eternallyconfuzzled.com/tuts/datastructures/jsw_tut_avl.aspx",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Continuous Distance-Dependent Level of Detail for Rendering Heightmaps (CDLOD)",
+    "link": "http://www.vertexasylum.com/downloads/cdlod/cdlod_latest.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Investing Advice Inspired by Jack Bogle",
+    "link": "https://www.bogleheads.org/wiki/Getting_started",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Perl, the first postmodern computer language",
+    "link": "http://www.wall.org/~larry/pm.html",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Cache Oblivious Algorithms and Data Structures",
+    "link": "http://erikdemaine.org/papers/BRICS2002/paper.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Efficient generation of simple polygons for characterizing the shape of a set of points in the plane",
+    "link": "http://www.geosensor.net/papers/duckham08.PR.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Computational Geometry - Algorithms and Applications",
+    "link": "http://people.inf.elte.hu/fekete/algoritmusok_msc/terinfo_geom/konyvek/Computational%20Geometry%20-%20Algorithms%20and%20Applications,%203rd%20Ed.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Software Verification: Model Checking vs. Testing",
+    "link": "https://www.sosy-lab.org/research/pub/2017-HVC.Software_Verification_Testing_vs_Model_Checking.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "R-trees with Voronoi Diagrams for Efficient Processing of Spatial Nearest Neighbor Querie",
+    "link": "https://infolab.usc.edu/papers/VorTree.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Collection of good talks/videos",
+    "link": "https://lobste.rs/s/0qkuol/what_are_your_favorite_videos",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "How to remember everything you'll ever learn",
+    "link": "https://www.wired.com/2008/04/ff-wozniak/?currentPage=all",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Traditional assignment considered harmful",
+    "link": "http://web.cse.ohio-state.edu/rsrg/documents/2009/09PHABKW.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Some thoughts on security after ten years of qmail 1.0",
+    "link": "https://cr.yp.to/qmail/qmailsec-20071101.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "The Sound of Space-Filling Curves",
+    "link": "http://www.win.tue.nl/~hermanh/doku.php?id=sound_of_space-filling_curves",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Finite and Infinite Games",
+    "link": "http://wtf.tw/ref/carse.pdf",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Write-up: Out of the tar-pit",
+    "link": "https://blog.acolyer.org/2015/03/20/out-of-the-tar-pit/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Divisibility by 7 is a walk on a Graph",
+    "link": "http://blog.tanyakhovanova.com/2010/08/divisibility-by-7-is-a-walk-on-a-graph-ii-2/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Mental maths prime factorisation",
+    "link": "http://exupero.org/hazard/post/prime-modulo/",
+    "date": "2019/06/06"
+  },
+  {
+    "title": "Maths reading list",
+    "link": "https://www.maths.cam.ac.uk/sites/www.maths.cam.ac.uk/files/pre2014/undergrad/admissions/readinglist.pdf",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "Perlin Noise Explanation",
+    "link": "https://eev.ee/blog/2016/05/29/perlin-noise/",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "David MacKay: Information Theory, Inference, and Learning Algorithms",
+    "link": "http://www.inference.eng.cam.ac.uk/mackay/itila/book.html",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "Fast Computation of Generalized Voronoi Diagrams Using Graphics Hardware",
+    "link": "https://wwwx.cs.unc.edu/~geom/papers/documents/technicalreports/tr99011.pdf",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "Groups - A Primer",
+    "link": "http://jeremykun.com/2012/12/08/groups-a-primer/",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "Word numbers, Part 1: Billion Approaches",
+    "link": "http://conway.rutgers.edu/~ccshan/wiki/blog/posts/WordNumbers1/",
+    "date": "2019/02/01"
+  },
+  {
+    "title": "The True Power of Regular Expressions",
+    "link": "http://nikic.github.io/2012/06/15/The-true-power-of-regular-expressions.html",
+    "date": "2019/06/06"
+  }
+]

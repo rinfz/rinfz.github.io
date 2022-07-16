@@ -1,0 +1,114 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+type Whisky = { name: string; rating: string; };
+
+const links = (await Astro.glob("../data/links.json"))[0].default;
+const birdList: Record<string, string[]> = (await Astro.glob("../data/birds.json"))[0].default;
+const songs = (await Astro.glob("../data/songs.json"))[0].default;
+const whiskies: Whisky[] = (await Astro.glob("../data/whisky.json"))[0].default;
+
+function whiskyRating(w: Whisky) {
+  return parseFloat(w.rating.split("/")[0]);
+}
+
+function sortWhisky(a: Whisky, b: Whisky) {
+  const ar = whiskyRating(a);
+  const br = whiskyRating(b);
+  // desc. sort
+  if (ar > br) return -1;
+  if (br > ar) return 1;
+  return 0;
+}
+
+function capitalise(word: string) {
+  const l = word.toLowerCase();
+  return l[0].toUpperCase() + l.substring(1);
+}
+
+function birdCount() {
+  let result = 0;
+  Object.values(birdList).forEach((c) => result += c.length);
+  return result;
+}
+---
+
+<Layout title="Barely Laughing">
+  <main>
+    <h2>Cool Links</h2>
+    <section class="scrollbar">
+      {links.map(link => (<a class="l flex items-center px-2 py-1" href={link.link} target="_blank">
+        <span class="flex-1">{link.title}</span>
+        <span class="text-xs">{link.date}</span>
+      </a>))}
+    </section>
+
+    <h2>UK Bird List ({birdCount()})</h2>
+    <section class="scrollbar">
+      {Object.entries(birdList).map(([category, birds]) => {
+      return <div>
+        <h3 class="my-2 text-sm text-center underline">{category}</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center items-center text-xs">
+          {birds.map((bird) => (<span>{capitalise(bird)}</span>))}
+        </div>
+      </div>
+      })}
+    </section>
+
+    <div class="flex flex-col lg:flex-row gap-2">
+      <div class="flex-1">
+        <h2>Cool Songs</h2>
+        <section class="scrollbar">
+          {songs.map(song => (<a class="l px-2 py-1 block" href={song.link} target="_blank">
+            <span class="flex-1">{song.name}</span><br />
+            <span class="text-xs">{song.artist}</span>
+          </a>))}
+        </section>
+      </div>
+
+      <div class="flex-1">
+        <h2>Whisky List</h2>
+        <section class="scrollbar">
+          {whiskies.sort(sortWhisky).map(whisky => (<div class="flex px-2"><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>))}
+        </section>
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  h2 {
+    @apply text-center;
+    @apply text-lg;
+    @apply font-semibold;
+    @apply my-2;
+  }
+
+  section {
+    @apply max-h-48;
+    @apply overflow-y-auto;
+  }
+
+  section .l:hover {
+    @apply bg-teal-600;
+  }
+
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #115e59 #0f766e;
+  }
+
+
+  /* For Chrome, EDGE, Opera, Others */
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    background: #0f766e;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #115e59;
+  }
+</style>

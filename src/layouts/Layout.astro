@@ -1,0 +1,44 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Personal website of M. Rawcliffe: programming, gamedev, music, tech and bird watching" />
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
+  <title>{title}</title>
+</head>
+
+<body>
+  <div class="w-full sm:w-1/2 md:w-1/3 mx-auto px-5 sm:px-0">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold">
+      <h1>Barely Laughing</h1>
+    </header>
+
+    <nav class="flex items-center border-b border-teal-800 mb-5 pb-2.5">
+      <ul class="flex-1 gap-5">
+        <li><a href="/">Home</a></li>
+      </ul>
+      <p class="text-xs"><a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <slot />
+  </div>
+</body>
+
+</html>
+
+<style>
+  body {
+    @apply bg-teal-900;
+    @apply text-white;
+  }
+</style>
