@@ -1,5 +1,45 @@
 [
   {
+    "title": "Ruby for the self-taught developer",
+    "link": "https://fpsvogel.com/posts/2021/why-learn-ruby",
+    "date": "2022/06/23"
+  },
+  {
+    "title": "Making the world's fastest website, and other mistakes",
+    "link": "https://dev.to/tigt/making-the-worlds-fastest-website-and-other-mistakes-56na",
+    "date": "2022/06/09"
+  },
+  {
+    "title": "Algorithmica / HPC",
+    "link": "https://en.algorithmica.org/hpc/",
+    "date": "2022/02/18"
+  },
+  {
+    "title": "A walk through lightweight blogging",
+    "link": "http://tvier.net/blog/a_walk_through_lightweight_blogging/",
+    "date": "2022/02/15"
+  },
+  {
+    "title": "How To Design A Chat Bot",
+    "link": "https://blog.cofree.coffee/2022-02-14-how-to-design-a-chat-bot/",
+    "date": "2022/02/15"
+  },
+  {
+    "title": "Hyperscript",
+    "link": "https://hyperscript.org/",
+    "date": "2022/01/18"
+  },
+  {
+    "title": "Failing to Learn Zig via Advent of Code",
+    "link": "https://www.forrestthewoods.com/blog/failing-to-learn-zig-via-advent-of-code/",
+    "date": "2022/01/17"
+  },
+  {
+    "title": "Effortless personal productivity",
+    "link": "https://jakobgreenfeld.com/personal-productivity",
+    "date": "2022/01/17"
+  },
+  {
     "title": "Assign Multiple Engineers to the Same Task",
     "link": "https://dpc.pw/focus-assign-multiple-engineers-to-the-same-task",
     "date": "2021/08/02"

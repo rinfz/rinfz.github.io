@@ -7,7 +7,8 @@
   {
     "name": "Barn Owl",
     "location": "Devon, UK",
-    "src": "barn-owl-01.jpg"
+    "src": "barn-owl-01.jpg",
+    "fullW": true
   },
   {
     "name": "Black-Tailed Godwit",
@@ -51,7 +52,8 @@
   {
     "name": "Wheatears",
     "location": "Dartmoor, UK",
-    "src": "wheatear-01.jpg"
+    "src": "wheatear-01.jpg",
+    "fullW": true
   },
   {
     "name": "Jay",

@@ -24,10 +24,11 @@ const { title } = Astro.props as Props;
     </header>
 
     <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5">
-      <ul class="flex gap-5 flex-1">
+      <ul class="flex gap-5 flex-1 items-center">
         <li><a href="/">Home</a></li>
         <li><a href="/posts">Posts</a></li>
         <li><a href="/photos">Photography</a></li>
+        <li><a href="https://github.com/rinfz" target="_blank">Github</a></li>
       </ul>
       <slot name="copyright" />
     </nav>
