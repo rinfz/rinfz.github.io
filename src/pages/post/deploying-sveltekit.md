@@ -47,7 +47,7 @@ Bosh out a little Dockerfile. The following worked for me (taken from somewhere 
 
 `Dockerfile`
 
-```dockerfile
+```docker
 FROM node:14.17-alpine
 
 WORKDIR /app

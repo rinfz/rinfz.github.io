@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { Img } from "astro-imagetools/components";
+
+export async function getStaticPaths({ paginate }) {
+  const photos = (await Astro.glob("../../photos/data.json"))[0].default;
+  return paginate(photos, { pageSize: 1 });
+}
+
+const { page } = Astro.props;
+const { data, url } = page;
+
+const { name, location, src } = data[0];
+---
+
+<Layout title="Barely Laughing - Photography">
+  <h2 class="text-center mb-4 text-lg">{name} in {location}</h2>
+  <div class="flex text-fuchsia-300 mb-1">
+    {url.prev ? <a class="flex flex-1 place-content-start" href={url.prev}>&laquo; previous</a> : null}
+    {url.next ? <a class="flex flex-1 place-content-end" href={url.next}>next &raquo;</a> : null}
+  </div>
+  <Img src={`/src/photos/${src}`} alt={`${name} in ${location}`} />
+</Layout>
