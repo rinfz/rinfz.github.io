@@ -70,7 +70,8 @@
   {
     "name": "Fulmar",
     "location": "Devon, UK",
-    "src": "fulmar-01.jpg"
+    "src": "fulmar-01.jpg",
+    "fullW": true
   },
   {
     "name": "Linnet",
@@ -80,17 +81,20 @@
   {
     "name": "Gannet",
     "location": "Devon, UK",
-    "src": "gannet-01.jpg"
+    "src": "gannet-01.jpg",
+    "fullW": true
   },
   {
     "name": "Curlew",
     "location": "Devon, UK",
-    "src": "curlew-01.jpg"
+    "src": "curlew-01.jpg",
+    "fullW": true
   },
   {
     "name": "Common Dolphins",
     "location": "Devon, UK",
-    "src": "dolphins-01.jpg"
+    "src": "dolphins-01.jpg",
+    "fullW": true
   },
   {
     "name": "Chaffinch",
@@ -107,7 +111,8 @@
   {
     "name": "Blue Tit",
     "location": "Dartmoor, UK",
-    "src": "blue-tit-01.jpg"
+    "src": "blue-tit-01.jpg",
+    "fullW": true
   },
   {
     "name": "Fieldfare",
