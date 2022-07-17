@@ -1,5 +1,29 @@
 [
   {
+    "name": "Buzzard",
+    "location": "Plymouth, UK",
+    "src": "buzzard-02.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Cuckoo",
+    "location": "Dartmoor, UK",
+    "src": "cuckoo-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Spotted Flycatcher",
+    "location": "Devon, UK",
+    "src": "spotted-flycatcher-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Ringed Plover",
+    "location": "Devon, UK",
+    "src": "ringed-plover-01.jpg",
+    "fullW": true
+  },
+  {
     "name": "Glossy Ibis",
     "location": "Somerset, UK",
     "src": "glossy-ibis-01.jpg"
