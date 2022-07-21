@@ -5,7 +5,7 @@
   },
   {
     "name": "Glenrothes 10",
-    "rating": "2/5"
+    "rating": "1/5"
   },
   {
     "name": "Glenfarclas 15",
@@ -77,7 +77,7 @@
   },
   {
     "name": "Highland Park 12",
-    "rating": "1/5"
+    "rating": "2/5"
   },
   {
     "name": "Laphroaig 10",
@@ -85,7 +85,7 @@
   },
   {
     "name": "Caol Ila 12",
-    "rating": "2/5"
+    "rating": "3/5"
   },
   {
     "name": "Wolfburn b.318",
@@ -94,5 +94,13 @@
   {
     "name": "Compass Box Delilah's XXV",
     "rating": "4/5"
+  },
+  {
+    "name": "Kilchoman Machir Bay",
+    "rating": "5/5"
+  },
+  {
+    "name": "Ballechin 2009 11yr CS",
+    "rating": "2/5"
   }
 ]
