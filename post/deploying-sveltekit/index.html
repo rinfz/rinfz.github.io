@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-HQM3AXGC">
+<!DOCTYPE html><html lang="en" class="astro-6LM45A6H">
 
 <head>
   <meta charset="UTF-8">
@@ -10,18 +10,17 @@
 <link rel="stylesheet" href="/assets/75d84977.86d58a92.css" />
 <link rel="stylesheet" href="/assets/31ba2e78.4d38184f.css" /></head>
 
-<body class="astro-HQM3AXGC">
-  <div class="w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 sm:px-0 astro-HQM3AXGC">
-    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-HQM3AXGC">
-      <h1 class="astro-HQM3AXGC">Barely Laughing</h1>
+<body class="astro-6LM45A6H">
+  <div class="w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 sm:px-0 astro-6LM45A6H">
+    <header class="text-center py-10 border-b border-teal-800 mb-2.5 text-sm font-semibold astro-6LM45A6H">
+      <h1 class="astro-6LM45A6H">A Delightful Abstraction</h1>
     </header>
 
-    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-HQM3AXGC">
-      <ul class="flex gap-5 flex-1 items-center astro-HQM3AXGC">
-        <li class="astro-HQM3AXGC"><a href="/" class="astro-HQM3AXGC">Home</a></li>
-        <li class="astro-HQM3AXGC"><a href="/posts" class="astro-HQM3AXGC">Posts</a></li>
-        <li class="astro-HQM3AXGC"><a href="/photos" class="astro-HQM3AXGC">Photography</a></li>
-        <li class="astro-HQM3AXGC"><a href="https://github.com/rinfz" target="_blank" class="astro-HQM3AXGC">Github</a></li>
+    <nav class="flex flex-col sm:flex-row items-center border-b border-teal-800 mb-5 pb-2.5 astro-6LM45A6H">
+      <ul class="flex gap-5 flex-1 items-center astro-6LM45A6H">
+        <li class="astro-6LM45A6H"><a href="/" class="astro-6LM45A6H">Home</a></li>
+        <li class="astro-6LM45A6H"><a href="/posts" class="astro-6LM45A6H">Posts</a></li>
+        <li class="astro-6LM45A6H"><a href="/photos" class="astro-6LM45A6H">Photography</a></li>
       </ul>
       <p class="text-xs mt-3 sm:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
     </nav>
@@ -55,4 +54,5 @@
 <span class="line"><span style="color: #5DE4C7">CMD</span><span style="color: #A6ACCD"> [</span><span style="color: #5DE4C7">&quot;node&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">&quot;./build&quot;</span><span style="color: #A6ACCD">]</span></span></code></pre><p>Note: node images are interchangeable and node 14 will probably break everything if you’re reading this in a month or two (ah, the joys of both javascript and using beta quality software - I wouldn’t change it for the world).</p><h2 id="deploying">Deploying</h2><p>Right, with a site and a Dockerfile setup it’s time to stick it somewhere. I tried a lot of different options here but I went with the easiest since I’m lazy and too dumb to set things up properly. I already mentioned trying vercel and netlify and neither worked. I also tried Azure but lost motivation after trying for a few hours.</p><p>I ended up choosing <a href="https://www.digitalocean.com/">DigitalOcean</a>. I pretty much followed their new user wizard using their <a href="https://www.digitalocean.com/products/app-platform/">App Platform</a>. I just hooked it up to my github account, pointed it at the repo and it detected my Dockerfile and the default settings just worked. No hassle https and everything. This is my first time using DigitalOcean though and I’m not a guru so for any problems you’ll have to look elsewhere.</p><p>If you don’t fancy DO though, you’ve already got the site in a container so you can pretty much stick it anywhere that supports it. So no worries if you are already a whizz with ECS etc.</p><h2 id="extras">Extras</h2><p>I’ve also really been enjoying using <a href="https://tailwindcss.com/">Tailwind CSS</a> lately. It really just takes all of the hassle out of working with css. It does have a little bit of a learning curve but I can assure you it’s worth it - especially if you kind of just hate css.</p><p>Anyway, the reason I’m mentioning this is because I’ve found in other projects with React or Vue, setting up tailwind can be a bit of a pain, faffing around with various different config files (man, do js people LOVE config files). But with SvelteKit it’s trivial using <a href="https://github.com/svelte-add/tailwindcss">svelte-add tailwind</a>. Just follow the instructions in their readme to set it up, but for me it was entirely just a case of running:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #a6accd">npx svelte-add@latest tailwindcss</span></span></code></pre><p>Oh and by the way, if you wanted to check out my speed reading app, it’s at <a href="https://swiftwpm.com">Swift</a>. Next step: build a phone app with SvelteKit!</p>
   </article>
   </div>
+
 </body></html>
