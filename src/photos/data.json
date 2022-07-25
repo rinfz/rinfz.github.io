@@ -1,5 +1,17 @@
 [
   {
+    "name": "Mediterranean Gull",
+    "location": "Slapton Sands, UK",
+    "src": "med-gull-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Peregrine Falcon",
+    "location": "Start Point, UK",
+    "src": "peregrine-01.jpg",
+    "fullW": true
+  },
+  {
     "name": "Buzzard",
     "location": "Plymouth, UK",
     "src": "buzzard-02.jpg",
