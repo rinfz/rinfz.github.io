@@ -59,7 +59,7 @@ function birdCount() {
       <div class="flex-1">
         <h2>Cool Songs</h2>
         <section class="scrollbar">
-          {songs.map(song => (<a class="l px-2 py-1 block" href={song.link} target="_blank">
+          {songs.map((song, i) => (<a class={`${i % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} l px-2 py-1 block`} href={song.link} target="_blank">
             <span class="flex-1">{song.name}</span><br />
             <span class="text-xs">{song.artist}</span>
           </a>))}
@@ -69,7 +69,9 @@ function birdCount() {
       <div class="flex-1">
         <h2>Whisky List</h2>
         <section class="scrollbar">
-          {whiskies.sort(sortWhisky).map(whisky => (<div class="flex px-2"><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>))}
+          {whiskies.sort(sortWhisky).map((whisky, i) => (
+            <div class={`flex px-2 ${i % 2 === 0 ? "bg-gray-700" : "bg-gray-800"}`}><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>
+          ))}
         </section>
       </div>
     </div>
@@ -90,12 +92,12 @@ function birdCount() {
   }
 
   section .l:hover {
-    @apply bg-teal-600;
+    @apply bg-orange-800;
   }
 
   .scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #115e59 #0f766e;
+    scrollbar-color: #c2410c #9a3412;
   }
 
 
@@ -105,10 +107,10 @@ function birdCount() {
   }
 
   .scrollbar::-webkit-scrollbar-track {
-    background: #0f766e;
+    background: #c2410c;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
-    background: #115e59;
+    background: #9a3412;
   }
 </style>

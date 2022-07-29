@@ -18,7 +18,7 @@ article > pre {
 }
 
 article a {
-  @apply text-fuchsia-300;
+  @apply text-orange-500;
   @apply underline;
 }
 
