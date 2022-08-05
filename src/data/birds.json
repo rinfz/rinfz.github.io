@@ -84,7 +84,9 @@
     "glossy ibis",
     "Cetti's warbler",
     "Bearded tit",
-    "reed warbler"
+    "reed warbler",
+    "Least Sandpiper",
+    "Sedge Warbler"
   ],
   "Sea & Shore": [
     "cormorant",
@@ -111,7 +113,11 @@
     "slav grebe",
     "Arctic skua ",
     "Black guillemot ",
-    "Sanderling"
+    "Sanderling",
+    "Manx Shearwater",
+    "Cory's Shearwater",
+    "Balearic Shearwater",
+    "Sooty Shearwater"
   ],
   "Ducks, Swans & Geese": [
     "teal",
@@ -169,6 +175,7 @@
     "penduline tit",
     "black redstart",
     "barn owl",
-    "Nightjar"
+    "Nightjar",
+    "Chough"
   ]
 }
