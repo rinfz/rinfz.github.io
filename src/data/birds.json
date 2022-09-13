@@ -40,7 +40,7 @@
 		"whitethroat",
 		"stock dove ",
 		"blackcap",
-		"tree pipit",
+		"tree pipit"
 	],
 	"Waders & Wetland": [
     "curlew",
@@ -88,7 +88,7 @@
     "cetti's warbler",
     "reed warbler",
     "least sandpiper",
-    "sedge warbler",
+    "sedge warbler"
   ],
 	"Sea & Shore": [
     "cormorant",
@@ -120,7 +120,7 @@
     "sooty shearwater",
     "pomarine skua",
     "common gull",
-    "yellow legged gull",
+    "yellow legged gull"
   ],
 	"Ducks, Swans & Geese": [
     "teal",
@@ -141,7 +141,7 @@
     "brent goose ",
     "red brested merganser",
     "tundra been goose",
-    "barnacle goose",
+    "barnacle goose"
   ],
 	"Birds of Prey": [
     "kestrel",
@@ -151,7 +151,7 @@
     "osprey",
     "marsh harrier",
     "peregrine falcon",
-    "merlin",
+    "merlin"
   ],
 	"General & Other": [
     "swallow",
@@ -180,6 +180,6 @@
     "chough",
     "snow bunting",
     "red legged partridge",
-    "roller",
-  ],
+    "roller"
+  ]
 }
