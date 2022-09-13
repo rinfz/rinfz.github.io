@@ -1,14 +1,26 @@
 [
   {
-    "name": "Mediterranean Gull",
+    "name": "Sanderling",
     "location": "Slapton Sands, UK",
-    "src": "med-gull-01.jpg",
+    "src": "sanderling-01.jpg",
     "fullW": true
   },
   {
-    "name": "Peregrine Falcon",
-    "location": "Start Point, UK",
-    "src": "peregrine-01.jpg",
+    "name": "Choughs",
+    "location": "Pendeen, UK",
+    "src": "chough-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Sedge Warbler",
+    "location": "Drift Reservoir, UK",
+    "src": "sedge-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Mediterranean Gull",
+    "location": "Slapton Sands, UK",
+    "src": "med-gull-01.jpg",
     "fullW": true
   },
   {
@@ -21,12 +33,6 @@
     "name": "Cuckoo",
     "location": "Dartmoor, UK",
     "src": "cuckoo-01.jpg",
-    "fullW": true
-  },
-  {
-    "name": "Spotted Flycatcher",
-    "location": "Devon, UK",
-    "src": "spotted-flycatcher-01.jpg",
     "fullW": true
   },
   {
@@ -47,12 +53,6 @@
     "fullW": true
   },
   {
-    "name": "Black-Tailed Godwit",
-    "location": "Dorset, UK",
-    "src": "bt-godwit-01.jpg",
-    "fullW": true
-  },
-  {
     "name": "Coal Tit",
     "location": "Dartmoor, UK",
     "src": "coal-tit-01.jpg",
@@ -69,11 +69,6 @@
     "src": "gs-woodpecker-01.jpg"
   },
   {
-    "name": "Cetti's Warbler",
-    "location": "Dorset, UK",
-    "src": "cettis-warbler-01.jpg"
-  },
-  {
     "name": "Water Abstract",
     "location": "Devon, UK",
     "src": "water-patterns.jpg",
@@ -83,12 +78,6 @@
     "name": "Turnstone",
     "location": "Cornwall, UK",
     "src": "turnstone-01.jpg",
-    "fullW": true
-  },
-  {
-    "name": "Wheatears",
-    "location": "Dartmoor, UK",
-    "src": "wheatear-01.jpg",
     "fullW": true
   },
   {
@@ -136,12 +125,6 @@
     "name": "Chaffinch",
     "location": "Dartmoor, UK",
     "src": "chaffinch-01.jpg",
-    "fullW": true
-  },
-  {
-    "name": "Buzzard",
-    "location": "Devon, UK",
-    "src": "buzzard-01.jpg",
     "fullW": true
   },
   {
