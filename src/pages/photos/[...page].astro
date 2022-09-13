@@ -14,7 +14,7 @@ const { name, location, src, fullW } = data[0];
 ---
 
 <Photo title="Photography by Matt R">
-  <h2 class="text-center mb-4 text-lg">{name} in {location}</h2>
+  <h2 class="text-center mb-4 text-lg">{name}, {location}</h2>
   <div class="flex justify-between text-orange-500 mb-5 text-xl">
     {url.prev ? <a class="flex place-content-start" href={url.prev}>&laquo; previous</a>
               : <p class="text-white">&laquo; previous</p>}
