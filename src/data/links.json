@@ -1,5 +1,15 @@
 [
   {
+    "title": "A complete guide to useEffect",
+    "link": "https://overreacted.io/a-complete-guide-to-useeffect/",
+    "date": "2022/09/20"
+  },
+  {
+    "title": "React I love you, but you're bringing me down",
+    "link": "https://marmelab.com/blog/2022/09/20/react-i-love-you.html",
+    "date": "2022/09/20"
+  },
+  {
     "title": "Unbounded sieve of Eratosthenes",
     "link": "https://www.kylem.net/stuff/sieve_eratosthenes.html",
     "date": "2022/07/29"
