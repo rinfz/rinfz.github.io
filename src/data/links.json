@@ -1,5 +1,50 @@
 [
   {
+    "title": "Advice that actually worked for me",
+    "link": "https://nabeelqu.co/advice",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Learning by Writing",
+    "link": "https://www.cold-takes.com/learning-by-writing/",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Speed Reading is Bullshit",
+    "link": "https://medium.com/the-mission/speed-reading-is-bullshit-f5acbee7f59e",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Python Asyncio",
+    "link": "https://superfastpython.com/python-asyncio/",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Work is Work",
+    "link": "https://codahale.com/work-is-work/",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Only solve one new problem at a time",
+    "link": "https://www.bennadel.com/blog/4352-only-solve-one-new-problem-at-a-time.htm",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Brian Lovin - Writing",
+    "link": "https://brianlovin.com/writing",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "programming in the 21st century",
+    "link": "https://prog21.dadgum.com/",
+    "date": "2022/11/22"
+  },
+  {
+    "title": "Pulumi",
+    "link": "https://www.pulumi.com/",
+    "date": "2022/11/22"
+  },
+  {
     "title": "A complete guide to useEffect",
     "link": "https://overreacted.io/a-complete-guide-to-useeffect/",
     "date": "2022/09/20"
