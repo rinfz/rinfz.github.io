@@ -15,11 +15,11 @@ const { name, location, src, fullW } = data[0];
 
 <Photo title="Photography by Matt R">
   <h2 class="text-center mb-4 text-lg">{name}, {location}</h2>
-  <div class="flex justify-between text-orange-500 mb-5 text-xl">
+  <div class="flex justify-between text-emerald-600 mb-5 text-xl">
     {url.prev ? <a class="flex place-content-start" href={url.prev}>&laquo; previous</a>
-              : <p class="text-white">&laquo; previous</p>}
+              : <p class="text-black">&laquo; previous</p>}
     {url.next ? <a class="flex place-content-end" href={url.next}>next &raquo;</a>
-              : <p class="text-white">next &raquo;</p>}
+              : <p class="text-black">next &raquo;</p>}
   </div>
   <div class={`${fullW ? 'w-full' : 'w-full md:w-2/3' } mx-auto`}>
     <Img src={`/src/photos/${src}`} alt={`${name} in ${location}`} />

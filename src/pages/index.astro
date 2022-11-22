@@ -1,12 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import links from "../data/links.json";
+import songs from "../data/songs.json";
+import whiskies from "../data/whisky.json";
 
 type Whisky = { name: string; rating: string; };
-
-const links = (await Astro.glob("../data/links.json"))[0].default;
-const birdList: Record<string, string[]> = (await Astro.glob("../data/birds.json"))[0].default;
-const songs = (await Astro.glob("../data/songs.json"))[0].default;
-const whiskies: Whisky[] = (await Astro.glob("../data/whisky.json"))[0].default;
 
 function whiskyRating(w: Whisky) {
   return parseFloat(w.rating.split("/")[0]);
@@ -20,46 +18,23 @@ function sortWhisky(a: Whisky, b: Whisky) {
   if (br > ar) return 1;
   return 0;
 }
-
-function capitalise(word: string) {
-  const l = word.toLowerCase();
-  return l[0].toUpperCase() + l.substring(1);
-}
-
-function birdCount() {
-  let result = 0;
-  Object.values(birdList).forEach((c) => result += c.length);
-  return result;
-}
 ---
 
 <Layout title="Barely Laughing">
   <main>
     <h2>Cool Links</h2>
-    <section class="scrollbar">
+    <section class="max-h-72 overflow-y-auto">
       {links.map(link => (<a class="l flex items-center px-2 py-1" href={link.link} target="_blank">
         <span class="flex-1">{link.title}</span>
         <span class="text-xs">{link.date}</span>
       </a>))}
     </section>
 
-    <h2>UK Bird List ({birdCount()})</h2>
-    <section class="scrollbar">
-      {Object.entries(birdList).map(([category, birds]) => {
-      return <div>
-        <h3 class="my-2 text-sm text-center underline">{category}</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center items-center text-xs">
-          {birds.map((bird) => (<span>{capitalise(bird)}</span>))}
-        </div>
-      </div>
-      })}
-    </section>
-
     <div class="flex flex-col lg:flex-row gap-2">
       <div class="flex-1">
         <h2>Cool Songs</h2>
-        <section class="scrollbar">
-          {songs.map((song, i) => (<a class={`${i % 2 === 0 ? "bg-gray-700" : "bg-gray-800"} l px-2 py-1 block`} href={song.link} target="_blank">
+        <section>
+          {songs.map((song, i) => (<a class={`${i % 2 === 0 ? "bg-gray-200" : "bg-gray-300"} l px-2 py-1 block`} href={song.link} target="_blank">
             <span class="flex-1">{song.name}</span><br />
             <span class="text-xs">{song.artist}</span>
           </a>))}
@@ -68,9 +43,9 @@ function birdCount() {
 
       <div class="flex-1">
         <h2>Whisky List</h2>
-        <section class="scrollbar">
+        <section>
           {whiskies.sort(sortWhisky).map((whisky, i) => (
-            <div class={`flex px-2 ${i % 2 === 0 ? "bg-gray-700" : "bg-gray-800"}`}><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>
+            <div class={`flex px-2 ${i % 2 === 0 ? "bg-gray-200" : "bg-gray-300"}`}><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>
           ))}
         </section>
       </div>
@@ -86,31 +61,8 @@ function birdCount() {
     @apply my-2;
   }
 
-  section {
-    @apply max-h-48;
-    @apply overflow-y-auto;
-  }
-
   section .l:hover {
-    @apply bg-orange-800;
-  }
-
-  .scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #c2410c #9a3412;
-  }
-
-
-  /* For Chrome, EDGE, Opera, Others */
-  .scrollbar::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .scrollbar::-webkit-scrollbar-track {
-    background: #c2410c;
-  }
-
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: #9a3412;
+    @apply bg-emerald-500;
+    @apply text-white;
   }
 </style>
