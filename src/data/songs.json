@@ -1,5 +1,20 @@
 [
   {
+    "name": "Réminiscences de Lucrezia Borgia",
+    "artist": "Liszt, William Wolfram",
+    "link": "https://www.youtube.com/watch?v=e-XtfYTLi2Y"
+  },
+  {
+    "name": "Impetu",
+    "artist": "Paco de Lucia",
+    "link": "https://www.youtube.com/watch?v=wGsqQ1Vr218"
+  },
+  {
+    "name": "La Catedral",
+    "artist": "Yamandu Costa",
+    "link": "https://www.youtube.com/watch?v=4v3oSmd71YA"
+  },
+  {
     "name": "It Just Won't Do",
     "artist": "Tim Deluxe ft. Sam Obernik",
     "link": "https://www.youtube.com/watch?v=3FjauOAhBHw"
@@ -30,7 +45,7 @@
     "link": "https://www.youtube.com/watch?v=sRY9o8VNoTE"
   },
   {
-    "name": "Montiño ",
+    "name": "Montiño",
     "artist": "Grisha Goryachev ",
     "link": "https://www.youtube.com/watch?v=yamRW04n8nM"
   },
