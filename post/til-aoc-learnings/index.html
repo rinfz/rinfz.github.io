@@ -30,13 +30,7 @@
     <article class="text-justify">
     <h2>(TIL) AoC C# learnings</h2>
     <p class="pt-0 mb-5">2022-12-04</p>
-    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><ol>
-<li><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></li>
-<li><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</li>
-<li>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</li>
-<li>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</li>
-<li>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</li>
-</ol>
+    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><p><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></p><p><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</p><p>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</p><p>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</p><p>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</p>
   </article>
   </div>
 
