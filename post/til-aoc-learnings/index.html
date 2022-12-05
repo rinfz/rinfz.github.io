@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - (TIL) AoC C# learnings</title>
+<link rel="stylesheet" href="/assets/3e50419a.2d60ff92.css" />
+<link rel="stylesheet" href="/assets/0692ffea.73ad435b.css" /></head>
+
+<body class="astro-JT6RN32W">
+  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
+    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
+      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
+    </header>
+
+    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
+      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
+        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
+        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
+        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
+        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
+        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
+      </ul>
+      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>(TIL) AoC C# learnings</h2>
+    <p class="pt-0 mb-5">2022-12-04</p>
+    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><ol>
+<li><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></li>
+<li><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</li>
+<li>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</li>
+<li>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</li>
+<li>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</li>
+</ol>
+  </article>
+  </div>
+
+</body></html>
