@@ -16,3 +16,5 @@ C# supports more than simple indexing: `xs[^1]` (last elem), `xs[2..4]` (range)
 Exceptions have methods for throwing in common situations related to their name, e.g. [ArgumentException.ThrowIfNullOrEmpty](https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0).
 
 Use `Enumerable.Repeat(0, n).Select(_ => ...)` to initialise n lots of a similar object, like `List<char>` or something.
+
+Use `x.Distinct()` to find unique elements instead of constructing a `HashSet`.
