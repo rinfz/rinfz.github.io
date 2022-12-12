@@ -7,8 +7,8 @@
   <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
   <link rel="icon" type="image/x-icon" href="/images/favicon.png">
   <title>Barely Laughing - (TIL) AoC C# learnings</title>
-<link rel="stylesheet" href="/assets/3e50419a.2d60ff92.css" />
-<link rel="stylesheet" href="/assets/0692ffea.73ad435b.css" /></head>
+<link rel="stylesheet" href="/assets/8ddf6414.1714f76b.css" />
+<link rel="stylesheet" href="/assets/4d864971.6377c02c.css" /></head>
 
 <body class="astro-JT6RN32W">
   <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
@@ -30,7 +30,7 @@
     <article class="text-justify">
     <h2>(TIL) AoC C# learnings</h2>
     <p class="pt-0 mb-5">2022-12-04</p>
-    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><p><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></p><p><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</p><p>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</p><p>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</p><p>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</p>
+    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><p><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></p><p><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</p><p>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</p><p>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</p><p>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</p><p>Use <code>x.Distinct()</code> to find unique elements instead of constructing a <code>HashSet</code>.</p>
   </article>
   </div>
 

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+  <title>Barely Laughing - C# Prime Factorisation</title>
+<link rel="stylesheet" href="/assets/8ddf6414.1714f76b.css" />
+<link rel="stylesheet" href="/assets/4d864971.6377c02c.css" /></head>
+
+<body class="astro-JT6RN32W">
+  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
+    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
+      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
+    </header>
+
+    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
+      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
+        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
+        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
+        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
+        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
+        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
+      </ul>
+      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
+    </nav>
+
+    <article class="text-justify">
+    <h2>C# Prime Factorisation</h2>
+    <p class="pt-0 mb-5">2022-12-12</p>
+    <p>Based on an answer on stack overflow, I wrote a prime factorisation function in C#. Then I converted the code to use the generic math functionality which was just added in .Net 7. After benchmarking the two versions, there was no difference in runtime (1.447us mean percall) which is always nice to see.</p><p>Here is the snippet:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">public</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">IEnumerable</span><span style="color: #A6ACCD">&lt;</span><span style="color: #A6ACCDC0">T</span><span style="color: #A6ACCD">&gt; </span><span style="color: #ADD7FF">PrimeFactors</span><span style="color: #A6ACCD">&lt;</span><span style="color: #A6ACCDC0">T</span><span style="color: #A6ACCD">&gt;(</span><span style="color: #A6ACCDC0">T</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">n</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">where</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">T</span><span style="color: #A6ACCD"> : </span><span style="color: #A6ACCDC0">INumber</span><span style="color: #A6ACCD">&lt;</span><span style="color: #A6ACCDC0">T</span><span style="color: #A6ACCD">&gt;</span></span>
+<span class="line"><span style="color: #A6ACCD">{</span></span>
+<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">var</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">div</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">T</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">CreateChecked</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">2</span><span style="color: #A6ACCD">);</span></span>
+<span class="line"><span style="color: #A6ACCD">    while (</span><span style="color: #E4F0FB">div</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">div</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">&lt;=</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">    {</span></span>
+<span class="line"><span style="color: #A6ACCD">        if (</span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">%</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">div</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">!=</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">T</span><span style="color: #A6ACCD">.</span><span style="color: #E4F0FB">Zero</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #A6ACCD">        {</span></span>
+<span class="line"><span style="color: #A6ACCD">            </span><span style="color: #E4F0FB">div</span><span style="color: #91B4D5">++</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #A6ACCD">        }</span></span>
+<span class="line"><span style="color: #A6ACCD">        else</span></span>
+<span class="line"><span style="color: #A6ACCD">        {</span></span>
+<span class="line"><span style="color: #A6ACCD">            </span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">/=</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">div</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #A6ACCD">            </span><span style="color: #5DE4C7C0">yield</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7C0">return</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">div</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #A6ACCD">        }</span></span>
+<span class="line"><span style="color: #A6ACCD">    }</span></span>
+<span class="line"><span style="color: #A6ACCD">    if (</span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">T</span><span style="color: #A6ACCD">.</span><span style="color: #E4F0FB">One</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7C0">yield</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7C0">return</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre>
+  </article>
+  </div>
+
+</body></html>
