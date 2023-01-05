@@ -1,5 +1,41 @@
 [
   {
+    "name": "Stonechat",
+    "location": "Cornwall, UK",
+    "src": "stonechat-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Short Eared Owl",
+    "location": "Somerset, UK",
+    "src": "shorty-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Great Northern Diver",
+    "location": "Brixham, UK",
+    "src": "gnd-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Avocet",
+    "location": "Cornwall, UK",
+    "src": "avocet-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Herring Gull",
+    "location": "Cornwall, UK",
+    "src": "herring-gull-01.jpg",
+    "fullW": true
+  },
+  {
+    "name": "Blackbird",
+    "location": "Cornwall, UK",
+    "src": "blackbird-01.jpg",
+    "fullW": true
+  },
+  {
     "name": "Nuthatch",
     "location": "Dartmoor, UK",
     "src": "nuthatch-01.jpg",

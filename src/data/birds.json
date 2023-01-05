@@ -80,8 +80,6 @@
       "golden plover",
       "avocet",
       "bittern",
-      "jack snipe",
-      "brent goose",
       "turnstone",
       "spotted redshank",
       "glossy ibis",
@@ -89,7 +87,8 @@
       "reed warbler",
       "least sandpiper",
       "sedge warbler",
-      "little stint"
+      "little stint",
+      "ring necked duck"
    ],
    "Sea & Shore":[
       "cormorant",
@@ -121,7 +120,10 @@
       "sooty shearwater",
       "pomarine skua",
       "common gull",
-      "yellow legged gull"
+      "yellow legged gull",
+      "common scoter",
+      "velvet scoter",
+      "long tailed duck"
    ],
    "Ducks, Swans & Geese":[
       "teal",
@@ -152,7 +154,10 @@
       "osprey",
       "marsh harrier",
       "peregrine falcon",
-      "merlin"
+      "merlin",
+      "barn owl",
+      "tawny owl",
+      "short eared owl"
    ],
    "General & Other":[
       "swallow",
@@ -176,7 +181,6 @@
       "cirl bunting",
       "penduline tit",
       "black redstart",
-      "barn owl",
       "nightjar",
       "chough",
       "snow bunting",
