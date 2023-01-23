@@ -1,5 +1,60 @@
 [
   {
+    "title": "Component Programming with Ranges",
+    "link": "https://wiki.dlang.org/Component_programming_with_ranges",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "How the Blog Broke the Web",
+    "link": "https://stackingthebricks.com/how-blogs-broke-the-web/",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Why and how to write things on the Internet",
+    "link": "https://www.benkuhn.net/writing/",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "More challenging projects every programmer should try",
+    "link": "https://austinhenley.com/blog/morechallengingprojects.html",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Challenging algorithms and data structures every programmer should try",
+    "link": "https://austinhenley.com/blog/challengingalgorithms.html",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Protection System Conceptual Design",
+    "link": "https://www.wittenburg.co.uk/Work/Protection_System.aspx",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "The Case for Models",
+    "link": "https://concerningquality.com/models/",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Surviving disillusionment",
+    "link": "https://www.spakhm.com/p/surviving-disillusionment",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Understanding Onion Architecture",
+    "link": "https://www.codeguru.com/csharp/understanding-onion-architecture/",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "Right and Wrote: ten choices in language design (pdf)",
+    "link": "https://arxiv.org/pdf/2211.16597.pdf",
+    "date": "2023/01/23"
+  },
+  {
+    "title": "The Art of Money Getting",
+    "link": "https://www.gutenberg.org/files/8581/8581-h/8581-h.htm",
+    "date": "2023/01/23"
+  },
+  {
     "title": "The Art of Not Thinking",
     "link":" https://www.tiffanymatthe.com/not-thinking",
     "date": "2022/12/05"
@@ -295,7 +350,7 @@
     "date": "~2020"
   },
   {
-    "title": "Org Mode Reference Card",
+    "title": "Org Mode Reference Card (pdf)",
     "link": "https://orgmode.org/orgcard.pdf",
     "date": "~2020"
   },
@@ -350,7 +405,7 @@
     "date": "~2020"
   },
   {
-    "title": "Beginning Raku",
+    "title": "Beginning Raku (pdf)",
     "link": "https://arnesom.github.io/Beginning-v1.00.pdf",
     "date": "~2020"
   },
@@ -375,7 +430,7 @@
     "date": "2019/11/14"
   },
   {
-    "title": "Bison Manual",
+    "title": "Bison Manual (pdf)",
     "link": "https://www.gnu.org/software/bison/manual/bison.pdf",
     "date": "2019/11/14"
   },
@@ -395,7 +450,7 @@
     "date": "2019/08/09"
   },
   {
-    "title": "Lazy Functional State Threads",
+    "title": "Lazy Functional State Threads (pdf)",
     "link": "https://www.microsoft.com/en-us/research/wp-content/uploads/1994/06/lazy-functional-state-threads.pdf",
     "date": "2019/08/08"
   },
@@ -415,7 +470,7 @@
     "date": "2019/06/14"
   },
   {
-    "title": "Flex Manual",
+    "title": "Flex Manual (pdf)",
     "link": "http://poincare.matf.bg.ac.rs/~aspasic/ppj/literatura/flex.pdf",
     "date": "2019/06/06"
   },
@@ -425,7 +480,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "GRASS RaPlaT User Guide",
+    "title": "GRASS RaPlaT User Guide (pdf)",
     "link": "http://www-e6.ijs.si/RaPlaT/files/doc/GRASS-RaPlaT_User_Manual_1_0a.pdf",
     "date": "2019/06/06"
   },
@@ -435,7 +490,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Pharo by Example 5",
+    "title": "Pharo by Example 5 (pdf)",
     "link": "http://books.pharo.org/updated-pharo-by-example/pdf/2018-09-29-UpdatedPharoByExample.pdf",
     "date": "2019/06/06"
   },
@@ -445,7 +500,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Eiffel Standard",
+    "title": "Eiffel Standard (pdf)",
     "link": "https://www.ecma-international.org/publications/files/ECMA-ST-WITHDRAWN/ECMA-367,%201st%20edition,%20June%202005.pdf",
     "date": "2019/06/06"
   },
@@ -470,7 +525,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Empirical Analysis of Programming Language Adoption",
+    "title": "Empirical Analysis of Programming Language Adoption (pdf)",
     "link": "https://sns.cs.princeton.edu/docs/asr-oopsla13.pdf",
     "date": "2019/06/06"
   },
@@ -500,7 +555,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Programming from the Ground Up",
+    "title": "Programming from the Ground Up (pdf)",
     "link": "http://mirror.netcologne.de/savannah/pgubook/ProgrammingGroundUp-1-0-booksize.pdf",
     "date": "2019/06/06"
   },
@@ -535,7 +590,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "A Practical Theory of Programming",
+    "title": "A Practical Theory of Programming (pdf)",
     "link": "http://www.cs.toronto.edu/~hehner/aPToP/aPToP.pdf",
     "date": "2019/06/06"
   },
@@ -570,7 +625,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "DASH: A New Language for Declarative Behavioural Requirements with Control State Hierachy",
+    "title": "DASH: A New Language for Declarative Behavioural Requirements with Control State Hierachy (pdf)",
     "link": "https://cs.uwaterloo.ca/~nday/pdf/refereed/2017-SeDaFa-modre.pdf",
     "date": "2019/06/06"
   },
@@ -605,7 +660,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Continuous Distance-Dependent Level of Detail for Rendering Heightmaps (CDLOD)",
+    "title": "Continuous Distance-Dependent Level of Detail for Rendering Heightmaps (CDLOD) (pdf)",
     "link": "http://www.vertexasylum.com/downloads/cdlod/cdlod_latest.pdf",
     "date": "2019/06/06"
   },
@@ -620,27 +675,27 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Cache Oblivious Algorithms and Data Structures",
+    "title": "Cache Oblivious Algorithms and Data Structures (pdf)",
     "link": "http://erikdemaine.org/papers/BRICS2002/paper.pdf",
     "date": "2019/06/06"
   },
   {
-    "title": "Efficient generation of simple polygons for characterizing the shape of a set of points in the plane",
+    "title": "Efficient generation of simple polygons for characterizing the shape of a set of points in the plane (pdf)",
     "link": "http://www.geosensor.net/papers/duckham08.PR.pdf",
     "date": "2019/06/06"
   },
   {
-    "title": "Computational Geometry - Algorithms and Applications",
+    "title": "Computational Geometry - Algorithms and Applications (pdf)",
     "link": "http://people.inf.elte.hu/fekete/algoritmusok_msc/terinfo_geom/konyvek/Computational%20Geometry%20-%20Algorithms%20and%20Applications,%203rd%20Ed.pdf",
     "date": "2019/06/06"
   },
   {
-    "title": "Software Verification: Model Checking vs. Testing",
+    "title": "Software Verification: Model Checking vs. Testing (pdf)",
     "link": "https://www.sosy-lab.org/research/pub/2017-HVC.Software_Verification_Testing_vs_Model_Checking.pdf",
     "date": "2019/06/06"
   },
   {
-    "title": "R-trees with Voronoi Diagrams for Efficient Processing of Spatial Nearest Neighbor Querie",
+    "title": "R-trees with Voronoi Diagrams for Efficient Processing of Spatial Nearest Neighbor Querie (pdf)",
     "link": "https://infolab.usc.edu/papers/VorTree.pdf",
     "date": "2019/06/06"
   },
@@ -655,12 +710,12 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Traditional assignment considered harmful",
+    "title": "Traditional assignment considered harmful (pdf)",
     "link": "http://web.cse.ohio-state.edu/rsrg/documents/2009/09PHABKW.pdf",
     "date": "2019/06/06"
   },
   {
-    "title": "Some thoughts on security after ten years of qmail 1.0",
+    "title": "Some thoughts on security after ten years of qmail 1.0 (pdf)",
     "link": "https://cr.yp.to/qmail/qmailsec-20071101.pdf",
     "date": "2019/06/06"
   },
@@ -670,7 +725,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Finite and Infinite Games",
+    "title": "Finite and Infinite Games (pdf)",
     "link": "http://wtf.tw/ref/carse.pdf",
     "date": "2019/06/06"
   },
@@ -690,7 +745,7 @@
     "date": "2019/06/06"
   },
   {
-    "title": "Maths reading list",
+    "title": "Maths reading list (pdf)",
     "link": "https://www.maths.cam.ac.uk/sites/www.maths.cam.ac.uk/files/pre2014/undergrad/admissions/readinglist.pdf",
     "date": "2019/02/01"
   },
@@ -705,7 +760,7 @@
     "date": "2019/02/01"
   },
   {
-    "title": "Fast Computation of Generalized Voronoi Diagrams Using Graphics Hardware",
+    "title": "Fast Computation of Generalized Voronoi Diagrams Using Graphics Hardware (pdf)",
     "link": "https://wwwx.cs.unc.edu/~geom/papers/documents/technicalreports/tr99011.pdf",
     "date": "2019/02/01"
   },
