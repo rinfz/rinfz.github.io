@@ -1,9 +1,9 @@
 ---
 import Photo from "../../layouts/Photo.astro";
-import { Img } from "astro-imagetools/components";
+import { Image } from "@astrojs/image/components";
+import photos from "../../photos/data.json";
 
 export async function getStaticPaths({ paginate }) {
-  const photos = (await Astro.glob("../../photos/data.json"))[0].default;
   return paginate(photos, { pageSize: 1 });
 }
 
@@ -14,14 +14,123 @@ const { name, location, src, fullW } = data[0];
 ---
 
 <Photo title="Photography by Matt R">
-  <h2 class="text-center mb-4 text-lg">{name}, {location}</h2>
-  <div class="flex justify-between text-emerald-600 mb-5 text-xl">
-    {url.prev ? <a class="flex place-content-start" href={url.prev}>&laquo; previous</a>
-              : <p class="text-black">&laquo; previous</p>}
-    {url.next ? <a class="flex place-content-end" href={url.next}>next &raquo;</a>
-              : <p class="text-black">next &raquo;</p>}
+  <h2 class="text-center mb-1 text-lg md:text-3xl">{name}</h2>
+  <h3 class="text-center mb-4">{location}</h3>
+  <div class="flex md:hidden justify-between">
+    {url.prev ? (
+      <a href={url.prev}>&laquo; previous</a>
+    ) : <span class="opacity-50">&laquo; previous</span>}
+    {url.next ? (
+      <a href={url.next}>next &raquo;</a>
+    ) : <span class="opacity-50">next &raquo;</span>}
   </div>
-  <div class={`${fullW ? 'w-full' : 'w-full md:w-2/3' } mx-auto`}>
-    <Img src={`/src/photos/${src}`} alt={`${name} in ${location}`} />
+  <div
+    class="w-full md:flex md:items-stretch md:justify-between md:place-content-center"
+  >
+    {
+      url.prev ? (
+        <a
+          href={url.prev}
+          class="text-white hidden md:flex flex-grow md:justify-center md:items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-10 w-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </a>
+      ) : (
+        <div class="hidden md:flex flex-grow md:justify-center md:items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-10 w-10 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15.75 19.5L8.25 12l7.5-7.5"
+            />
+          </svg>
+        </div>
+      )
+    }
+    <div class="flex-none w-full md:max-w-6xl">
+      <Image
+        src={import(/* @vite-ignore */ `../../photos/${src}.jpg`)}
+        alt={`${name}, ${location}`}
+        class="border-2 max-h-screen object-contain"
+      />
+      <div class="text-center">
+        <p
+          slot="copyright"
+          class="text-xs py-2"
+        >
+          &copy; Copyright 2023 All Rights Reserved
+        </p>
+        <p>
+          <a href="/photos">back to start</a>
+          &bull; <a href="/">return to main website</a>
+        </p>
+      </div>
+    </div>
+    {
+      url.next ? (
+        <a
+          href={url.next}
+          class="text-white hidden md:flex flex-grow md:justify-center md:items-center"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-10 h-10"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </a>
+      ) : (
+        <div class="hidden md:flex flex-grow md:justify-center md:items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-10 h-10 opacity-50"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M8.25 4.5l7.5 7.5-7.5 7.5"
+            />
+          </svg>
+        </div>
+      )
+    }
   </div>
 </Photo>
+
+<style>
+  a {
+    @apply text-orange-500;
+  }
+</style>

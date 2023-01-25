@@ -1,127 +1,206 @@
 [
   {
+    "name": "Punta y Tacón",
+    "artist": "Sabicas",
+    "link": "https://www.youtube.com/watch?v=H8wEIqvQK0Q",
+    "genre": "Flamenco"
+  },
+  {
+    "name": "Danza Ritual del Fuego",
+    "artist": "Manuel de Falla, Paco de Lucia",
+    "link": "https://www.youtube.com/watch?v=Sru82j2T6k4",
+    "genre": "Classical Guitar"
+  },
+  {
+    "name": "Toccata and Fugue in D-minor",
+    "artist": "Bach, Harb",
+    "link": "https://www.youtube.com/watch?v=6jtuTCy8RXg",
+    "genre": "Classical Guitar"
+  },
+  {
+    "name": "Caprice in A",
+    "artist": "Paganini, Celil Refik Kaya",
+    "link": "https://www.youtube.com/watch?v=Gh2ruYln9YE",
+    "genre": "Classical Guitar"
+  },
+  {
+    "name": "Malagueña de Lecuona",
+    "artist": "Paco de Lucia, Goryachev",
+    "link": "https://www.youtube.com/watch?v=9QmFLHjzROE",
+    "genre": "Flamenco"
+  },
+  {
+    "name": "Sonata No. 29 in B-flat Major (Hammerklavier)",
+    "artist": "Beethoven, Levit",
+    "link": "https://www.youtube.com/watch?v=erD1Yy-4F5M",
+    "genre": "Classical Piano"
+  },
+  {
+    "name": "Grande Fantaisie de Bravoure sur La Clochette S420",
+    "artist": "Liszt, Linn",
+    "link": "https://www.youtube.com/watch?v=eWsGoJ-lRLc",
+    "genre": "Classical Piano"
+  },
+  {
+    "name": "Variations of a Theme of Bach, S180",
+    "artist": "Liszt, Prommachart",
+    "link": "https://www.youtube.com/watch?v=Jibl38gsuTE",
+    "genre": "Classical Piano"
+  },
+  {
+    "name": "Réminiscences de Don Juan",
+    "artist": "Liszt, Okada",
+    "link": "https://www.youtube.com/watch?v=JI6JfJXcUjU",
+    "genre": "Classical Piano"
+  },
+  {
+    "name": "Requiem in D-minor",
+    "artist": "Mozart",
+    "link": "https://www.youtube.com/watch?v=63jv0JcDNUg",
+    "genre": "Classical"
+  },
+  {
+    "name": "Piano Concerto No. 2",
+    "artist": "Rachmaninoff, Kissin",
+    "link": "https://www.youtube.com/watch?v=l4zkc7KEvYM",
+    "genre": "Classical Piano"
+  },
+  {
+    "name": "Sonata No. 2 in B-flat Minor, Op. 36",
+    "artist": "Rachmaninoff, Horowitz",
+    "link": "https://www.youtube.com/watch?v=-JaY0IZEy90",
+    "genre": "Classical Piano"
+  },
+  {
     "name": "Variaciones Sobre Un Tema De Sor, Op. 15",
     "artist": "Llobet, Minh Nguyen",
-    "link": "https://www.youtube.com/watch?v=k0clF33SyQE"
+    "link": "https://www.youtube.com/watch?v=k0clF33SyQE",
+    "genre": "Classical Guitar"
   },
   {
     "name": "Zeit",
     "artist": "Tangerine Dream",
-    "link": "https://www.youtube.com/watch?v=w5js_AWq0zs"
+    "link": "https://www.youtube.com/watch?v=w5js_AWq0zs",
+    "genre": "Ambient"
   },
   {
     "name": "Réminiscences de Lucrezia Borgia",
     "artist": "Liszt, William Wolfram",
-    "link": "https://www.youtube.com/watch?v=e-XtfYTLi2Y"
+    "link": "https://www.youtube.com/watch?v=e-XtfYTLi2Y",
+    "genre": "Classical Piano"
   },
   {
     "name": "Impetu",
     "artist": "Paco de Lucia",
-    "link": "https://www.youtube.com/watch?v=wGsqQ1Vr218"
+    "link": "https://www.youtube.com/watch?v=wGsqQ1Vr218",
+    "genre": "Flamenco"
   },
   {
     "name": "La Catedral",
     "artist": "Yamandu Costa",
-    "link": "https://www.youtube.com/watch?v=4v3oSmd71YA"
+    "link": "https://www.youtube.com/watch?v=4v3oSmd71YA",
+    "genre": "Classical Guitar"
   },
   {
     "name": "It Just Won't Do",
     "artist": "Tim Deluxe ft. Sam Obernik",
-    "link": "https://www.youtube.com/watch?v=3FjauOAhBHw"
+    "link": "https://www.youtube.com/watch?v=3FjauOAhBHw",
+    "genre": "Pop"
   },
   {
     "name": "Huzûr",
     "artist": "Pouriya Raisi",
-    "link": "https://www.youtube.com/watch?v=HLe-oRtYAEM"
+    "link": "https://www.youtube.com/watch?v=HLe-oRtYAEM",
+    "genre": "International"
   },
   {
     "name": "El Negro del Blanco",
     "artist": "Yamandu Costa",
-    "link": "https://www.youtube.com/watch?v=jjGtIT7lxyQ"
+    "link": "https://www.youtube.com/watch?v=jjGtIT7lxyQ",
+    "genre": "International"
   },
   {
     "name": "Thou Winter",
     "artist": "A. Shalaev",
-    "link": "https://www.youtube.com/watch?v=9RXf-TUH2Ac"
+    "link": "https://www.youtube.com/watch?v=9RXf-TUH2Ac",
+    "genre": "Classical"
   },
   {
     "name": "Old Skyball Paint",
     "artist": "Roy Rogers and The Statlers",
-    "link": "https://www.youtube.com/watch?v=NHkg8A9_23U"
+    "link": "https://www.youtube.com/watch?v=NHkg8A9_23U",
+    "genre": "Folk"
   },
   {
     "name": "Seven Goblins",
     "artist": "Masayoshi Takanaka",
-    "link": "https://www.youtube.com/watch?v=sRY9o8VNoTE"
+    "link": "https://www.youtube.com/watch?v=sRY9o8VNoTE",
+    "genre": "Fusion"
   },
   {
     "name": "Montiño",
-    "artist": "Grisha Goryachev ",
-    "link": "https://www.youtube.com/watch?v=yamRW04n8nM"
+    "artist": "Grisha Goryachev",
+    "link": "https://www.youtube.com/watch?v=yamRW04n8nM",
+    "genre": "Flamenco"
   },
   {
     "name": "Corn-Flakes",
     "artist": "Klaus Wunderlich",
-    "link": "https://www.youtube.com/watch?v=SuU3XnERQbw"
+    "link": "https://www.youtube.com/watch?v=SuU3XnERQbw",
+    "genre": "Electronic"
   },
   {
     "name": "Tru Dat",
     "artist": "Puppets of Chaos",
-    "link": "https://www.youtube.com/watch?v=AqxBDN-cv08"
+    "link": "https://www.youtube.com/watch?v=AqxBDN-cv08",
+    "genre": "Hip Hop"
   },
   {
     "name": "The Doll's Song",
     "artist": "Offenbach",
-    "link": "https://www.youtube.com/watch?v=3dlGDNoliH0"
+    "link": "https://www.youtube.com/watch?v=3dlGDNoliH0",
+    "genre": "Opera"
   },
   {
     "name": "Dorug-Doyum",
     "artist": "Алексей Ховалыг",
-    "link": "https://www.youtube.com/watch?v=IrjNHGYt__w"
+    "link": "https://www.youtube.com/watch?v=IrjNHGYt__w",
+    "genre": "Mongolian"
   },
   {
     "name": "Kargyraa",
     "artist": "Алексей Ховалыг",
-    "link": "https://www.youtube.com/watch?v=ZZLR4UrToqA"
+    "link": "https://www.youtube.com/watch?v=ZZLR4UrToqA",
+    "genre": "Mongolian"
   },
   {
     "name": "Palenque",
     "artist": "Paco de Lucia",
-    "link": "https://www.youtube.com/watch?v=9wpJKkfIvsc"
-  },
-  {
-    "name": "School",
-    "artist": "Supertramp",
-    "link": "https://www.youtube.com/watch?v=GOuxb6t1JlM"
+    "link": "https://www.youtube.com/watch?v=9wpJKkfIvsc",
+    "genre": "Flamenco"
   },
   {
     "name": "Trilogy Suite op. 5",
     "artist": "Yngwie Malmsteen",
-    "link": "https://www.youtube.com/watch?v=b61ixJ2v_8A"
-  },
-  {
-    "name": "Strange Kind of Woman",
-    "artist": "Deep Purple",
-    "link": "https://www.youtube.com/watch?v=rcdkhKZwvKI"
+    "link": "https://www.youtube.com/watch?v=b61ixJ2v_8A",
+    "genre": "Guitar Solo"
   },
   {
     "name": "Twenty Nine",
     "artist": "Christmas Island",
-    "link": "https://www.youtube.com/watch?v=yvsu90uXWuY"
-  },
-  {
-    "name": "The Mad Mad Moonlight",
-    "artist": "Steve Harley",
-    "link": "https://www.youtube.com/watch?v=JMZrE_eiZeM"
+    "link": "https://www.youtube.com/watch?v=yvsu90uXWuY",
+    "genre": "Rock"
   },
   {
     "name": "Gnomenreigen",
     "artist": "Liszt",
-    "link": "https://www.youtube.com/watch?v=4H0VObXXA7U"
+    "link": "https://www.youtube.com/watch?v=4H0VObXXA7U",
+    "genre": "Classical Piano"
   },
   {
     "name": "Leather Book",
     "artist": "Lucas",
-    "link": "https://www.youtube.com/watch?v=BeLBD1utHGk"
+    "link": "https://www.youtube.com/watch?v=BeLBD1utHGk",
+    "genre": "Rock"
   }
 ]

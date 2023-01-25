@@ -1,106 +1,142 @@
 [
   {
     "name": "Bunnahabhain 12",
-    "rating": "5/5"
+    "rating": "5/5",
+    "value": "5/5"
   },
   {
     "name": "Glenrothes 10",
-    "rating": "1/5"
+    "rating": "1/5",
+    "value": "1/5"
   },
   {
     "name": "Glenfarclas 15",
-    "rating": "3/5"
+    "rating": "3/5",
+    "value": "2/5"
   },
   {
     "name": "Tobermory 12",
-    "rating": "4/5"
+    "rating": "4/5",
+    "value": "5/5"
   },
   {
     "name": "Lagavulin 16",
-    "rating": "3/5"
+    "rating": "3/5",
+    "value": "3/5"
   },
   {
     "name": "Lagavulin 8",
-    "rating": "4/5"
+    "rating": "3/5",
+    "value": "3/5"
   },
   {
     "name": "Arran Sherry Cask",
-    "rating": "2/5"
+    "rating": "2/5",
+    "value": "3/5"
   },
   {
     "name": "Springbank 15",
-    "rating": "5/5"
+    "rating": "5/5",
+    "value": "4/5"
   },
   {
     "name": "Glenfiddich 12",
-    "rating": "1/5"
+    "rating": "1/5",
+    "value": "3/5"
   },
   {
     "name": "Tomintoul 10",
-    "rating": "2/5"
+    "rating": "2/5",
+    "value": "?/5"
   },
   {
     "name": "Ardbeg Uigeadail",
-    "rating": "4/5"
+    "rating": "4/5",
+    "value": "4/5"
   },
   {
     "name": "Kilkerran 12",
-    "rating": "5/5"
+    "rating": "5/5",
+    "value": "5/5"
   },
   {
     "name": "Edradour 10",
-    "rating": "1/5"
+    "rating": "1/5",
+    "value": "2/5"
   },
   {
     "name": "Benromach 2009 b.01",
-    "rating": "4/5"
+    "rating": "3/5",
+    "value": "4/5"
   },
   {
     "name": "Benromach 2009 b.04",
-    "rating": "5/5"
+    "rating": "4/5",
+    "value": "4/5"
   },
   {
-    "name": "Glencadam 9 (IB)",
-    "rating": "3/5"
+    "name": "Glencadam 9 (2020)",
+    "rating": "3/5",
+    "value": "4/5"
   },
   {
     "name": "Longmorn 15 CS",
-    "rating": "2/5"
+    "rating": "2/5",
+    "value": "0/5"
   },
   {
     "name": "Glendronach 15",
-    "rating": "3/5"
+    "rating": "2/5",
+    "value": "3/5"
   },
   {
     "name": "Glengoyne 12",
-    "rating": "2/5"
+    "rating": "3/5",
+    "value": "5/5"
   },
   {
     "name": "Highland Park 12",
-    "rating": "2/5"
+    "rating": "1/5",
+    "value": "3/5"
   },
   {
     "name": "Laphroaig 10",
-    "rating": "3/5"
+    "rating": "3/5",
+    "value": "4/5"
   },
   {
     "name": "Caol Ila 12",
-    "rating": "3/5"
+    "rating": "2/5",
+    "value": "2/5"
   },
   {
     "name": "Wolfburn b.270",
-    "rating": "4/5"
+    "rating": "4/5",
+    "value": "?/5"
   },
   {
     "name": "Compass Box Delilah's XXV",
-    "rating": "4/5"
+    "rating": "4/5",
+    "value": "?/5"
   },
   {
     "name": "Kilchoman Machir Bay",
-    "rating": "5/5"
+    "rating": "5/5",
+    "value": "5/5"
   },
   {
     "name": "Ballechin 2009 11yr CS",
-    "rating": "2/5"
+    "rating": "3/5",
+    "value": "1/5"
+  },
+  {
+    "name": "Longrow Peated NAS",
+    "rating": "3/5",
+    "value": "5/5"
+  },
+  {
+    "name": "Dartmoor Whisky (Ex-Bourbon)",
+    "rating": "4/5",
+    "value": "5/5"
   }
 ]

@@ -1,10 +1,13 @@
 ---
+import { Image } from "@astrojs/image/components";
+
 import Layout from "../layouts/Layout.astro";
 import links from "../data/links.json";
 import songs from "../data/songs.json";
 import whiskies from "../data/whisky.json";
+import photos from "../photos/data.json";
 
-type Whisky = { name: string; rating: string; };
+type Whisky = { name: string; rating: string };
 
 function whiskyRating(w: Whisky) {
   return parseFloat(w.rating.split("/")[0]);
@@ -18,44 +21,118 @@ function sortWhisky(a: Whisky, b: Whisky) {
   if (br > ar) return 1;
   return 0;
 }
+
+const latestPost = (await Astro.glob("./post/*.md")).sort(
+  (a, b) =>
+    new Date(b.frontmatter.date).valueOf() -
+    new Date(a.frontmatter.date).valueOf()
+)[0];
+
+const latestPhoto = photos[0];
 ---
 
 <Layout title="Barely Laughing">
-  <main>
-    <h2>Cool Links</h2>
-    <section class="max-h-72 overflow-y-auto">
-      {links.map(link => (<a class="l flex items-center px-2 py-1" href={link.link} target="_blank">
-        <span class="flex-1">{link.title}</span>
-        <span class="text-xs">{link.date}</span>
-      </a>))}
+  <main class="grid grid-cols-1 md:grid-cols-2">
+    <section class="col-span-1 md:col-span-2">
+      <h2>Latest Photo</h2>
+      <div class="border border-gray-700">
+        <div class="flex justify-between bg-gray-800 px-1">
+          <h3>{latestPhoto.name}</h3>
+          <a href="/photos" class="text-orange-500">view &raquo;</a>
+        </div>
+        <Image
+          src={import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)}
+          alt={`Latest photo: ${latestPhoto.name}, ${latestPhoto.location}`}
+        />
+      </div>
     </section>
 
-    <div class="flex flex-col lg:flex-row gap-2">
-      <div class="flex-1">
-        <h2>Cool Songs</h2>
-        <section>
-          {songs.map((song, i) => (<a class={`${i % 2 === 0 ? "bg-gray-200" : "bg-gray-300"} l px-2 py-1 block`} href={song.link} target="_blank">
-            <span class="flex-1">{song.name}</span><br />
-            <span class="text-xs">{song.artist}</span>
-          </a>))}
-        </section>
+    <section>
+      <div>
+        <h2>Latest Post</h2>
+        <p>{latestPost.frontmatter.title}</p>
       </div>
 
-      <div class="flex-1">
-        <h2>Whisky List</h2>
-        <section>
-          {whiskies.sort(sortWhisky).map((whisky, i) => (
-            <div class={`flex px-2 ${i % 2 === 0 ? "bg-gray-200" : "bg-gray-300"}`}><span class="flex-1">{whisky.name}</span><span>{whisky.rating}</span></div>
-          ))}
-        </section>
+      <div>
+        <h2>Cool Links</h2>
+        <div>
+          {
+            links.slice(0, 20).map((link) => (
+              <a
+                class="l flex items-center px-2 py-1"
+                href={link.link}
+                target="_blank"
+              >
+                <span class="flex-1">{link.title}</span>
+                <span class="text-xs">{link.date}</span>
+              </a>
+            ))
+          }
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section>
+      <div>
+        <div class="flex items-center">
+          <h2 class="flex-1">Cool Songs</h2>
+          <a href="/songs" class="text-orange-500">see more &raquo;</a>
+        </div>
+        <div class="border border-gray-700 divide-y divide-gray-700">
+          {
+            songs.slice(0, 5).map((song, i) => (
+              <p>
+                <a href={song.link} target="_blank" class={`p-1 block hover:bg-gray-700 ${i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"}`}>
+                  <>
+                    <span>{song.name}</span>
+                    <br />
+                  </>
+                  <span class="text-xs">{song.artist}</span>
+                </a>
+              </p>
+            ))
+          }
+        </div>
+      </div>
+
+      <div>
+        <h2>Whisky List</h2>
+        <table class="table-auto border border-gray-700 w-full">
+          <thead class="bg-gray-800">
+            <th>Name</th>
+            <th>Rating</th>
+            <th>Value*</th>
+          </thead>
+          <tbody>
+            {
+              whiskies.sort(sortWhisky).map((whisky, i) => (
+                <tr class={`${i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"}`}>
+                  <td class="tl">{whisky.name}</td>
+                  <td>{whisky.rating}</td>
+                  <td>{whisky.value}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <p class="text-sm">
+          * Rating when accounting for price paid. Prices are historic and may
+          not reflect the value of the whisky at it's current price. May also
+          factor integrity, i.e. <abbr title="No Age Statement">NAS</abbr>,
+          <abbr title="Non-Chill Filtered">NCF</abbr>,
+          <abbr title="No Colour Added">NCA</abbr>.
+        </p>
+        <p class="text-sm">
+          ** ? denotes a whisky which was gifted or part of a set, so no value
+          can be determined.
+        </p>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
   h2 {
-    @apply text-center;
     @apply text-lg;
     @apply font-semibold;
     @apply my-2;
@@ -64,5 +141,18 @@ function sortWhisky(a: Whisky, b: Whisky) {
   section .l:hover {
     @apply bg-emerald-500;
     @apply text-white;
+  }
+
+  th {
+    @apply text-left;
+  }
+
+  td {
+    @apply text-center;
+  }
+
+  .tl {
+    @apply text-left;
+    @apply pl-1;
   }
 </style>

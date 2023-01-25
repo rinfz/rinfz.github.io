@@ -1,6 +1,6 @@
 {
   "name": "b5.re",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,10 +9,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^0.2.4",
-    "astro": "^1.0.0-beta.72"
+    "@astrojs/tailwind": "3.0.0-beta.1",
+    "astro": "^2.0.1"
   },
   "dependencies": {
-    "astro-imagetools": "^0.6.10"
+    "@astrojs/image": "^0.13.0",
+    "sharp": "^0.31.3",
+    "tailwindcss": "^3.2.4"
   }
 }

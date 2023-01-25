@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+import songs from "../data/songs.json";
+
+type Song = {
+    name: string;
+    artist: string;
+    link: string;
+    genre: string;
+};
+
+const grouped: Record<string, Song[]> = {};
+for (const song of songs) {
+    if (!grouped.hasOwnProperty(song.genre)) {
+        grouped[song.genre] = [];
+    }
+    grouped[song.genre].push(song);
+}
+---
+
+<Layout title="Barely Laughing - Cool Songs">
+    {
+        Object.entries(grouped).sort().map(([genre, songs], i) => {
+            return (
+                <div class={`${i > 0 ? "mt-3" : ""}`}>
+                    <h2 class="text-xl font-semibold border-b border-gray-700">
+                        {genre}
+                    </h2>
+                    {songs.map((song) => {
+                        return (
+                            <p>
+                                <a
+                                    href={song.link}
+                                    class="p-1 w-full block hover:bg-gray-900 space-x-1"
+                                >
+                                    <span>{song.name}</span>
+                                    <span class="text-xs">{song.artist}</span>
+                                </a>
+                            </p>
+                        );
+                    })}
+                </div>
+            );
+        })
+    }
+</Layout>
