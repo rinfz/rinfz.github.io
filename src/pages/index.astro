@@ -1,6 +1,8 @@
 ---
 import { Image } from "@astrojs/image/components";
 
+import { simpleDate } from "../lib";
+
 import Layout from "../layouts/Layout.astro";
 import links from "../data/links.json";
 import songs from "../data/songs.json";
@@ -32,7 +34,7 @@ const latestPhoto = photos[0];
 ---
 
 <Layout title="Barely Laughing">
-  <main class="grid grid-cols-1 md:grid-cols-2">
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-x-5">
     <section class="col-span-1 md:col-span-2">
       <h2>Latest Photo</h2>
       <div class="border border-gray-700">
@@ -49,8 +51,15 @@ const latestPhoto = photos[0];
 
     <section>
       <div>
-        <h2>Latest Post</h2>
-        <p>{latestPost.frontmatter.title}</p>
+        <div class="flex items-center">
+          <h2 class="flex-1">Latest Post</h2>
+          <a href="/posts" class="text-orange-500">see more &raquo;</a>
+        </div>
+        <p class="p-2 text-center">
+          {
+            simpleDate(latestPost.frontmatter.date)
+          } <a href={latestPost.url} class="text-orange-500">{latestPost.frontmatter.title}</a>
+        </p>
       </div>
 
       <div>
@@ -82,7 +91,13 @@ const latestPhoto = photos[0];
           {
             songs.slice(0, 5).map((song, i) => (
               <p>
-                <a href={song.link} target="_blank" class={`p-1 block hover:bg-gray-700 ${i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"}`}>
+                <a
+                  href={song.link}
+                  target="_blank"
+                  class={`p-1 block hover:bg-gray-700 ${
+                    i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"
+                  }`}
+                >
                   <>
                     <span>{song.name}</span>
                     <br />
