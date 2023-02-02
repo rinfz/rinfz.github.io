@@ -1,8 +1,14 @@
 ---
 import { Image } from "@astrojs/image/components";
-import { CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 
-import { simpleDate } from "../lib";
+import {
+  simpleDate,
+  sortWhisky,
+  formatDate,
+  writeUpLink,
+  sortLink,
+} from "../lib";
 
 import Layout from "../layouts/Layout.astro";
 import songs from "../data/songs.json";
@@ -10,40 +16,7 @@ import whiskies from "../data/whisky.json";
 import photos from "../photos/data.json";
 import blogroll from "../data/blogroll.json";
 
-type Whisky = { name: string; rating: string };
-
-function whiskyRating(w: Whisky) {
-  return parseFloat(w.rating.split("/")[0]);
-}
-
-function sortWhisky(a: Whisky, b: Whisky) {
-  const ar = whiskyRating(a);
-  const br = whiskyRating(b);
-  // desc. sort
-  if (ar > br) return -1;
-  if (br > ar) return 1;
-  return 0;
-}
-
-function formatDate(date: Date) {
-  return `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')}`;
-}
-
-function writeUpLink(link: CollectionEntry<'link'>) {
-  if (link.body) {
-    // TODO
-    return 'some writeup';
-  }
-  return 'no write-up';
-}
-
-const linkCollection = (await getCollection("link")).sort((a, b) => {
-  const l = a.data.date;
-  const r = b.data.date;
-  if (l > r) return -1;
-  if (r > l) return 1;
-  return 0;
-});
+const linkCollection = (await getCollection("link")).sort(sortLink);
 
 const latestPost = (await Astro.glob("./post/*.md")).sort(
   (a, b) =>
@@ -57,7 +30,9 @@ const latestPhoto = photos[0];
 <Layout title="Barely Laughing">
   <main class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-2">
     <section class="col-span-1 md:col-span-2">
-      <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+      <div
+        class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+      >
         <h2 class="flex-1">Latest Photo</h2>
         <a href="/photos">see more &raquo;</a>
       </div>
@@ -74,7 +49,9 @@ const latestPhoto = photos[0];
 
     <section>
       <div>
-        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+        <div
+          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+        >
           <h2 class="flex-1">Latest Post</h2>
           <a href="/posts">see more &raquo;</a>
         </div>
@@ -87,11 +64,12 @@ const latestPhoto = photos[0];
       </div>
 
       <div class="mt-2">
-        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+        <div
+          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+        >
           <h2 class="flex-1">Cool Links</h2>
-          <a href="/posts">see more &raquo;</a>
+          <a href="/links">see more &raquo;</a>
         </div>
-        <p class="text-sm">Showing 10 of {linkCollection.length}</p>
         <div class="divide-y divide-gray-700">
           {
             linkCollection.slice(0, 10).map((link) => (
@@ -103,13 +81,20 @@ const latestPhoto = photos[0];
                 >
                   <span class="flex-1">{link.data.title}</span>
                 </a>
-                <span class="text-xs">{formatDate(link.data.date)} &bull; {writeUpLink(link)}</span>
+                <span class="text-xs">
+                  {formatDate(link.data.date)} &bull; {writeUpLink(link)}
+                </span>
               </p>
             ))
           }
         </div>
+        <p class="text-sm text-center mt-2">
+          Showing 10 of {linkCollection.length}
+        </p>
 
-        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2">
+        <div
+          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2"
+        >
           <h2>Cool Blogs</h2>
         </div>
         <div>
@@ -138,7 +123,9 @@ const latestPhoto = photos[0];
 
     <section>
       <div>
-        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+        <div
+          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+        >
           <h2 class="flex-1">Cool Songs</h2>
           <a href="/songs">see more &raquo;</a>
         </div>
@@ -166,7 +153,9 @@ const latestPhoto = photos[0];
       </div>
 
       <div>
-        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2">
+        <div
+          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2"
+        >
           <h2 class="flex-1">Whisky List</h2>
           <a href="/posts">see more &raquo;</a>
         </div>
