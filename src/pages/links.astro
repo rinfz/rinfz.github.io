@@ -1,7 +1,40 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import { formatDate, sortLink } from "../lib";
+
+const linkCollection = (await getCollection("link")).sort(sortLink);
 ---
 
 <Layout title="Barely Laughing - Cool Links">
+    <p class="mb-2 text-sm">
+        The write-ups are a work in progress because I decided to do them after
+        adding loads of links.
+    </p>
+    <table class="table-fixed border border-gray-700 w-full">
+        <thead class="bg-gray-800">
+            <th class="w-9/12">Title</th>
+            <th>Date Added</th>
+            <th>Write-up</th>
+        </thead>
+        <tbody>
+            {
+                linkCollection.map((link, i) => {
+                    return (
+                        <tr
+                            class={`${
+                                i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"
+                            }`}
+                        >
+                            <td class="py-2 px-1">
+                                <a href={link.data.url}>{link.data.title}</a>
+                            </td>
+                            <td>{formatDate(link.data.date)}</td>
+                            <td>{link.body.length > 0 ? "TODO" : null}</td>
+                        </tr>
+                    );
+                })
+            }
+        </tbody>
+    </table>
 </Layout>
