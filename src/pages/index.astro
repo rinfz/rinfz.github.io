@@ -26,7 +26,7 @@ function sortWhisky(a: Whisky, b: Whisky) {
 }
 
 function formatDate(date: Date) {
-  return `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDay().toString().padStart(2, '0')}`;
+  return `${date.getFullYear()}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getDate().toString().padStart(2, '0')}`;
 }
 
 function writeUpLink(link: CollectionEntry<'link'>) {
@@ -37,9 +37,13 @@ function writeUpLink(link: CollectionEntry<'link'>) {
   return 'no write-up';
 }
 
-const linkCollection = (await getCollection("link")).sort((a, b) =>
-  Date.parse(b.data.date) - Date.parse(a.data.date)
-);
+const linkCollection = (await getCollection("link")).sort((a, b) => {
+  const l = a.data.date;
+  const r = b.data.date;
+  if (l > r) return -1;
+  if (r > l) return 1;
+  return 0;
+});
 
 const latestPost = (await Astro.glob("./post/*.md")).sort(
   (a, b) =>
@@ -51,13 +55,15 @@ const latestPhoto = photos[0];
 ---
 
 <Layout title="Barely Laughing">
-  <main class="grid grid-cols-1 md:grid-cols-2 gap-x-5">
+  <main class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-2">
     <section class="col-span-1 md:col-span-2">
-      <h2>Latest Photo</h2>
+      <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+        <h2 class="flex-1">Latest Photo</h2>
+        <a href="/photos">see more &raquo;</a>
+      </div>
       <div class="border border-gray-700">
-        <div class="flex justify-between bg-gray-800 px-1">
+        <div class="bg-gray-800 p-1">
           <h3>{latestPhoto.name}</h3>
-          <a href="/photos" class="text-orange-500">view &raquo;</a>
         </div>
         <Image
           src={import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)}
@@ -68,9 +74,9 @@ const latestPhoto = photos[0];
 
     <section>
       <div>
-        <div class="flex items-center">
+        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
           <h2 class="flex-1">Latest Post</h2>
-          <a href="/posts" class="text-orange-500">see more &raquo;</a>
+          <a href="/posts">see more &raquo;</a>
         </div>
         <p class="p-2 text-center">
           {simpleDate(latestPost.frontmatter.date)}
@@ -80,12 +86,15 @@ const latestPhoto = photos[0];
         </p>
       </div>
 
-      <div>
-        <h2 class="bg-gradient-to-t from-orange-500 to-orange-600 px-4">Cool Links</h2>
-        <p class="text-sm">Showing 15 of {linkCollection.length}</p>
+      <div class="mt-2">
+        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
+          <h2 class="flex-1">Cool Links</h2>
+          <a href="/posts">see more &raquo;</a>
+        </div>
+        <p class="text-sm">Showing 10 of {linkCollection.length}</p>
         <div class="divide-y divide-gray-700">
           {
-            linkCollection.slice(0, 15).map((link) => (
+            linkCollection.slice(0, 10).map((link) => (
               <p class="py-0.5">
                 <a
                   class="flex items-center text-orange-500"
@@ -100,7 +109,9 @@ const latestPhoto = photos[0];
           }
         </div>
 
-        <h2>Cool Blogs</h2>
+        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2">
+          <h2>Cool Blogs</h2>
+        </div>
         <div>
           <p
             class="text-xs border border-gray-700 bg-gray-800 p-1 text-justify"
@@ -127,9 +138,9 @@ const latestPhoto = photos[0];
 
     <section>
       <div>
-        <div class="flex items-center">
+        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2">
           <h2 class="flex-1">Cool Songs</h2>
-          <a href="/songs" class="text-orange-500">see more &raquo;</a>
+          <a href="/songs">see more &raquo;</a>
         </div>
         <div class="border border-gray-700 divide-y divide-gray-700">
           {
@@ -155,7 +166,10 @@ const latestPhoto = photos[0];
       </div>
 
       <div>
-        <h2>Whisky List</h2>
+        <div class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2">
+          <h2 class="flex-1">Whisky List</h2>
+          <a href="/posts">see more &raquo;</a>
+        </div>
         <table class="table-auto border border-gray-700 w-full">
           <thead class="bg-gray-800">
             <th>Name</th>
