@@ -1,5 +1,5 @@
 ---
-title: Count set bits in a vector with std::transform_reduce
+title: Count set bits in a vector with transform_reduce
 date: 2019-10-23
 layout: ../../layouts/Post.astro
 tags: programming, c++

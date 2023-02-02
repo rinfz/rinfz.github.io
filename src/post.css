@@ -1,6 +1,5 @@
 article {
   @apply text-justify;
-  @apply font-serif;
 }
 
 article > h2 {
@@ -18,8 +17,13 @@ article > pre {
 }
 
 article a {
-  @apply text-emerald-600;
+  @apply text-orange-500;
   @apply underline;
+}
+
+article a:hover {
+  @apply text-orange-400;
+  @apply no-underline;
 }
 
 article h3 {

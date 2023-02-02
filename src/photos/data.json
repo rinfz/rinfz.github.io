@@ -1,5 +1,17 @@
 [
   {
+    "name": "Curlew",
+    "location": "Plymouth, UK",
+    "src": "curlew-02",
+    "fullW": true
+  },
+  {
+    "name": "Common Gull",
+    "location": "Cornwall, UK",
+    "src": "common-gull-01",
+    "fullW": true
+  },
+  {
     "name": "Sabine's Gull",
     "location": "Portsmouth, UK (2023)",
     "src": "sabines-01",

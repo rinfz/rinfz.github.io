@@ -9,6 +9,7 @@
     "resolveJsonModule": true,
     // Enable stricter transpilation for better output.
     "isolatedModules": true,
+    "strictNullChecks": true,
     // Add type definitions for our Astro runtime.
     "types": ["@astro/image/client"]
   }

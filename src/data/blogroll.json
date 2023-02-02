@@ -1,0 +1,62 @@
+[
+    {
+        "link": "https://blog.ploeh.dk/",
+        "tag": "C#",
+        "name": "blog.ploeh.dk"
+    },
+    {
+        "link": "https://ferd.ca/",
+        "tag": "Erlang/Elixir",
+        "name": "ferd.ca"
+    },
+    {
+        "link": "https://lukeplant.me.uk/blog/",
+        "tag": "Python",
+        "name": "lukeplant.me.uk"
+    },
+    {
+        "link": "https://fasterthanli.me/articles",
+        "tag": "Rust, Go",
+        "name": "fasterthanli.me"
+    },
+    {
+        "link": "https://craftofcoding.wordpress.com/",
+        "tag": "General computing",
+        "name": "craftofcoding.wordpress.com"
+    },
+    {
+        "link": "https://protesilaos.com/",
+        "tag": "Philosophy-ish",
+        "name": "protesilaos.com"
+    },
+    {
+        "link": "https://www.dramface.com/all-reviews",
+        "tag": "Whisky reviews",
+        "name": "dramface.com"
+    },
+    {
+        "link": "https://lemire.me/blog/",
+        "tag": "Fast code",
+        "name": "lemire.me"
+    },
+    {
+        "link": "https://shape-of-code.com/",
+        "tag": "Software analysis",
+        "name": "shape-of-code.com"
+    },
+    {
+        "link": "https://danluu.com/",
+        "tag": "General/tech",
+        "name": "danluu.com"
+    },
+    {
+        "link": "https://jeremykun.com/",
+        "tag": "Math ∩ programming",
+        "name": "jeremykun.com"
+    },
+    {
+        "link": "https://www.hxa.name/",
+        "tag": "Programming",
+        "name": "hxa.name"
+    }
+]
