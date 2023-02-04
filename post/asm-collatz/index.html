@@ -1,115 +1,158 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - Collatz conjecture in x86</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - Collatz conjecture in x86</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>Collatz conjecture in x86</h2>
     <p class="pt-0 mb-5">2019-11-06</p>
-    <p>Been following an <a href="https://gitlab.com/mcmfb/intro_x86-64">introduction to assembly</a> and one of the exercises was to implement a collatz conjecture function.</p><p>My first attempt is as follows (with the arg x chosen at random):</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">global _start</span></span>
+    <p>Been following an <a href="https://gitlab.com/mcmfb/intro_x86-64">introduction to assembly</a> and one of the exercises was to implement a collatz conjecture function.</p>
+<p>My first attempt is as follows (with the arg x chosen at random):</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #79C0FF">global</span><span style="color: #C9D1D9"> _start</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #91B4D5">section .text</span></span>
-<span class="line"><span style="color: #ADD7FF">_start</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">156</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; x</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">call</span><span style="color: #A6ACCD"> collatz</span></span>
+<span class="line"><span style="color: #FFA657">section .text</span></span>
+<span class="line"><span style="color: #D2A8FF">_start:</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">156</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; x</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> collatz</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">60</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">syscall</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">60</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">syscall</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic">; uint collatz(uint x)</span></span>
-<span class="line"><span style="color: #ADD7FF">collatz</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">xor</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rcx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rcx</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; result</span></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">loop</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">cmp</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">je</span><span style="color: #A6ACCD"> .done</span></span>
+<span class="line"><span style="color: #8B949E">; uint collatz(uint x)</span></span>
+<span class="line"><span style="color: #D2A8FF">collatz:</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">xor</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rcx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rcx</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; result</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">loop:</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">cmp</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">je</span><span style="color: #C9D1D9"> .done</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">inc</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rcx</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">inc</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rcx</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic">; x % 2</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">xor</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdx</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rbx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">2</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">div</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rbx</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E">; x % 2</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">xor</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdx</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rbx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">2</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">div</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rbx</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">cmp</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">0</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; even</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">jne</span><span style="color: #A6ACCD"> .odd</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; x = x / 2</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">jmp</span><span style="color: #A6ACCD"> .</span><span style="color: #91B4D5">loop</span></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">odd</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">r8</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">3</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mul</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">r8</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; 3*x</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">inc</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; x + 1</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">jmp</span><span style="color: #A6ACCD"> .</span><span style="color: #91B4D5">loop</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">cmp</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; even</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">jne</span><span style="color: #C9D1D9"> .odd</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; x = x / 2</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">jmp</span><span style="color: #C9D1D9"> .</span><span style="color: #FF7B72">loop</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">odd:</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">r8</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">3</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mul</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">r8</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; 3*x</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">inc</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; x + 1</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">jmp</span><span style="color: #C9D1D9"> .</span><span style="color: #FF7B72">loop</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">done</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rcx</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">ret</span></span></code></pre><p>Then I wrote it in C++ and checked the <a href="https://godbolt.org/z/3gy0-M">godbolt output</a> to see if I could make any improvements.</p><p>Firstly I noticed that it uses a shift instead of a divide (since we always divide by 2) so the 4 instructions needed for that can be switched:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #767C9DB0; font-style: italic">; Before</span></span>
-<span class="line"><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span></span>
-<span class="line"><span style="color: #91B4D5">xor</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdx</span></span>
-<span class="line"><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rbx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">2</span></span>
-<span class="line"><span style="color: #91B4D5">div</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rbx</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">done:</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rcx</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">ret</span></span></code></pre>
+<p>Then I wrote it in C++ and checked the <a href="https://godbolt.org/z/3gy0-M">godbolt output</a> to see if I could make any improvements.</p>
+<p>Firstly I noticed that it uses a shift instead of a divide (since we always divide by 2) so the 4 instructions needed for that can be switched:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">; Before</span></span>
+<span class="line"><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span></span>
+<span class="line"><span style="color: #FF7B72">xor</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdx</span></span>
+<span class="line"><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rbx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">2</span></span>
+<span class="line"><span style="color: #FF7B72">div</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rbx</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic">; After</span></span>
-<span class="line"><span style="color: #91B4D5">shr</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span></span></code></pre><p>That then means the cmp we do after the div in the initial version can be changed to a bitwise and to determine if x is even before we do the shift, followed by a test to see if the and resulted in 0.</p><p>Finally gcc doesn’t use mul so we switch a mov and mul for two adds (presumably lower cycle count? cleaner on the registers at least).</p><p>So the end result is the following:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">global _start</span></span>
-<span class="line"><span style="color: #91B4D5">section .text</span></span>
-<span class="line"><span style="color: #ADD7FF">_start</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">156</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">call</span><span style="color: #A6ACCD"> collatz</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">60</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">syscall</span></span>
-<span class="line"><span style="color: #ADD7FF">collatz</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">xor</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rcx</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rcx</span></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">loop</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">cmp</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">je</span><span style="color: #A6ACCD"> .done</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">inc</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rcx</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">and</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">; ┐</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">test</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic">; ┴ x % 2 == 0</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">jne</span><span style="color: #A6ACCD"> .odd</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">shr</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">;   x /= 2</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">jmp</span><span style="color: #A6ACCD"> .</span><span style="color: #91B4D5">loop</span></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">odd</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic">; ┐</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">add</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic">; │</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">add</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic">; │</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">add</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">; ┴ 3*x + 1</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rdi</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rax</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">jmp</span><span style="color: #A6ACCD"> .</span><span style="color: #91B4D5">loop</span></span>
-<span class="line"><span style="color: #5DE4C7">.</span><span style="color: #ADD7FF">done</span><span style="color: #A6ACCD">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">mov</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">rax</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">rcx</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">ret</span></span></code></pre>
+<span class="line"><span style="color: #8B949E">; After</span></span>
+<span class="line"><span style="color: #FF7B72">shr</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span></span></code></pre>
+<p>That then means the cmp we do after the div in the initial version can be changed to a bitwise and to determine if x is even before we do the shift, followed by a test to see if the and resulted in 0.</p>
+<p>Finally gcc doesn’t use mul so we switch a mov and mul for two adds (presumably lower cycle count? cleaner on the registers at least).</p>
+<p>So the end result is the following:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #79C0FF">global</span><span style="color: #C9D1D9"> _start</span></span>
+<span class="line"><span style="color: #FFA657">section .text</span></span>
+<span class="line"><span style="color: #D2A8FF">_start:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">156</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> collatz</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">60</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">syscall</span></span>
+<span class="line"><span style="color: #D2A8FF">collatz:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">xor</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rcx</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rcx</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">loop:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">cmp</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">je</span><span style="color: #C9D1D9"> .done</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">inc</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rcx</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">and</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">; ┐</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">test</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E">; ┴ x % 2 == 0</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">jne</span><span style="color: #C9D1D9"> .odd</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">shr</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">;   x /= 2</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">jmp</span><span style="color: #C9D1D9"> .</span><span style="color: #FF7B72">loop</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">odd:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E">; ┐</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">add</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E">; │</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">add</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E">; │</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">add</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">    </span><span style="color: #8B949E">; ┴ 3*x + 1</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rdi</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rax</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">jmp</span><span style="color: #C9D1D9"> .</span><span style="color: #FF7B72">loop</span></span>
+<span class="line"><span style="color: #FF7B72">.</span><span style="color: #D2A8FF">done:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mov</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">rax</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">rcx</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">ret</span></span></code></pre>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

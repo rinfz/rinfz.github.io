@@ -1,77 +1,119 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - b5 version 3 (in nim)</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - b5 version 3 (in nim)</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>b5 version 3 (in nim)</h2>
     <p class="pt-0 mb-5">2021-01-14</p>
     <p>Another installment in the long line of barely laughing websites has arrived - version three! This one
 is build with a brand spanking (170 ish line) static site generator written in my chosen lang du jour: <a href="https://nim-lang.org/">nim</a>.
 I’m looking to get as much experience with nim as possible since I’m planning on undertaking a larger
-project using it shortly in the future.</p><p>Along with chat bots (the kind that run on chat protocols and in chatrooms for amusement purposes), static
+project using it shortly in the future.</p>
+<p>Along with chat bots (the kind that run on chat protocols and in chatrooms for amusement purposes), static
 site generators are one of my favourite projects to go to when checking out a new language. You have a
 very clear goal to achieve and one which can be completed in a short amount of time because the bare minimum
 scope of a static website is essentially just writing text to files. It’s one of those projects that has
-a nice and visual outcome and you get a good kick out of having a website like this to boot.</p><p>Nim comes with a batteries included stdlib akin to python (though in my opinion - better). This contrast
+a nice and visual outcome and you get a good kick out of having a website like this to boot.</p>
+<p>Nim comes with a batteries included stdlib akin to python (though in my opinion - better). This contrast
 is a welcome one coming from D (which version 2 of this website was written in). Basically it made getting
 up and running a breeze without having to look to far for 3rd party libraries (even though that’s also
 easy with nim). The stdlib is well documented as you would expect for a language of this size, but it is
-still welcome either way.</p><p>I decided to use a mild alteration to markdown for post files by adding tags marked with an <code>@</code> symbol.
+still welcome either way.</p>
+<p>I decided to use a mild alteration to markdown for post files by adding tags marked with an <code>@</code> symbol.
 These are both used for including metadata in posts such as the title and date which they were written,
 and also for including code snippets. Even though it’s simple, I still found the code for preprocessing
 the posts to be quite succinct. It runs a scan over every line in the md post files looking for these tags
 and either extracts the data or in the case of snippets, finds the relevant file and inserts it. This
 gives the benefit of having snippets being implemented as proper source files and having them be runnable
-as standalone files/scripts/apps etc. as well as keeping the code nicely decoupled from the articles themselves.</p><p>Here is the snippet for preprocessing the files:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">proc</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">parseSnippet</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">discard</span><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic"># omitted for the purposes of the post</span></span>
+as standalone files/scripts/apps etc. as well as keeping the code nicely decoupled from the articles themselves.</p>
+<p>Here is the snippet for preprocessing the files:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">proc</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">parseSnippet</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">discard</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># omitted for the purposes of the post</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #5DE4C7">proc</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">processPost</span><span style="color: #A6ACCD">(path</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">string</span><span style="color: #A6ACCD">)</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Post</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">=</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic"># posts have their own dir and the text for each is always in post.md</span></span>
-<span class="line"><span style="color: #A6ACCD">  for line in lines(joinPath(path, </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">post.md</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">))</span><span style="color: #91B4D5">:</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">var</span><span style="color: #A6ACCD"> tag, tagBody</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">string</span></span>
-<span class="line"><span style="color: #A6ACCD">    if line</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">scanf(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">@$w $*</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, tag, tagBody)</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD">  </span><span style="color: #767C9DB0; font-style: italic"># scan each line in the post looking for @&lt;tag&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">      case tag</span><span style="color: #91B4D5">:</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #5DE4C7">of</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">title</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic"># matches @title</span></span>
-<span class="line"><span style="color: #A6ACCD">          result</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">header</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">title </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> tagBody</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #5DE4C7">of</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">date</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic"># similar</span></span>
-<span class="line"><span style="color: #A6ACCD">          result</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">header</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">date </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> tagBody</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #5DE4C7">of</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">snippet</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #767C9DB0; font-style: italic"># similar</span></span>
-<span class="line"><span style="color: #A6ACCD">          result</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">body </span><span style="color: #91B4D5">&amp;=</span><span style="color: #A6ACCD"> parseSnippet(path, tagBody)</span></span>
-<span class="line"><span style="color: #A6ACCD">        else</span><span style="color: #91B4D5">:</span></span>
-<span class="line"><span style="color: #A6ACCD">          doAssert(</span><span style="color: #5DE4C7">false</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">unknown tag: </span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD"> tag)</span></span>
-<span class="line"><span style="color: #A6ACCD">    else</span><span style="color: #91B4D5">:</span></span>
-<span class="line"><span style="color: #A6ACCD">      result</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">body </span><span style="color: #91B4D5">&amp;=</span><span style="color: #A6ACCD"> line </span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&#39;</span><span style="color: #5FB3A1">\n</span><span style="color: #A6ACCD">&#39;</span></span></code></pre><p>I feel that the case statement for each type of tag skips a lot of the line noise you tend to get with
-either <code>switch</code> statements (<code>break</code>) or the monolith of <code>if</code>/<code>else</code> statements you get in python.</p><p><code>result</code> is implicitly created in procs which have a return type. This allows you to skip the “boilerplate”
+<span class="line"><span style="color: #FF7B72">proc</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">processPost</span><span style="color: #C9D1D9">(path</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Post</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># posts have their own dir and the text for each is always in post.md</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> line </span><span style="color: #FF7B72">in</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">lines</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">joinPath</span><span style="color: #C9D1D9">(path, </span><span style="color: #A5D6FF">"post.md"</span><span style="color: #C9D1D9">))</span><span style="color: #FF7B72">:</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> tag, tagBody</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> line</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">scanf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"@$w $*"</span><span style="color: #C9D1D9">, tag, tagBody)</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># scan each line in the post looking for @&#x3C;tag></span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">case</span><span style="color: #C9D1D9"> tag</span><span style="color: #FF7B72">:</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"title"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># matches @title</span></span>
+<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">header</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">title </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> tagBody</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"date"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># similar</span></span>
+<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">header</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">date </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> tagBody</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"snippet"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># similar</span></span>
+<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">body </span><span style="color: #FF7B72">&#x26;=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parseSnippet</span><span style="color: #C9D1D9">(path, tagBody)</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">else:</span></span>
+<span class="line"><span style="color: #C9D1D9">          </span><span style="color: #79C0FF">doAssert</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">"unknown tag: "</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x26;</span><span style="color: #C9D1D9"> tag)</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">else:</span></span>
+<span class="line"><span style="color: #C9D1D9">      result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">body </span><span style="color: #FF7B72">&#x26;=</span><span style="color: #C9D1D9"> line </span><span style="color: #FF7B72">&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">'</span></span></code></pre>
+<p>I feel that the case statement for each type of tag skips a lot of the line noise you tend to get with
+either <code>switch</code> statements (<code>break</code>) or the monolith of <code>if</code>/<code>else</code> statements you get in python.</p>
+<p><code>result</code> is implicitly created in procs which have a return type. This allows you to skip the “boilerplate”
 of initialising a result variable in every function - it’s not much but I quite like it. You can overwrite
-the result variable by introducing it as a <code>let</code> or <code>var</code> binding though, if you desire.</p><p>Anyway, that’s enough rambling but basically, nim is pretty nice and a bit of fresh air compared to D (which
+the result variable by introducing it as a <code>let</code> or <code>var</code> binding though, if you desire.</p>
+<p>Anyway, that’s enough rambling but basically, nim is pretty nice and a bit of fresh air compared to D (which
 I’ve been writing on and off for about 6 years now). I’ve got what seems to have the potential to be
 a nice setup with nim in another project that I’ll talk about some other time, but I’m feeling hopeful. And
 it was cool to get all of this done in an evening too!</p>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

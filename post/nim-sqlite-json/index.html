@@ -1,56 +1,94 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - Sqlite, Json and Nim</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - Sqlite, Json and Nim</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>Sqlite, Json and Nim</h2>
     <p class="pt-0 mb-5">2021-07-06</p>
-    <p>While doing a db revamp, I realised that coming up with a normalised database design might be too cumbersome for my problem-space. Turns out sqlite <a href="https://www.sqlite.org/json1.html">supports json</a> so I can distribute a poor man’s document db instead. I’m sure this will come back to bite me.</p><p>First check if json support is available with: <code>pragma compile_options;</code>. You are looking for <code>ENABLE_JSON1</code> in the output.</p><p>If it’s there, here is an example script written in nim for inserting and retrieving data.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> json</span></span>
-<span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> strutils </span><span style="color: #767C9DB0; font-style: italic"># for parseInt</span></span>
-<span class="line"><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> db_sqlite</span></span>
+    <p>While doing a db revamp, I realised that coming up with a normalised database design might be too cumbersome for my problem-space. Turns out sqlite <a href="https://www.sqlite.org/json1.html">supports json</a> so I can distribute a poor man’s document db instead. I’m sure this will come back to bite me.</p>
+<p>First check if json support is available with: <code>pragma compile_options;</code>. You are looking for <code>ENABLE_JSON1</code> in the output.</p>
+<p>If it’s there, here is an example script written in nim for inserting and retrieving data.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> json</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> strutils </span><span style="color: #8B949E"># for parseInt</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> db_sqlite</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #5DE4C7">let</span></span>
-<span class="line"><span style="color: #A6ACCD">  db </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> open(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">example.db</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;&quot;</span><span style="color: #A6ACCD">)</span></span>
-<span class="line"><span style="color: #A6ACCD">  data </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">%*</span><span style="color: #A6ACCD">{ </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">id</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">123</span><span style="color: #A6ACCD">, </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">value</span><span style="color: #A6ACCD">&quot;</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">foobar</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD"> }</span></span>
+<span class="line"><span style="color: #FF7B72">let</span></span>
+<span class="line"><span style="color: #C9D1D9">  db </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">open</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"example.db"</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">""</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">""</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">""</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"><span style="color: #C9D1D9">  data </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">%*</span><span style="color: #C9D1D9">{ </span><span style="color: #A5D6FF">"id"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">123</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">"value"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"foobar"</span><span style="color: #C9D1D9"> }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">exec(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">create table example ( data json not null )</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #C9D1D9">db</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">exec</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">sql</span><span style="color: #A5D6FF">"create table example ( data json not null )"</span><span style="color: #C9D1D9">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic"># insert the json data from above as a string ($ stringifies the JSONObject)</span></span>
-<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">exec(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">insert into example (data) values (?)</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, </span><span style="color: #91B4D5">$</span><span style="color: #A6ACCD">data)</span></span>
+<span class="line"><span style="color: #8B949E"># insert the json data from above as a string ($ stringifies the JSONObject)</span></span>
+<span class="line"><span style="color: #C9D1D9">db</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">exec</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">sql</span><span style="color: #A5D6FF">"insert into example (data) values (?)"</span><span style="color: #C9D1D9">, </span><span style="color: #FF7B72">$</span><span style="color: #C9D1D9">data)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic"># extract the id on it&#39;s own from the row</span></span>
-<span class="line"><span style="color: #5DE4C7">let</span><span style="color: #A6ACCD"> id </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">getValue(</span><span style="color: #5DE4C7">sql</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">select json_extract(data, &#39;$.id&#39;) from example limit 1</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #8B949E"># extract the id on it's own from the row</span></span>
+<span class="line"><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> id </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> db</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">getValue</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">sql</span><span style="color: #A5D6FF">"select json_extract(data, '$.id') from example limit 1"</span><span style="color: #C9D1D9">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic"># do something with the row to show it worked - should print 246</span></span>
-<span class="line"><span style="color: #5DE4C7">echo</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">2</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD"> parseInt(id)</span></span>
+<span class="line"><span style="color: #8B949E"># do something with the row to show it worked - should print 246</span></span>
+<span class="line"><span style="color: #FF7B72">echo</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parseInt</span><span style="color: #C9D1D9">(id)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">db</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">close()</span></span></code></pre><p>Sqlite seems to ship with a decent set of functions for working with json data. If those don’t cover your needs, it’s just stored as text. You can extract it and work with it just like any other json data your application might use.</p>
+<span class="line"><span style="color: #C9D1D9">db</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">close</span><span style="color: #C9D1D9">()</span></span></code></pre>
+<p>Sqlite seems to ship with a decent set of functions for working with json data. If those don’t cover your needs, it’s just stored as text. You can extract it and work with it just like any other json data your application might use.</p>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,68 +1,103 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - Count set bits in a vector with transform_reduce</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - Count set bits in a vector with std::transform_reduce</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
-    <h2>Count set bits in a vector with std::transform_reduce</h2>
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
+    <h2>Count set bits in a vector with transform_reduce</h2>
     <p class="pt-0 mb-5">2019-10-23</p>
-    <pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">cstdio</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">vector</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">random</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">bitset</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">numeric</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">functional</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">execution</span><span style="color: #A6ACCD">&gt;</span></span>
-<span class="line"><span style="color: #A6ACCD">#include </span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">chrono</span><span style="color: #A6ACCD">&gt;</span></span>
+    <pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;cstdio></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;vector></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;random></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;bitset></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;numeric></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;functional></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;execution></span></span>
+<span class="line"><span style="color: #FF7B72">#include</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#x3C;chrono></span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #91B4D5">int</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">main</span><span style="color: #A6ACCD">() {</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">int</span><span style="color: #A6ACCD"> N </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">5</span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">000</span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">000</span><span style="color: #A6ACCD">;</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::random_device rng;</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::mt19937 engine{</span><span style="color: #ADD7FF">rng</span><span style="color: #A6ACCD">()};</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::uniform_int_distribution</span><span style="color: #91B4D5">&lt;uint8_t&gt;</span><span style="color: #A6ACCD"> dist{</span><span style="color: #5DE4C7">0</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">1</span><span style="color: #A6ACCD">};</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">auto</span><span style="color: #A6ACCD"> gen </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> [</span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD">] { return </span><span style="color: #ADD7FF">dist</span><span style="color: #A6ACCD">(engine); };</span></span>
+<span class="line"><span style="color: #FF7B72">int</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">main</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">int</span><span style="color: #C9D1D9"> N </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">5'000'000</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::random_device rng;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::mt19937 engine{</span><span style="color: #D2A8FF">rng</span><span style="color: #C9D1D9">()};</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::uniform_int_distribution</span><span style="color: #FF7B72">&#x3C;uint8_t></span><span style="color: #C9D1D9"> dist{</span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">1</span><span style="color: #C9D1D9">};</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">auto</span><span style="color: #C9D1D9"> gen </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> [</span><span style="color: #FF7B72">&#x26;</span><span style="color: #C9D1D9">] { </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">dist</span><span style="color: #C9D1D9">(engine); };</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::vector</span><span style="color: #91B4D5">&lt;uint8_t&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">data</span><span style="color: #A6ACCD">(N);</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #ADD7FF">generate</span><span style="color: #A6ACCD">(</span><span style="color: #E4F0FB">data</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">begin</span><span style="color: #A6ACCD">(), </span><span style="color: #E4F0FB">data</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">end</span><span style="color: #A6ACCD">(), gen);</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::vector</span><span style="color: #FF7B72">&#x3C;uint8_t></span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">data</span><span style="color: #C9D1D9">(N);</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #D2A8FF">generate</span><span style="color: #C9D1D9">(data.</span><span style="color: #D2A8FF">begin</span><span style="color: #C9D1D9">(), data.</span><span style="color: #D2A8FF">end</span><span style="color: #C9D1D9">(), gen);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">auto</span><span style="color: #A6ACCD"> t1 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">chrono</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">high_resolution_clock</span><span style="color: #A6ACCD">::</span><span style="color: #ADD7FF">now</span><span style="color: #A6ACCD">();</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">uint64_t</span><span style="color: #A6ACCD"> result </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #ADD7FF">transform_reduce</span><span style="color: #A6ACCD">(</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">execution</span><span style="color: #A6ACCD">::par_unseq,</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #E4F0FB">data</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">cbegin</span><span style="color: #A6ACCD">(), </span><span style="color: #E4F0FB">data</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">cend</span><span style="color: #A6ACCD">(),</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #5DE4C7">0</span><span style="color: #A6ACCD">,</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::plus</span><span style="color: #91B4D5">&lt;&gt;</span><span style="color: #A6ACCD">{},</span></span>
-<span class="line"><span style="color: #A6ACCD">        [] (</span><span style="color: #5DE4C7">const</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">auto</span><span style="color: #5DE4C7">&amp;</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">n</span><span style="color: #A6ACCD">) { return </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #ADD7FF">bitset</span><span style="color: #A6ACCD">&lt;</span><span style="color: #5DE4C7">8</span><span style="color: #A6ACCD">&gt;(n).</span><span style="color: #ADD7FF">count</span><span style="color: #A6ACCD">(); }</span></span>
-<span class="line"><span style="color: #A6ACCD">    );</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">auto</span><span style="color: #A6ACCD"> t2 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">chrono</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">high_resolution_clock</span><span style="color: #A6ACCD">::</span><span style="color: #ADD7FF">now</span><span style="color: #A6ACCD">();</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::</span><span style="color: #91B4D5">chrono</span><span style="color: #A6ACCD">::duration</span><span style="color: #91B4D5">&lt;double</span><span style="color: #A6ACCD">, </span><span style="color: #91B4D5">std</span><span style="color: #A6ACCD">::milli</span><span style="color: #91B4D5">&gt;</span><span style="color: #A6ACCD"> ms </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> t2 </span><span style="color: #91B4D5">-</span><span style="color: #A6ACCD"> t1;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">auto</span><span style="color: #C9D1D9"> t1 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">chrono</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">high_resolution_clock</span><span style="color: #C9D1D9">::</span><span style="color: #D2A8FF">now</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">uint64_t</span><span style="color: #C9D1D9"> result </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #D2A8FF">transform_reduce</span><span style="color: #C9D1D9">(</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">execution</span><span style="color: #C9D1D9">::par_unseq,</span></span>
+<span class="line"><span style="color: #C9D1D9">        data.</span><span style="color: #D2A8FF">cbegin</span><span style="color: #C9D1D9">(), data.</span><span style="color: #D2A8FF">cend</span><span style="color: #C9D1D9">(),</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::plus</span><span style="color: #FF7B72">&#x3C;></span><span style="color: #C9D1D9">{},</span></span>
+<span class="line"><span style="color: #C9D1D9">        [] (</span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">auto&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">n</span><span style="color: #C9D1D9">) { </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #D2A8FF">bitset</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #79C0FF">8</span><span style="color: #C9D1D9">>(n).</span><span style="color: #D2A8FF">count</span><span style="color: #C9D1D9">(); }</span></span>
+<span class="line"><span style="color: #C9D1D9">    );</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">auto</span><span style="color: #C9D1D9"> t2 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">chrono</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">high_resolution_clock</span><span style="color: #C9D1D9">::</span><span style="color: #D2A8FF">now</span><span style="color: #C9D1D9">();</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::</span><span style="color: #FFA657">chrono</span><span style="color: #C9D1D9">::duration</span><span style="color: #FF7B72">&#x3C;double</span><span style="color: #C9D1D9">, </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">::milli</span><span style="color: #FF7B72">></span><span style="color: #C9D1D9"> ms </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> t2 </span><span style="color: #FF7B72">-</span><span style="color: #C9D1D9"> t1;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #ADD7FF">printf</span><span style="color: #A6ACCD">(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #E4F0FB">%ld</span><span style="color: #5DE4C7"> in </span><span style="color: #E4F0FB">%f</span><span style="color: #5DE4C7"> ms</span><span style="color: #5FB3A1">\n</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, result, </span><span style="color: #E4F0FB">ms</span><span style="color: #A6ACCD">.</span><span style="color: #ADD7FF">count</span><span style="color: #A6ACCD">());</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Compile with: <code>g++-9 -std=c++17 a.cpp -ltbb</code></p>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">printf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"</span><span style="color: #79C0FF">%ld</span><span style="color: #A5D6FF"> in </span><span style="color: #79C0FF">%f</span><span style="color: #A5D6FF"> ms</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">"</span><span style="color: #C9D1D9">, result, ms.</span><span style="color: #D2A8FF">count</span><span style="color: #C9D1D9">());</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>Compile with: <code>g++-9 -std=c++17 a.cpp -ltbb</code></p>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

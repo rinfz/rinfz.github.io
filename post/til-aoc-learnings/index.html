@@ -1,37 +1,77 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - (TIL) AoC C# learnings</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - (TIL) AoC C# learnings</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>(TIL) AoC C# learnings</h2>
     <p class="pt-0 mb-5">2022-12-04</p>
-    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p><p><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></p><p><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</p><p>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</p><p>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</p><p>Use <code>Enumerable.Repeat(0, n).Select(_ =&gt; ...)</code> to initialise n lots of a similar object, like <code>List&lt;char&gt;</code> or something.</p><p>Use <code>x.Distinct()</code> to find unique elements instead of constructing a <code>HashSet</code>.</p>
+    <p>Here are some things I’ve learnt about C# while doing Advent of Code.</p>
+<p><code>.Sum()</code> takes a function which is better than doing <code>.Select().Sum()</code></p>
+<p><code>.Intersect()</code> doesn’t require <code>HashSet</code>, it even works on strings.</p>
+<p>C# supports more than simple indexing: <code>xs[^1]</code> (last elem), <code>xs[2..4]</code> (range)</p>
+<p>Exceptions have methods for throwing in common situations related to their name, e.g. <a href="https://learn.microsoft.com/en-us/dotnet/api/system.argumentexception.throwifnullorempty?view=net-7.0">ArgumentException.ThrowIfNullOrEmpty</a>.</p>
+<p>Use <code>Enumerable.Repeat(0, n).Select(_ => ...)</code> to initialise n lots of a similar object, like <code>List&#x3C;char></code> or something.</p>
+<p>Use <code>x.Distinct()</code> to find unique elements instead of constructing a <code>HashSet</code>.</p>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

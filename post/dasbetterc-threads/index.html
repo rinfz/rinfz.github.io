@@ -1,80 +1,129 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - DasBetterC and pthread</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - DasBetterC and pthread</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>DasBetterC and pthread</h2>
     <p class="pt-0 mb-5">2019-10-23</p>
-    <p>Recently I was poking around writing some plain C code but stopped pretty soon as I realised my options for writing a generic std::vector style container were pretty limited to copy and paste or rely on <code>void*</code> (not a C person so there are probably more options).</p><p>That’s when I remembered about D’s <a href="https://dlang.org/spec/betterc.html">betterC mode</a>. The long and short of it is D without a runtime so missing out on some nice things like <a href="https://dlang.org/phobos/object.html">classes</a> and the introspection that comes with that, amongst some other things.</p><p>On the other hand you essentially get 90% of D and all the good modern features that come with it, like unit tests, modules, templates and metaprogramming, RAII, slices, array bounds checks, destructors etc etc. In this respect it is more of a C++-lite than D is usually. But compact binaries and no GC are sometimes an appealing prospect.</p><p>Anyway… I have a project in D which is heavy on the threading side of things and the documentation for betterC states <code>core.thread</code> is not available. So I went looking for examples of <code>&lt;pthread.h&gt;</code> and came across: <a href="http://timmurphy.org/2010/05/04/pthreads-in-c-a-minimal-working-example/">pthreads in C - a minimal working example</a>. From there it was trivial to get an MVP in D (I doubt I will take this train of thought too far as I dread the idea of making it cross compatible).</p><p>Start with some declarations from <code>&lt;pthread.h&gt;</code> and <code>&lt;pthreadtypes.h&gt;</code>:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #767C9DB0; font-style: italic">// D provides printf, import here for use later</span></span>
-<span class="line"><span style="color: #767C9DB0; font-style: italic">// (and note that we can&#39;t use writeln like we normally would in D)</span></span>
-<span class="line"><span style="color: #A6ACCD">import </span><span style="color: #E4F0FB">core.stdc.stdio</span><span style="color: #A6ACCD"> : </span><span style="color: #E4F0FB">printf</span><span style="color: #5DE4C7">;</span></span>
+    <p>Recently I was poking around writing some plain C code but stopped pretty soon as I realised my options for writing a generic std::vector style container were pretty limited to copy and paste or rely on <code>void*</code> (not a C person so there are probably more options).</p>
+<p>That’s when I remembered about D’s <a href="https://dlang.org/spec/betterc.html">betterC mode</a>. The long and short of it is D without a runtime so missing out on some nice things like <a href="https://dlang.org/phobos/object.html">classes</a> and the introspection that comes with that, amongst some other things.</p>
+<p>On the other hand you essentially get 90% of D and all the good modern features that come with it, like unit tests, modules, templates and metaprogramming, RAII, slices, array bounds checks, destructors etc etc. In this respect it is more of a C++-lite than D is usually. But compact binaries and no GC are sometimes an appealing prospect.</p>
+<p>Anyway… I have a project in D which is heavy on the threading side of things and the documentation for betterC states <code>core.thread</code> is not available. So I went looking for examples of <code>&#x3C;pthread.h></code> and came across: <a href="http://timmurphy.org/2010/05/04/pthreads-in-c-a-minimal-working-example/">pthreads in C - a minimal working example</a>. From there it was trivial to get an MVP in D (I doubt I will take this train of thought too far as I dread the idea of making it cross compatible).</p>
+<p>Start with some declarations from <code>&#x3C;pthread.h></code> and <code>&#x3C;pthreadtypes.h></code>:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">// D provides printf, import here for use later</span></span>
+<span class="line"><span style="color: #8B949E">// (and note that we can't use writeln like we normally would in D)</span></span>
+<span class="line"><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">core.stdc.stdio</span><span style="color: #C9D1D9"> : </span><span style="color: #FFA657">printf</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">extern(C) {</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">alias</span><span style="color: #A6ACCD"> pthread_t </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">ulong</span><span style="color: #A6ACCD">;</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #767C9DB0; font-style: italic">// Laziness as it&#39;s actually a union but we don&#39;t care here.</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #5DE4C7">alias</span><span style="color: #A6ACCD"> pthread_attr_t </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">void</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #FF7B72">extern</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">C</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">alias</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">pthread_t</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">ulong</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// Laziness as it's actually a union but we don't care here.</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">alias</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">pthread_attr_t</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">void</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">int</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">pthread_create</span><span style="color: #A6ACCD">(pthread_t </span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD">newthread</span><span style="color: #91B4D5">,</span></span>
-<span class="line"><span style="color: #A6ACCD">                       </span><span style="color: #5DE4C7">const</span><span style="color: #A6ACCD"> pthread_attr_t</span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD"> attr</span><span style="color: #91B4D5">,</span></span>
-<span class="line"><span style="color: #A6ACCD">                       </span><span style="color: #91B4D5">void*</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">function</span><span style="color: #A6ACCD">(</span><span style="color: #91B4D5">void*</span><span style="color: #A6ACCD">) start_routine</span><span style="color: #91B4D5">,</span></span>
-<span class="line"><span style="color: #A6ACCD">                       </span><span style="color: #91B4D5">void*</span><span style="color: #A6ACCD"> arg);</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">int</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">pthread_create</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">pthread_t</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*</span><span style="color: #FFA657">newthread</span><span style="color: #FF7B72">,</span></span>
+<span class="line"><span style="color: #C9D1D9">                       </span><span style="color: #FF7B72">const</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">pthread_attr_t</span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">attr</span><span style="color: #FF7B72">,</span></span>
+<span class="line"><span style="color: #C9D1D9">                       </span><span style="color: #FF7B72">void*</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">function</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">void*</span><span style="color: #C9D1D9">) </span><span style="color: #FFA657">start_routine</span><span style="color: #FF7B72">,</span></span>
+<span class="line"><span style="color: #C9D1D9">                       </span><span style="color: #FF7B72">void*</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">arg</span><span style="color: #C9D1D9">);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">int</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">pthread_join</span><span style="color: #A6ACCD">(pthread_t t</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">void**</span><span style="color: #A6ACCD"> t_return);</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Note that we use D’s syntax for declaring a function pointer <code>T function(U) name</code> rather than C’s style.</p><p>Then create a function which we will call from the thread:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">extern(C) </span><span style="color: #91B4D5">void*</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">inc_x</span><span style="color: #A6ACCD">(</span><span style="color: #91B4D5">void*</span><span style="color: #A6ACCD"> data) {</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">int*</span><span style="color: #A6ACCD"> x_ptr </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">cast(int</span><span style="color: #A6ACCD">*</span><span style="color: #91B4D5">)</span><span style="color: #A6ACCD"> data;</span></span>
-<span class="line"><span style="color: #A6ACCD">    while (</span><span style="color: #91B4D5">++</span><span style="color: #A6ACCD">(</span><span style="color: #91B4D5">*</span><span style="color: #A6ACCD">x_ptr) </span><span style="color: #91B4D5">&lt;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">100</span><span style="color: #A6ACCD">) {}</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #ADD7FF">printf</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">&quot;Done on thread\n&quot;</span><span style="color: #A6ACCD">);</span></span>
-<span class="line"><span style="color: #A6ACCD">    return </span><span style="color: #D0679D">null</span><span style="color: #A6ACCD">;</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Nothing special here really. Then finally create the main function:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">extern (C) </span><span style="color: #91B4D5">void</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">main</span><span style="color: #A6ACCD">() {</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">int</span><span style="color: #A6ACCD"> x </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">0</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> y </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">0</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">int</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">pthread_join</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">pthread_t</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">t</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">void**</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">t_return</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>Note that we use D’s syntax for declaring a function pointer <code>T function(U) name</code> rather than C’s style.</p>
+<p>Then create a function which we will call from the thread:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">extern</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">C</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">void*</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">inc_x</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">void*</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">data</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">int*</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">x_ptr</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">cast(int</span><span style="color: #C9D1D9">*</span><span style="color: #FF7B72">)</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">data</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">while</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">++</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">*</span><span style="color: #FFA657">x_ptr</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">&#x3C;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">100</span><span style="color: #C9D1D9">) {}</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">printf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"Done on thread</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">"</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">null</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>Nothing special here really. Then finally create the main function:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">extern</span><span style="color: #C9D1D9"> (</span><span style="color: #FFA657">C</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">void</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">main</span><span style="color: #C9D1D9">() {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">int</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">x</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">0</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">y</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">0</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    pthread_t inc_x_thread;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FFA657">pthread_t</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">inc_x_thread</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    if (</span><span style="color: #ADD7FF">pthread_create</span><span style="color: #A6ACCD">(</span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD">inc_x_thread</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #D0679D">null</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD">inc_x</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">&amp;</span><span style="color: #A6ACCD">x)) {</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #ADD7FF">printf</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">&quot;Error creating thread\n&quot;</span><span style="color: #A6ACCD">);</span></span>
-<span class="line"><span style="color: #A6ACCD">        return;</span></span>
-<span class="line"><span style="color: #A6ACCD">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">pthread_create</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">&#x26;</span><span style="color: #FFA657">inc_x_thread</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">null</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x26;</span><span style="color: #FFA657">inc_x</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x26;</span><span style="color: #FFA657">x</span><span style="color: #C9D1D9">)) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #D2A8FF">printf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"Error creating thread</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">"</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    while (</span><span style="color: #91B4D5">++</span><span style="color: #A6ACCD">y </span><span style="color: #91B4D5">&lt;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">100</span><span style="color: #A6ACCD">) {}</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">while</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">++</span><span style="color: #FFA657">y</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x3C;</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">100</span><span style="color: #C9D1D9">) {}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    if (</span><span style="color: #ADD7FF">pthread_join</span><span style="color: #A6ACCD">(inc_x_thread</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> </span><span style="color: #D0679D">null</span><span style="color: #A6ACCD">)) {</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #ADD7FF">printf</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">&quot;Error joining thread\n&quot;</span><span style="color: #A6ACCD">);</span></span>
-<span class="line"><span style="color: #A6ACCD">        return;</span></span>
-<span class="line"><span style="color: #A6ACCD">    }</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">pthread_join</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">inc_x_thread</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">null</span><span style="color: #C9D1D9">)) {</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #D2A8FF">printf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"Error joining thread</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">"</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9">;</span></span>
+<span class="line"><span style="color: #C9D1D9">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #ADD7FF">printf</span><span style="color: #A6ACCD">(</span><span style="color: #5DE4C7">&quot;x=%d, y=%d\n&quot;</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> x</span><span style="color: #91B4D5">,</span><span style="color: #A6ACCD"> y);</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><ul>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #D2A8FF">printf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"x=%d, y=%d</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">"</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">x</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">y</span><span style="color: #C9D1D9">);</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<ul>
 <li>We have to say our main is <code>extern(C)</code> for DasBetterC mode.</li>
 <li>pthread functions are called as usual.</li>
 <li>This is almost identical to the C version - nice.</li>
-</ul><p>Compile it with the following command:</p><p><code>dmd -betterC -L=-lpthread example.d</code></p><p>Running should print the following:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #a6accd">Done on thread</span></span>
-<span class="line"><span style="color: #a6accd">x=100, y=100</span></span></code></pre>
+</ul>
+<p>Compile it with the following command:</p>
+<p><code>dmd -betterC -L=-lpthread example.d</code></p>
+<p>Running should print the following:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">Done on thread</span></span>
+<span class="line"><span style="color: #c9d1d9">x=100, y=100</span></span></code></pre>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,90 +1,141 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - More Sqlite and Json</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - More Sqlite and Json</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>More Sqlite and Json</h2>
     <p class="pt-0 mb-5">2021-07-12</p>
-    <p>Ok just writing this so that I remember how to do it - a couple of examples of working with json and sqlite.</p><p>Given an example schema:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">create</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">table</span><span style="color: #A6ACCD"> players ( </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">text</span><span style="color: #A6ACCD">, batting </span><span style="color: #5DE4C7">json</span><span style="color: #A6ACCD"> );</span></span></code></pre><p>And batting data looks something like this (keyed game format with data objects per format):</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">{</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #A6ACCD">&quot;</span><span style="color: #E4F0FB">T20I</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: {</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #A6ACCD">&quot;</span><span style="color: #ADD7FF">runs</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: </span><span style="color: #5DE4C7">1000</span><span style="color: #A6ACCD">,</span></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #A6ACCD">&quot;</span><span style="color: #ADD7FF">average</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">: </span><span style="color: #5DE4C7">50</span></span>
-<span class="line"><span style="color: #A6ACCD">  }</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>We can:</p><h3 id="extract-a-specific-stat-per-format">Extract a specific stat per format</h3><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select</span><span style="color: #A6ACCD"> json_extract(batting, </span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">$.T20I.average</span><span style="color: #A6ACCD">&#39;</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players;</span></span></code></pre><h3 id="alias-and-filter">Alias and filter</h3><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD">, cast(json_extract(batting, </span><span style="color: #A6ACCD">&#39;</span><span style="color: #5DE4C7">$.T20I.average</span><span style="color: #A6ACCD">&#39;</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">decimal</span><span style="color: #A6ACCD">) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> average</span></span>
-<span class="line"><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players</span></span>
-<span class="line"><span style="color: #5DE4C7">where</span><span style="color: #A6ACCD"> average </span><span style="color: #91B4D5">&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">50</span></span>
-<span class="line"><span style="color: #5DE4C7">order by</span><span style="color: #A6ACCD"> average </span><span style="color: #5DE4C7">desc</span></span></code></pre><table>
-<thead>
-<tr>
-<th>name</th>
-<th>average</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>V. Kohli</td>
-<td>52.65</td>
-</tr>
-<tr>
-<td>M. Hayden</td>
-<td>51.33</td>
-</tr>
-<tr>
-<td>etc</td>
-<td>…</td>
-</tr>
-</tbody>
-</table><h3 id="join-based-on-json-data">Join based on json data</h3><p>Note: an extra table is required to demonstrate the join:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">create</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">table</span><span style="color: #A6ACCD"> teams ( id </span><span style="color: #5DE4C7">integer</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">name</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">text</span><span style="color: #A6ACCD"> );</span></span></code></pre><p>And players requires an extra column <code>teams json</code> which is just a json array of integers representing ids in the teams table. Obviously this has the negative of no enforced constraint so data integrity takes a hit, but it might be good enough - not sure. I was just feeling lazy and couldn’t be bothered to introduce a many-to-many table.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">select distinct</span><span style="color: #A6ACCD"> teams.name, players.name</span></span>
-<span class="line"><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> players, json_each(players.teams) </span><span style="color: #5DE4C7">as</span><span style="color: #A6ACCD"> player_teams</span></span>
-<span class="line"><span style="color: #5DE4C7">join</span><span style="color: #A6ACCD"> teams </span><span style="color: #5DE4C7">on</span><span style="color: #A6ACCD"> teams.id </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> player_teams.value</span></span>
-<span class="line"><span style="color: #5DE4C7">where</span><span style="color: #A6ACCD"> player_teams.value </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">2</span></span></code></pre><p>Note: json_each can be aliased just like any other table.</p><table>
-<thead>
-<tr>
-<th>teams.name</th>
-<th>players.name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Australia</td>
-<td>Kane Richardson</td>
-</tr>
-<tr>
-<td>Australia</td>
-<td>Glenn Maxwell</td>
-</tr>
-<tr>
-<td>etc</td>
-<td>…</td>
-</tr>
-</tbody>
-</table>
-  </article>
-  </div>
+    <p>Ok just writing this so that I remember how to do it - a couple of examples of working with json and sqlite.</p>
+<p>Given an example schema:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">create</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">table</span><span style="color: #C9D1D9"> players ( </span><span style="color: #FF7B72">name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">text</span><span style="color: #C9D1D9">, batting </span><span style="color: #FF7B72">json</span><span style="color: #C9D1D9"> );</span></span></code></pre>
+<p>And batting data looks something like this (keyed game format with data objects per format):</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">{</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #7EE787">"T20I"</span><span style="color: #C9D1D9">: {</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #7EE787">"runs"</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">1000</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #7EE787">"average"</span><span style="color: #C9D1D9">: </span><span style="color: #79C0FF">50</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>We can:</p>
+<h3 id="extract-a-specific-stat-per-format">Extract a specific stat per format</h3>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">select</span><span style="color: #C9D1D9"> json_extract(batting, </span><span style="color: #A5D6FF">'$.T20I.average'</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> players;</span></span></code></pre>
+<h3 id="alias-and-filter">Alias and filter</h3>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">select</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">name</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">cast</span><span style="color: #C9D1D9">(json_extract(batting, </span><span style="color: #A5D6FF">'$.T20I.average'</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">decimal</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> average</span></span>
+<span class="line"><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> players</span></span>
+<span class="line"><span style="color: #FF7B72">where</span><span style="color: #C9D1D9"> average </span><span style="color: #FF7B72">></span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">50</span></span>
+<span class="line"><span style="color: #FF7B72">order by</span><span style="color: #C9D1D9"> average </span><span style="color: #FF7B72">desc</span></span></code></pre>
 
-</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>name</th><th>average</th></tr></thead><tbody><tr><td>V. Kohli</td><td>52.65</td></tr><tr><td>M. Hayden</td><td>51.33</td></tr><tr><td>etc</td><td>…</td></tr></tbody></table>
+<h3 id="join-based-on-json-data">Join based on json data</h3>
+<p>Note: an extra table is required to demonstrate the join:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">create</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">table</span><span style="color: #C9D1D9"> teams ( id </span><span style="color: #FF7B72">integer</span><span style="color: #C9D1D9">, </span><span style="color: #FF7B72">name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">text</span><span style="color: #C9D1D9"> );</span></span></code></pre>
+<p>And players requires an extra column <code>teams json</code> which is just a json array of integers representing ids in the teams table. Obviously this has the negative of no enforced constraint so data integrity takes a hit, but it might be good enough - not sure. I was just feeling lazy and couldn’t be bothered to introduce a many-to-many table.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">select distinct</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">teams</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">name</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">players</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">name</span></span>
+<span class="line"><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> players, json_each(</span><span style="color: #79C0FF">players</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">teams</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">as</span><span style="color: #C9D1D9"> player_teams</span></span>
+<span class="line"><span style="color: #FF7B72">join</span><span style="color: #C9D1D9"> teams </span><span style="color: #FF7B72">on</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">teams</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">id</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">player_teams</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">value</span></span>
+<span class="line"><span style="color: #FF7B72">where</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">player_teams</span><span style="color: #C9D1D9">.</span><span style="color: #79C0FF">value</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">2</span></span></code></pre>
+<p>Note: json_each can be aliased just like any other table.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>teams.name</th><th>players.name</th></tr></thead><tbody><tr><td>Australia</td><td>Kane Richardson</td></tr><tr><td>Australia</td><td>Glenn Maxwell</td></tr><tr><td>etc</td><td>…</td></tr></tbody></table>
+  </article>
+                </div>
+            </main>
+        </div>
+
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

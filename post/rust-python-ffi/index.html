@@ -1,86 +1,136 @@
 <!DOCTYPE html>
-<!DOCTYPE html><html lang="en" class="astro-JT6RN32W">
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - Rust struct FFI and Python</title>
+    <link rel="stylesheet" href="/_astro/birds.b6a9749a.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.f018d9b5.css" /></head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Personal website of Matt R: programming, gamedev, music, tech and bird watching">
-  <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-  <title>Barely Laughing - Rust struct FFI and Python</title>
-<link rel="stylesheet" href="/assets/efa28e7f.18fb6bcd.css" />
-<link rel="stylesheet" href="/assets/ef5c3806.f414ab60.css" /></head>
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4">A Delightful Abstraction</h1>
+            </header>
 
-<body class="astro-JT6RN32W">
-  <div class="min-h-screen bg-gray-100 w-full sm:w-2/3 xl:w-3/5 max-w-screen-md mx-auto px-5 pb-0 sm:pb-5 astro-JT6RN32W">
-    <header class="text-center py-10 border-b border-emerald-500 mb-2.5 text-sm font-semibold astro-JT6RN32W">
-      <h1 class="astro-JT6RN32W">A Delightful Abstraction</h1>
-    </header>
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full md:w-1/5 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://readwarbler.com/" target="_blank">Reader</a>
+                        </li>
+                    </ul>
 
-    <nav class="flex flex-col md:flex-row items-center border-b border-emerald-500 mb-5 pb-2.5 astro-JT6RN32W">
-      <ul class="flex gap-5 flex-1 items-center astro-JT6RN32W">
-        <li class="astro-JT6RN32W"><a href="/" class="astro-JT6RN32W">Home</a></li>
-        <li class="astro-JT6RN32W"><a href="/posts" class="astro-JT6RN32W">Posts</a></li>
-        <li class="astro-JT6RN32W"><a href="/birds" class="astro-JT6RN32W">Birds</a></li>
-        <li class="astro-JT6RN32W"><a href="/photos" class="astro-JT6RN32W">Photography</a></li>
-        <li class="astro-JT6RN32W"><a href="https://readwarbler.com/" target="_blank" class="astro-JT6RN32W">Reader</a></li>
-      </ul>
-      <p class="text-xs mt-3 md:mt-0"><a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a></p>
-    </nav>
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
 
-    <article class="text-justify">
+                <div class="flex-1 astro-SCKKX6R4">
+                    <article class="text-justify">
     <h2>Rust struct FFI and Python</h2>
     <p class="pt-0 mb-5">2019-10-17</p>
-    <p>Given a basic struct:</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">pub</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">struct</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #E4F0FB">x</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">i32</span><span style="color: #A6ACCD">,</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #E4F0FB">y</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">i32</span><span style="color: #A6ACCD">,</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>If you want to use FFI and call this from, say, Python, you can’t take Point parameters in functions by reference because it will segfault.</p><p>Therefore you have to make use of <code>*const</code> and <code>*mut</code> for read-only and in/out parameters respectively.</p><p>To make the struct eligible for FFI, we whack a <code>#[repr(C)]</code> on it. For the purposes of this example, I will just overload the + operator (<a href="https://doc.rust-lang.org/std/ops/trait.Add.html">ripped straight from the docs</a>).</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">impl</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">std::ops::</span><span style="color: #A6ACCDC0">Add</span><span style="color: #A6ACCD"> for </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #91B4D5">type</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Output</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF; font-style: italic">Self</span><span style="color: #A6ACCD">;</span></span>
+    <p>Given a basic struct:</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">pub</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">struct</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  x</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">i32</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">  y</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">i32</span><span style="color: #C9D1D9">,</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>If you want to use FFI and call this from, say, Python, you can’t take Point parameters in functions by reference because it will segfault.</p>
+<p>Therefore you have to make use of <code>*const</code> and <code>*mut</code> for read-only and in/out parameters respectively.</p>
+<p>To make the struct eligible for FFI, we whack a <code>#[repr(C)]</code> on it. For the purposes of this example, I will just overload the + operator (<a href="https://doc.rust-lang.org/std/ops/trait.Add.html">ripped straight from the docs</a>).</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">impl</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #FF7B72">::</span><span style="color: #FFA657">ops</span><span style="color: #FF7B72">::</span><span style="color: #FFA657">Add</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">type</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Output</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Self</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #5DE4C7">fn</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">add</span><span style="color: #A6ACCD">(</span><span style="color: #ADD7FF; font-style: italic">self</span><span style="color: #A6ACCD">, </span><span style="color: #E4F0FB">other</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF; font-style: italic">Self</span><span style="color: #A6ACCD">) </span><span style="color: #91B4D5">-&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF; font-style: italic">Self</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #ADD7FF; font-style: italic">Self</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">          </span><span style="color: #E4F0FB">x</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF; font-style: italic">self</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">x </span><span style="color: #91B4D5">+</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">other</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">x,</span></span>
-<span class="line"><span style="color: #A6ACCD">          </span><span style="color: #E4F0FB">y</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF; font-style: italic">self</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">y </span><span style="color: #91B4D5">+</span><span style="color: #A6ACCD"> </span><span style="color: #E4F0FB">other</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">y,</span></span>
-<span class="line"><span style="color: #A6ACCD">      }</span></span>
-<span class="line"><span style="color: #A6ACCD">  }</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>Note: this also means we stick <code>#[derive(Clone, Copy)]</code> on our Point struct.</p><p>I have been separating my FFI interface from the normal rust code as I am working on a dual-purpose codebase where we don’t need to export everything so it’s nice to keep the public API separate. So just put all the FFI functions in a <code>mod ffi</code> similar to how you would separate tests while keeping them in the same file.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #91B4D5">mod</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">ffi</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #5DE4C7">use</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7; font-style: italic">super</span><span style="color: #91B4D5">::</span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD">;</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">fn</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">add</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">self</span><span style="color: #C9D1D9">, other</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Self</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">-></span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Self</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #79C0FF">Self</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">          x</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">self</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">x </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> other</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">x,</span></span>
+<span class="line"><span style="color: #C9D1D9">          y</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">self</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">y </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> other</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">y,</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>Note: this also means we stick <code>#[derive(Clone, Copy)]</code> on our Point struct.</p>
+<p>I have been separating my FFI interface from the normal rust code as I am working on a dual-purpose codebase where we don’t need to export everything so it’s nice to keep the public API separate. So just put all the FFI functions in a <code>mod ffi</code> similar to how you would separate tests while keeping them in the same file.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">mod</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">ffi</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">use</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">super</span><span style="color: #FF7B72">::</span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  #[no_mangle]</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #5DE4C7">pub</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">extern</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">C</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">fn</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">add_points</span><span style="color: #A6ACCD">(</span><span style="color: #E4F0FB">a</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #5DE4C7">const</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD">, </span><span style="color: #E4F0FB">b</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #5DE4C7">const</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD">) </span><span style="color: #91B4D5">-&gt;</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #5DE4C7">unsafe</span><span style="color: #A6ACCD"> { </span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">a</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">+</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">b</span><span style="color: #A6ACCD"> }</span></span>
-<span class="line"><span style="color: #A6ACCD">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">  #[no_mangle]</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">pub</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">extern</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"C"</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">fn</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">add_points</span><span style="color: #C9D1D9">(a</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*const</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">, b</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*const</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">-></span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">unsafe</span><span style="color: #C9D1D9"> { </span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">a </span><span style="color: #FF7B72">+</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">b }</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">  #[no_mangle]</span></span>
-<span class="line"><span style="color: #A6ACCD">  </span><span style="color: #5DE4C7">pub</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">extern</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">C</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">fn</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">add_points_inplace</span><span style="color: #A6ACCD">(</span><span style="color: #E4F0FB">a</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #5DE4C7">mut</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD">, </span><span style="color: #E4F0FB">b</span><span style="color: #91B4D5">:</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span><span style="color: #5DE4C7">const</span><span style="color: #A6ACCD"> </span><span style="color: #A6ACCDC0">Point</span><span style="color: #A6ACCD">) {</span></span>
-<span class="line"><span style="color: #A6ACCD">      </span><span style="color: #5DE4C7">unsafe</span><span style="color: #A6ACCD"> {</span></span>
-<span class="line"><span style="color: #A6ACCD">          (</span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">a</span><span style="color: #A6ACCD">)</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">x </span><span style="color: #91B4D5">+=</span><span style="color: #A6ACCD"> (</span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">b</span><span style="color: #A6ACCD">)</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">x;</span></span>
-<span class="line"><span style="color: #A6ACCD">          (</span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">a</span><span style="color: #A6ACCD">)</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">y </span><span style="color: #91B4D5">+=</span><span style="color: #A6ACCD"> (</span><span style="color: #91B4D5">*</span><span style="color: #E4F0FB">b</span><span style="color: #A6ACCD">)</span><span style="color: #91B4D5">.</span><span style="color: #A6ACCD">y;</span></span>
-<span class="line"><span style="color: #A6ACCD">      }</span></span>
-<span class="line"><span style="color: #A6ACCD">  }</span></span>
-<span class="line"><span style="color: #A6ACCD">}</span></span></code></pre><p>The first example takes two immutable Points and returns a new Point to the caller. We have to use <code>unsafe</code> as we are dereferencing the points within the function body. This is nice and succinct.</p><p>The second example modifies the first parameter in place by taking it as a mutable pointer. No overload here as we don’t want to create a new Point.</p><p>Now on the python side of things, we setup using ctypes.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #5DE4C7">from</span><span style="color: #A6ACCD"> ctypes </span><span style="color: #5DE4C7">import</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">*</span></span>
+<span class="line"><span style="color: #C9D1D9">  #[no_mangle]</span></span>
+<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">pub</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">extern</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"C"</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">fn</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">add_points_inplace</span><span style="color: #C9D1D9">(a</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*mut</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">, b</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*const</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">) {</span></span>
+<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">unsafe</span><span style="color: #C9D1D9"> {</span></span>
+<span class="line"><span style="color: #C9D1D9">          (</span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">a)</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">x </span><span style="color: #FF7B72">+=</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">b)</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">x;</span></span>
+<span class="line"><span style="color: #C9D1D9">          (</span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">a)</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">y </span><span style="color: #FF7B72">+=</span><span style="color: #C9D1D9"> (</span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9">b)</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">y;</span></span>
+<span class="line"><span style="color: #C9D1D9">      }</span></span>
+<span class="line"><span style="color: #C9D1D9">  }</span></span>
+<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<p>The first example takes two immutable Points and returns a new Point to the caller. We have to use <code>unsafe</code> as we are dereferencing the points within the function body. This is nice and succinct.</p>
+<p>The second example modifies the first parameter in place by taking it as a mutable pointer. No overload here as we don’t want to create a new Point.</p>
+<p>Now on the python side of things, we setup using ctypes.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">from</span><span style="color: #C9D1D9"> ctypes </span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">*</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #91B4D5">class</span><span style="color: #A6ACCD"> </span><span style="color: #ADD7FF">Point</span><span style="color: #A6ACCD">(</span><span style="color: #ADD7FF">Structure</span><span style="color: #A6ACCD">):</span></span>
-<span class="line"><span style="color: #A6ACCD">    _fields_ </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> [(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">x</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, c_int), (</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">y</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">, c_int)]</span></span>
+<span class="line"><span style="color: #FF7B72">class</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Point</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">Structure</span><span style="color: #C9D1D9">):</span></span>
+<span class="line"><span style="color: #C9D1D9">    _fields_ </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> [(</span><span style="color: #A5D6FF">"x"</span><span style="color: #C9D1D9">, c_int), (</span><span style="color: #A5D6FF">"y"</span><span style="color: #C9D1D9">, c_int)]</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">    </span><span style="color: #91B4D5">def</span><span style="color: #A6ACCD"> __str__(</span><span style="color: #E4F0FB">self</span><span style="color: #A6ACCD">):</span></span>
-<span class="line"><span style="color: #A6ACCD">        </span><span style="color: #5DE4C7C0">return</span><span style="color: #A6ACCD"> </span><span style="color: #91B4D5">f</span><span style="color: #5DE4C7">&quot;Point(x=</span><span style="color: #5DE4C7">{</span><span style="color: #ADD7FF; font-style: italic">self</span><span style="color: #A6ACCD">.x</span><span style="color: #5DE4C7">}</span><span style="color: #5DE4C7">, y=</span><span style="color: #5DE4C7">{</span><span style="color: #ADD7FF; font-style: italic">self</span><span style="color: #A6ACCD">.y</span><span style="color: #5DE4C7">}</span><span style="color: #5DE4C7">)&quot;</span></span>
+<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">def</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">__str__</span><span style="color: #C9D1D9">(self):</span></span>
+<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">f</span><span style="color: #A5D6FF">"Point(x=</span><span style="color: #79C0FF">{self</span><span style="color: #C9D1D9">.x</span><span style="color: #79C0FF">}</span><span style="color: #A5D6FF">, y=</span><span style="color: #79C0FF">{self</span><span style="color: #C9D1D9">.y</span><span style="color: #79C0FF">}</span><span style="color: #A5D6FF">)"</span></span>
 <span class="line"></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">lib </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> cdll.LoadLibrary(</span><span style="color: #A6ACCD">&quot;</span><span style="color: #5DE4C7">libexample.so</span><span style="color: #A6ACCD">&quot;</span><span style="color: #A6ACCD">)</span></span>
-<span class="line"><span style="color: #A6ACCD">lib.add_points.argtypes </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> [POINTER(Point), POINTER(Point)]</span></span>
-<span class="line"><span style="color: #A6ACCD">lib.add_points.restype </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> Point</span></span>
-<span class="line"><span style="color: #A6ACCD">lib.add_points_inplace.argtypes </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> [POINTER(Point), POINTER(Point)]</span></span>
-<span class="line"><span style="color: #A6ACCD">lib.add_points_inplace.restype </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> </span><span style="color: #5DE4C7">None</span></span></code></pre><p>The Point class inheriting from ctypes.Structure is the way to map external structs to Python objects. <code>_fields_</code> is special syntax (<a href="https://docs.python.org/3/library/ctypes.html#ctypes.Structure._fields_">docs link</a>). Add an overload for converting it to a string so we can see things have worked too.</p><p>After that Point class, we can load the .so and tell it what each function expects and what we expect it will return. We use <code>ctypes.POINTER</code> around the Point class as the rust functions do not expect args by value. <code>restype = None</code> is used when a function does not return a value.</p><p>After all that setup we can basically just call these functions like we would with any other code.</p><pre class="astro-code" style="background-color: #1b1e28; overflow-x: auto;"><code><span class="line"><span style="color: #A6ACCD">p1 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> Point(</span><span style="color: #5DE4C7">10</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">10</span><span style="color: #A6ACCD">)</span></span>
-<span class="line"><span style="color: #A6ACCD">p2 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> Point(</span><span style="color: #5DE4C7">15</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">21</span><span style="color: #A6ACCD">)</span></span>
+<span class="line"><span style="color: #C9D1D9">lib </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> cdll.LoadLibrary(</span><span style="color: #A5D6FF">"libexample.so"</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"><span style="color: #C9D1D9">lib.add_points.argtypes </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> [POINTER(Point), POINTER(Point)]</span></span>
+<span class="line"><span style="color: #C9D1D9">lib.add_points.restype </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Point</span></span>
+<span class="line"><span style="color: #C9D1D9">lib.add_points_inplace.argtypes </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> [POINTER(Point), POINTER(Point)]</span></span>
+<span class="line"><span style="color: #C9D1D9">lib.add_points_inplace.restype </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">None</span></span></code></pre>
+<p>The Point class inheriting from ctypes.Structure is the way to map external structs to Python objects. <code>_fields_</code> is special syntax (<a href="https://docs.python.org/3/library/ctypes.html#ctypes.Structure._fields_">docs link</a>). Add an overload for converting it to a string so we can see things have worked too.</p>
+<p>After that Point class, we can load the .so and tell it what each function expects and what we expect it will return. We use <code>ctypes.POINTER</code> around the Point class as the rust functions do not expect args by value. <code>restype = None</code> is used when a function does not return a value.</p>
+<p>After all that setup we can basically just call these functions like we would with any other code.</p>
+<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">p1 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Point(</span><span style="color: #79C0FF">10</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">10</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"><span style="color: #C9D1D9">p2 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Point(</span><span style="color: #79C0FF">15</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">21</span><span style="color: #C9D1D9">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">p3 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> lib.add_points(p1, p2)</span></span>
-<span class="line"><span style="color: #E4F0FBD0">print</span><span style="color: #A6ACCD">(p3)  </span><span style="color: #767C9DB0; font-style: italic"># prints: Point(x=25, y=31)</span></span>
+<span class="line"><span style="color: #C9D1D9">p3 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> lib.add_points(p1, p2)</span></span>
+<span class="line"><span style="color: #79C0FF">print</span><span style="color: #C9D1D9">(p3)  </span><span style="color: #8B949E"># prints: Point(x=25, y=31)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A6ACCD">p4 </span><span style="color: #91B4D5">=</span><span style="color: #A6ACCD"> Point(</span><span style="color: #5DE4C7">25</span><span style="color: #A6ACCD">, </span><span style="color: #5DE4C7">19</span><span style="color: #A6ACCD">)</span></span>
-<span class="line"><span style="color: #A6ACCD">lib.add_points_inplace(p3, p4)</span></span>
+<span class="line"><span style="color: #C9D1D9">p4 </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> Point(</span><span style="color: #79C0FF">25</span><span style="color: #C9D1D9">, </span><span style="color: #79C0FF">19</span><span style="color: #C9D1D9">)</span></span>
+<span class="line"><span style="color: #C9D1D9">lib.add_points_inplace(p3, p4)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E4F0FBD0">print</span><span style="color: #A6ACCD">(p3)  </span><span style="color: #767C9DB0; font-style: italic"># prints: Point(x=50, y=50)</span></span></code></pre>
+<span class="line"><span style="color: #79C0FF">print</span><span style="color: #C9D1D9">(p3)  </span><span style="color: #8B949E"># prints: Point(x=50, y=50)</span></span></code></pre>
   </article>
-  </div>
+                </div>
+            </main>
+        </div>
 
-</body></html>
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>
