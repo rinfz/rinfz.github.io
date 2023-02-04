@@ -30,7 +30,11 @@ const linkCollection = (await getCollection("link")).sort(sortLink);
                                 <a href={link.data.url}>{link.data.title}</a>
                             </td>
                             <td>{formatDate(link.data.date)}</td>
-                            <td>{link.body.length > 0 ? "TODO" : null}</td>
+                            <td class="text-center">
+                                {link.body.length > 0 ? (
+                                    <a href={`/links/${link.slug}`} class="w-full block">View</a>
+                                ) : null}
+                            </td>
                         </tr>
                     );
                 })

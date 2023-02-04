@@ -5,6 +5,8 @@ article {
 article > h2 {
   @apply text-xl;
   @apply font-semibold;
+  @apply border-b border-gray-700;
+  @apply mb-1;
 }
 
 article > p {
@@ -14,6 +16,11 @@ article > p {
 article > pre {
   @apply p-4;
   @apply my-2;
+}
+
+article > blockquote {
+  @apply pl-4;
+  @apply border-l-4 border-gray-700;
 }
 
 article a {

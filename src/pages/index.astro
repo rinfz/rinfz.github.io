@@ -82,7 +82,7 @@ const latestPhoto = photos[0];
                   <span class="flex-1">{link.data.title}</span>
                 </a>
                 <span class="text-xs">
-                  {formatDate(link.data.date)} &bull; {writeUpLink(link)}
+                  {formatDate(link.data.date)} {link.body.length > 0 ? <>&bull; <a href={`/links/${link.slug}`} class="text-orange-500">write-up</a></> : null}
                 </span>
               </p>
             ))
@@ -150,6 +150,9 @@ const latestPhoto = photos[0];
             ))
           }
         </div>
+        <p class="text-sm text-center mt-2">
+          Showing 5 of {songs.length}
+        </p>
       </div>
 
       <div>

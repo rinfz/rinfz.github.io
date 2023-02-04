@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import '../../post.css';
+
+export async function getStaticPaths() {
+  const links = await getCollection("link");
+  return links
+    .filter((l) => l.body.length > 0)
+    .map((link) => ({
+      params: { slug: link.slug },
+      props: { link },
+    }));
+}
+
+const { link } = Astro.props;
+const { Content } = await link.render();
+---
+
+<Layout title="Barely Laughing">
+  <h2 class="text-xl font-semibold border-b border-gray-700 mb-1">
+    {link.data.title}
+  </h2>
+  <p>
+    <a href={link.data.url} class="text-orange-500" target="_blank">Visit the original</a> &bull;
+    <a href="/links" class="text-orange-500">Return to all links</a>
+  </p>
+
+  <article>
+    <Content />
+  </article>
+</Layout>
