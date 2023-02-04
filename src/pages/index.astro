@@ -43,6 +43,7 @@ const latestPhoto = photos[0];
         <Image
           src={import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)}
           alt={`Latest photo: ${latestPhoto.name}, ${latestPhoto.location}`}
+          format="webp"
         />
       </div>
     </section>
