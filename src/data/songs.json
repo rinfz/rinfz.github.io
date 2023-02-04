@@ -1,5 +1,65 @@
 [
   {
+    "name": "Cult of Personality",
+    "artist": "Living Colour",
+    "link": "https://www.youtube.com/watch?v=7xxgRUyzgs0",
+    "genre": "Rock"
+  },
+  {
+    "name": "Der Königsjodler",
+    "artist": "Franzl Lang",
+    "link": "https://www.youtube.com/watch?v=Fio4cz33bW4",
+    "genre": "Yodelling"
+  },
+  {
+    "name": "Fantaisie sur Carmen, Op. 25",
+    "artist": "Sarasate, Itzhak Perlman",
+    "link": "https://www.youtube.com/watch?v=h8OPx7oVXZM",
+    "genre": "Classical"
+  },
+  {
+    "name": "March Rain",
+    "artist": "Michael Chapman",
+    "link": "https://www.youtube.com/watch?v=yQq7nhiSY4w",
+    "genre": "Folk"
+  },
+  {
+    "name": "Postcards of Scarborough",
+    "artist": "Michael Chapman",
+    "link": "https://www.youtube.com/watch?v=0BdNiAI1OmY",
+    "genre": "Folk"
+  },
+  {
+    "name": "Miserere Mei, Deus",
+    "artist": "Allegri",
+    "link": "https://www.youtube.com/watch?v=IX1zicNRLmY",
+    "genre": "Choral"
+  },
+  {
+    "name": "Bounyfié",
+    "artist": "Yamandu Costa, Guto Wirtti",
+    "link": "https://www.youtube.com/watch?v=hp60OOV2UmU",
+    "genre": "International"
+  },
+  {
+    "name": "Love",
+    "artist": "Floyd Huddleston",
+    "link": "https://www.youtube.com/watch?v=7ZhmCEVFnIE",
+    "genre": "Soundtrack"
+  },
+  {
+    "name": "Moanin",
+    "artist": "Charles Mingus",
+    "link": "https://www.youtube.com/watch?v=__OSyznVDOY",
+    "genre": "Jazz"
+  },
+  {
+    "name": "Naima",
+    "artist": "John Coltrane",
+    "link": "https://www.youtube.com/watch?v=bPAC6zt_1ZM",
+    "genre": "Jazz"
+  },
+  {
     "name": "Punta y Tacón",
     "artist": "Sabicas",
     "link": "https://www.youtube.com/watch?v=H8wEIqvQK0Q",
