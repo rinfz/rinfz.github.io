@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-        <title>Barely Laughing - C# Prime Factorisation</title>
+        <title>Barely Laughing</title>
     <link rel="stylesheet" href="/_astro/birds.968fe2c7.css" />
 <link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
 <link rel="stylesheet" href="/_astro/asm-collatz.263b47d8.css" /></head>
@@ -43,29 +43,13 @@
                 </nav>
 
                 <div class="flex-1 astro-SCKKX6R4">
-                    <article class="text-justify">
-    <h2>C# Prime Factorisation</h2>
-    <p class="pt-0 mb-5">2022-12-12</p>
-    <p>Based on an answer on stack overflow, I wrote a prime factorisation function in C#. Then I converted the code to use the generic math functionality which was just added in .Net 7. After benchmarking the two versions, there was no difference in runtime (1.447us mean percall) which is always nice to see.</p>
-<p>Here is the snippet:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">public</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IEnumerable</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">> </span><span style="color: #D2A8FF">PrimeFactors</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">>(</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">n</span><span style="color: #C9D1D9">)</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">where</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">T</span><span style="color: #C9D1D9"> : </span><span style="color: #FFA657">INumber</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">></span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">div</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> T.</span><span style="color: #D2A8FF">CreateChecked</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">while</span><span style="color: #C9D1D9"> (div </span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9"> div </span><span style="color: #FF7B72">&#x3C;=</span><span style="color: #C9D1D9"> n)</span></span>
-<span class="line"><span style="color: #C9D1D9">    {</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (n </span><span style="color: #FF7B72">%</span><span style="color: #C9D1D9"> div </span><span style="color: #FF7B72">!=</span><span style="color: #C9D1D9"> T.Zero)</span></span>
-<span class="line"><span style="color: #C9D1D9">        {</span></span>
-<span class="line"><span style="color: #C9D1D9">            div</span><span style="color: #FF7B72">++</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">        }</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">else</span></span>
-<span class="line"><span style="color: #C9D1D9">        {</span></span>
-<span class="line"><span style="color: #C9D1D9">            n </span><span style="color: #FF7B72">/=</span><span style="color: #C9D1D9"> div;</span></span>
-<span class="line"><span style="color: #C9D1D9">            </span><span style="color: #FF7B72">yield</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> div;</span></span>
-<span class="line"><span style="color: #C9D1D9">        }</span></span>
-<span class="line"><span style="color: #C9D1D9">    }</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (n </span><span style="color: #FF7B72">></span><span style="color: #C9D1D9"> T.One) </span><span style="color: #FF7B72">yield</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> n;</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+                    <h2 class="text-xl font-semibold border-b border-gray-700 mb-1">
+    Squeezing a Sokoban Game into 10 Lines of Code
+  </h2><p>
+    <a href="https://www.cole-k.com/2023/02/21/tiny-games-hs/" class="text-orange-500" target="_blank">Visit the original</a> &bull;
+    <a href="/links" class="text-orange-500">Return to all links</a>
+  </p><article>
+    <p>Wait, did I read that right? <em>Haskell</em>?! Yet another in the long proud lineage of Haskell blog posts that make me want to learn the language. But pure filth mode.</p>
   </article>
                 </div>
             </main>
