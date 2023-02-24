@@ -45,3 +45,7 @@ article table {
 article td {
   @apply px-2 py-1;
 }
+
+article > ul {
+  @apply list-disc list-inside;
+}

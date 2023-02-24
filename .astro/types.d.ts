@@ -70,6 +70,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"7-langs-12-months.md": {
+  id: "7-langs-12-months.md",
+  slug: "7-langs-12-months",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "a-complete-guide-to-useeffect.md": {
   id: "a-complete-guide-to-useeffect.md",
   slug: "a-complete-guide-to-useeffect",
@@ -171,6 +178,13 @@ declare module 'astro:content' {
 "avl-tree-tutorial.md": {
   id: "avl-tree-tutorial.md",
   slug: "avl-tree-tutorial",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"beautiful-binary-search-d.md": {
+  id: "beautiful-binary-search-d.md",
+  slug: "beautiful-binary-search-d",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -532,6 +546,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"haskell-is-not-category-theory.md": {
+  id: "haskell-is-not-category-theory.md",
+  slug: "haskell-is-not-category-theory",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "havoc-(pdf).md": {
   id: "havoc-(pdf).md",
   slug: "havoc-pdf",
@@ -679,9 +700,23 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"monadic-comprehension-via-linq.md": {
+  id: "monadic-comprehension-via-linq.md",
+  slug: "monadic-comprehension-via-linq",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "more-challenging-projects-every-programmer-should-try.md": {
   id: "more-challenging-projects-every-programmer-should-try.md",
   slug: "more-challenging-projects-every-programmer-should-try",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"my-future-with-elixir.md": {
+  id: "my-future-with-elixir.md",
+  slug: "my-future-with-elixir",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -696,6 +731,13 @@ declare module 'astro:content' {
 "obsidian.md": {
   id: "obsidian.md",
   slug: "obsidian",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"on-technical-debt.md": {
+  id: "on-technical-debt.md",
+  slug: "on-technical-debt",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -889,6 +931,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"rewrite-refactor-or-reinvent.md": {
+  id: "rewrite-refactor-or-reinvent.md",
+  slug: "rewrite-refactor-or-reinvent",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "right-and-wrote_-ten-choices-in-language-design-(pdf).md": {
   id: "right-and-wrote_-ten-choices-in-language-design-(pdf).md",
   slug: "right-and-wrote_-ten-choices-in-language-design-pdf",
@@ -938,6 +987,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"sokoban-10-lines.md": {
+  id: "sokoban-10-lines.md",
+  slug: "sokoban-10-lines",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "some-thoughts-on-security-after-ten-years-of-qmail-1.0-(pdf).md": {
   id: "some-thoughts-on-security-after-ten-years-of-qmail-1.0-(pdf).md",
   slug: "some-thoughts-on-security-after-ten-years-of-qmail-10-pdf",
@@ -980,6 +1036,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"the-case-for-frameworks.md": {
+  id: "the-case-for-frameworks.md",
+  slug: "the-case-for-frameworks",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "the-case-for-models.md": {
   id: "the-case-for-models.md",
   slug: "the-case-for-models",
@@ -990,6 +1053,13 @@ declare module 'astro:content' {
 "the-construction-and-use-of-c++-algorithms.md": {
   id: "the-construction-and-use-of-c++-algorithms.md",
   slug: "the-construction-and-use-of-c-algorithms",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"the-market-for-lemons.md": {
+  id: "the-market-for-lemons.md",
+  slug: "the-market-for-lemons",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
