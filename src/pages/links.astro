@@ -9,14 +9,14 @@ const linkCollection = (await getCollection("link")).sort(sortLink);
 <Layout title="Barely Laughing - Cool Links">
     <h2 class="text-xl font-semibold mb-2">Showing {linkCollection.length} links</h2>
     <p class="mb-2 text-sm">
-        The write-ups are a work in progress because I decided to do them after
+        The notes are a work in progress because I decided to do them after
         adding loads of links.
     </p>
     <table class="table-fixed border border-gray-700 w-full overflow-x-auto block">
         <thead class="bg-gray-800">
             <th class="w-9/12">Title</th>
             <th>Date Added</th>
-            <th>Write-up</th>
+            <th>Notes</th>
         </thead>
         <tbody>
             {

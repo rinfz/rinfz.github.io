@@ -77,6 +77,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"916-days-of-emacs.md": {
+  id: "916-days-of-emacs.md",
+  slug: "916-days-of-emacs",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "a-complete-guide-to-useeffect.md": {
   id: "a-complete-guide-to-useeffect.md",
   slug: "a-complete-guide-to-useeffect",
@@ -129,6 +136,13 @@ declare module 'astro:content' {
 "algorithmica-_-hpc.md": {
   id: "algorithmica-_-hpc.md",
   slug: "algorithmica-_-hpc",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"all-you-need-is-data-and-functions.md": {
+  id: "all-you-need-is-data-and-functions.md",
+  slug: "all-you-need-is-data-and-functions",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -266,6 +280,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"category-theory-illustrated---index.md": {
+  id: "category-theory-illustrated---index.md",
+  slug: "category-theory-illustrated---index",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "challenging-algorithms-and-data-structures-every-programmer-should-try.md": {
   id: "challenging-algorithms-and-data-structures-every-programmer-should-try.md",
   slug: "challenging-algorithms-and-data-structures-every-programmer-should-try",
@@ -304,6 +325,13 @@ declare module 'astro:content' {
 "collection-of-good-talks_videos.md": {
   id: "collection-of-good-talks_videos.md",
   slug: "collection-of-good-talks_videos",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"combinatory-logic.md": {
+  id: "combinatory-logic.md",
+  slug: "combinatory-logic",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -357,6 +385,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"demystifying-type-classes.md": {
+  id: "demystifying-type-classes.md",
+  slug: "demystifying-type-classes",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "divisibility-by-7-is-a-walk-on-a-graph.md": {
   id: "divisibility-by-7-is-a-walk-on-a-graph.md",
   slug: "divisibility-by-7-is-a-walk-on-a-graph",
@@ -367,6 +402,20 @@ declare module 'astro:content' {
 "docker-compose-production-best-practices.md": {
   id: "docker-compose-production-best-practices.md",
   slug: "docker-compose-production-best-practices",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"dream-tidy-web-framework-for-ocaml-and-reasonml.md": {
+  id: "dream-tidy-web-framework-for-ocaml-and-reasonml.md",
+  slug: "dream-tidy-web-framework-for-ocaml-and-reasonml",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"edward-tufte-books---envisioning-information.md": {
+  id: "edward-tufte-books---envisioning-information.md",
+  slug: "edward-tufte-books---envisioning-information",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -399,6 +448,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"explore-the-in-our-time-archive-braggoscope.md": {
+  id: "explore-the-in-our-time-archive-braggoscope.md",
+  slug: "explore-the-in-our-time-archive-braggoscope",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "failing-to-learn-zig-via-advent-of-code.md": {
   id: "failing-to-learn-zig-via-advent-of-code.md",
   slug: "failing-to-learn-zig-via-advent-of-code",
@@ -416,6 +472,13 @@ declare module 'astro:content' {
 "finite-and-infinite-games-(pdf).md": {
   id: "finite-and-infinite-games-(pdf).md",
   slug: "finite-and-infinite-games-pdf",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"first-principles-of-interaction-design.md": {
+  id: "first-principles-of-interaction-design.md",
+  slug: "first-principles-of-interaction-design",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -514,6 +577,13 @@ declare module 'astro:content' {
 "getting-started-with-org-mode.md": {
   id: "getting-started-with-org-mode.md",
   slug: "getting-started-with-org-mode",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"github---rhasspy-piper--a-fast--local-neural-text-to-speech-system.md": {
+  id: "github---rhasspy-piper--a-fast--local-neural-text-to-speech-system.md",
+  slug: "github---rhasspy-piper--a-fast--local-neural-text-to-speech-system",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -623,9 +693,30 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"its-worth-putting-in-the-effort-to-update-deps.md": {
+  id: "its-worth-putting-in-the-effort-to-update-deps.md",
+  slug: "its-worth-putting-in-the-effort-to-update-deps",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"janet-for-mortals.md": {
+  id: "janet-for-mortals.md",
+  slug: "janet-for-mortals",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "lambda-you-keep-using-that-letter.md": {
   id: "lambda-you-keep-using-that-letter.md",
   slug: "lambda-you-keep-using-that-letter",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"laws-of-ux.md": {
+  id: "laws-of-ux.md",
+  slug: "laws-of-ux",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -696,6 +787,13 @@ declare module 'astro:content' {
 "modern-object-pascal-introduction-for-programmers.md": {
   id: "modern-object-pascal-introduction-for-programmers.md",
   slug: "modern-object-pascal-introduction-for-programmers",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"modules-matter-most--for-the-masses.md": {
+  id: "modules-matter-most--for-the-masses.md",
+  slug: "modules-matter-most--for-the-masses",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -959,6 +1057,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"rust-based-platform-for-the-web-swc.md": {
+  id: "rust-based-platform-for-the-web-swc.md",
+  slug: "rust-based-platform-for-the-web-swc",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "serverless-sqlite.md": {
   id: "serverless-sqlite.md",
   slug: "serverless-sqlite",
@@ -1008,6 +1113,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"sqlite-performance-tuning.md": {
+  id: "sqlite-performance-tuning.md",
+  slug: "sqlite-performance-tuning",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "surviving-disillusionment.md": {
   id: "surviving-disillusionment.md",
   slug: "surviving-disillusionment",
@@ -1046,6 +1158,13 @@ declare module 'astro:content' {
 "the-case-for-models.md": {
   id: "the-case-for-models.md",
   slug: "the-case-for-models",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"the-codeless-code.md": {
+  id: "the-codeless-code.md",
+  slug: "the-codeless-code",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -1207,6 +1326,13 @@ declare module 'astro:content' {
 "write-up_-out-of-the-tar-pit.md": {
   id: "write-up_-out-of-the-tar-pit.md",
   slug: "write-up_-out-of-the-tar-pit",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"writing---foundations---human-interface-guidelines---design---apple-developer.md": {
+  id: "writing---foundations---human-interface-guidelines---design---apple-developer.md",
+  slug: "writing---foundations---human-interface-guidelines---design---apple-developer",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
