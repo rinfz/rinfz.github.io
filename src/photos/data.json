@@ -1,5 +1,11 @@
 [
   {
+    "name": "Sandwich Tern",
+    "location": "Devon, UK",
+    "src": "sandwich-tern-01",
+    "fullW": "true"
+  },
+  {
     "name": "Curlew",
     "location": "Plymouth, UK",
     "src": "curlew-02",
