@@ -36,8 +36,9 @@ const latestPhoto = photos[0];
         <a href="/photos">see more &raquo;</a>
       </div>
       <div class="border border-gray-700">
-        <div class="bg-gray-800 p-1">
+        <div class="flex justify-between items-center bg-gray-800 p-1">
           <h3>{latestPhoto.name}</h3>
+          <p class="text-xs">&copy; Copyright 2023 All Rights Reserved</p>
         </div>
         <Image
           src={import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)}

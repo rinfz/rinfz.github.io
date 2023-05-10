@@ -2,11 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import birdList from "../data/birds.json";
 
-function capitalise(word: string) {
-  const l = word.toLowerCase();
-  return l[0].toUpperCase() + l.substring(1);
-}
-
 function birdCount() {
   let result = 0;
   Object.values(birdList).forEach((c) => result += c.length);
@@ -15,13 +10,19 @@ function birdCount() {
 ---
 
 <Layout title="Barely Laughing">
-	<h2 class="mt-3">UK Bird List ({birdCount()})</h2>
+    <h2 class="mt-3">UK Bird List ({birdCount()})</h2>
+    <div class="my-2 grid grid-cols-2 md:grid-cols-4 gap-y-1.5 gap-x-4">
+        <span class="underline">Bird of the Year 2021</span>
+        <span class="md:col-span-3">Grey Plover</span>
+        <span class="underline">Bird of the Year 2022</span>
+        <span class="md:col-span-3">Cuckoo = Barn Owl</span>
+    </div>
     <div>
       {Object.entries(birdList).map(([category, birds]) => {
       return <div>
-        <h3 class="mt-5 mb-3 text-sm text-center underline">{category}</h3>
+        <h3 class="mt-5 mb-3 text-sm text-center underline">{category} ({birds.length})</h3>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center items-center text-xs">
-          {birds.map((bird) => (<span>{capitalise(bird)}</span>))}
+          {birds.map((bird) => (<span>{bird}</span>))}
         </div>
       </div>
       })}

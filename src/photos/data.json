@@ -1,5 +1,11 @@
 [
   {
+    "name": "Breakwater",
+    "location": "Dorset, UK",
+    "src": "breakwater-01",
+    "fullW": true
+  },
+  {
     "name": "Sandwich Tern",
     "location": "Devon, UK",
     "src": "sandwich-tern-01",
