@@ -31,7 +31,7 @@ const c_navBtn =
             </header>
 
             <main class="flex flex-col md:flex-row gap-x-4">
-                <nav class="w-full md:w-1/5 mb-2">
+                <nav class="w-full flex-none md:w-1/5 mb-2">
                     <ul id="nav-items" class="hidden md:block space-y-1 mb-3">
                         <li><a class={c_navBtn} href="/">Home</a></li>
                         <li><a class={c_navBtn} href="/posts">Posts</a></li>
@@ -88,7 +88,7 @@ const c_navBtn =
                     </div>
                 </nav>
 
-                <div class="flex-1">
+                <div class="main-w flex-1">
                     <slot />
                 </div>
             </main>
@@ -117,5 +117,9 @@ const c_navBtn =
         @apply text-white;
         background-color: #000000;
         font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+    }
+
+    .main-w {
+        min-width: 70%;
     }
 </style>
