@@ -6,9 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - GCC 9.1 Execution Policies</title>
-    <link rel="stylesheet" href="/_astro/birds.cec27973.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.852efbdc.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.263b47d8.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.c2f26490.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.263b47d8.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.7b7ee69d.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -17,7 +18,7 @@
             </header>
 
             <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
-                <nav class="w-full md:w-1/5 mb-2 astro-SCKKX6R4">
+                <nav class="w-full flex-none md:w-1/5 mb-2 astro-SCKKX6R4">
                     <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
                         <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
                         <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
@@ -47,10 +48,10 @@
                     </div>
                 </nav>
 
-                <div class="flex-1 astro-SCKKX6R4">
-                    <article class="text-justify">
-    <h2>GCC 9.1 Execution Policies</h2>
-    <p class="pt-0 mb-5">2019-06-24</p>
+                <div class="main-w flex-1 astro-SCKKX6R4">
+                    <article class="text-justify astro-GVPN4U4B">
+    <h2 class="astro-GVPN4U4B">GCC 9.1 Execution Policies</h2>
+    <p class="pt-0 mb-5 astro-GVPN4U4B">2019-06-24</p>
     <p>After reading about <a href="https://en.cppreference.com/w/cpp/algorithm">&#x3C;algorithm></a> I decided to do some proof of concept benchmarks with the <a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0024r2.html">new execution policies in GCC 9.1</a> as I am writing some high performance C++ at work and it’d be good to know these things.</p>
 <p>Given a very naive benchmark - generating random integers - we can see whether or not there will be any performance enhancements. The benefit to using algorithm is updating to parallel code is simply adding an argument to the function call which represents the execution policy you want to use. That means even if parallel execution isn’t going to be a net win, you haven’t lost much in the process.</p>
 <p>First step is to get gcc 9.1. This is available as a prebuilt package on ubuntu.</p>
