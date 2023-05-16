@@ -294,6 +294,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"characterizing-tech-debt.md": {
+  id: "characterizing-tech-debt.md",
+  slug: "characterizing-tech-debt",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "cmmi.md": {
   id: "cmmi.md",
   slug: "cmmi",
@@ -672,6 +679,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"how-to-survive-your-project-s-first-100-000-lines.md": {
+  id: "how-to-survive-your-project-s-first-100-000-lines.md",
+  slug: "how-to-survive-your-project-s-first-100-000-lines",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "hyperscript.md": {
   id: "hyperscript.md",
   slug: "hyperscript",
@@ -752,6 +766,13 @@ declare module 'astro:content' {
 "links-to-ada-gems.md": {
   id: "links-to-ada-gems.md",
   slug: "links-to-ada-gems",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"local-state-is-harmful.md": {
+  id: "local-state-is-harmful.md",
+  slug: "local-state-is-harmful",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
@@ -1001,6 +1022,13 @@ declare module 'astro:content' {
   collection: "link",
   data: InferEntrySchema<"link">
 },
+"radical-simplicity-in-technology.md": {
+  id: "radical-simplicity-in-technology.md",
+  slug: "radical-simplicity-in-technology",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
 "re2c-manual.md": {
   id: "re2c-manual.md",
   slug: "re2c-manual",
@@ -1179,6 +1207,13 @@ declare module 'astro:content' {
 "the-market-for-lemons.md": {
   id: "the-market-for-lemons.md",
   slug: "the-market-for-lemons",
+  body: string,
+  collection: "link",
+  data: InferEntrySchema<"link">
+},
+"the-seven-programming-ur-languages.md": {
+  id: "the-seven-programming-ur-languages.md",
+  slug: "the-seven-programming-ur-languages",
   body: string,
   collection: "link",
   data: InferEntrySchema<"link">
