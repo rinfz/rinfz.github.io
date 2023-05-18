@@ -9,13 +9,13 @@ const { content } = Astro.props;
 <Layout title={`Barely Laughing - ${content.title}`}>
   <article class="text-justify">
     <h2>{content.title}</h2>
-    <p class="pt-0 mb-5">{simpleDate(content.date)}</p>
+    <p class="pt-0">{simpleDate(content.date)}</p>
     <slot />
   </article>
 </Layout>
 
 <style>
 article {
-  font-family: 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+  font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
 }
 </style>

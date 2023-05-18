@@ -36,6 +36,7 @@ article a:hover {
 article h3 {
   @apply font-semibold;
   @apply text-lg;
+  @apply mt-4;
 }
 
 article table {
@@ -48,4 +49,12 @@ article td {
 
 article > ul {
   @apply list-disc list-inside;
+}
+
+hr {
+    @apply my-4;
+}
+
+table {
+    @apply w-full;
 }
