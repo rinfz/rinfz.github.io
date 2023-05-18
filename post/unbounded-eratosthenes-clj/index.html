@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Unbounded sieve of Eratosthenes in Clojure</title>
-    <link rel="stylesheet" href="/_astro/birds.c2f26490.css" />
+    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
 <link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.263b47d8.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.7b7ee69d.css" /></head>
+<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -51,7 +51,7 @@
                 <div class="main-w flex-1 astro-SCKKX6R4">
                     <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Unbounded sieve of Eratosthenes in Clojure</h2>
-    <p class="pt-0 mb-5 astro-GVPN4U4B">2022-07-29</p>
+    <p class="pt-0 astro-GVPN4U4B">2022-07-29</p>
     <p>Recently I have restarted doing some <a href="https://projecteuler.net/about">project euler</a> problems. I have been implementing the solutions in Clojure because it’s been a while since I’ve played around with the language, and I rather enjoy it. Plus it’s a good excuse to learn how to think with a functional programming mindset.</p>
 <p>Question 7 simply tells you to find the 10,001st prime number. Straight forward enough with a prime sieve. Because you need to find the nth prime, an unbounded prime sieve is required - usually you provide a limit and find all primes below that. We don’t know the value of the 10,001st prime so naturally we can’t provide a limit.</p>
 <p>Since I’m doing this to learn Clojure, I’m not bothered about constructing an unbounded sieve from first principles. So I found the <a href="https://www.kylem.net/stuff/sieve_eratosthenes.html">following article</a> with a straightforward implementation in Python. It’s written in an imperative style so figuring out the details regarding tracking state, making it recursive etc provided a good learning experience.</p>

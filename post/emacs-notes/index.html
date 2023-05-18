@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-SCKKX6R4">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
+        <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+        <title>Barely Laughing - Notes on (Learning) Emacs</title>
+    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+
+    <body class="astro-SCKKX6R4">
+        <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
+            <header class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold astro-SCKKX6R4">
+                <h1 class="astro-SCKKX6R4"><a href="/" class="astro-SCKKX6R4">A Delightful Abstraction</a></h1>
+            </header>
+
+            <main class="flex flex-col md:flex-row gap-x-4 astro-SCKKX6R4">
+                <nav class="w-full flex-none md:w-1/5 mb-2 astro-SCKKX6R4">
+                    <ul id="nav-items" class="hidden md:block space-y-1 mb-3 astro-SCKKX6R4">
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/">Home</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/posts">Posts</a></li>
+                        <li class="astro-SCKKX6R4"><a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/birds">Bird List</a></li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="/photos">Photography</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://larusreader.com/" target="_blank">Online Reading App</a>
+                        </li>
+                        <li class="astro-SCKKX6R4">
+                            <a class="block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500 astro-SCKKX6R4" href="https://www.goodreads.com/review/list/164595825-matt-r?order=d&shelf=read&sort=date_updated" target="_blank">
+                                My Goodreads
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="flex md:block justify-between md:justify-items-start items-center md:items-start astro-SCKKX6R4">
+                        <p class="text-xs astro-SCKKX6R4">
+                            <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" class="astro-SCKKX6R4">&copy; CC BY-SA 4.0</a>
+                        </p>
+                        <button class="block md:hidden astro-SCKKX6R4" id="toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 astro-SCKKX6R4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" class="astro-SCKKX6R4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="main-w flex-1 astro-SCKKX6R4">
+                    <article class="text-justify astro-GVPN4U4B">
+    <h2 class="astro-GVPN4U4B">Notes on (Learning) Emacs</h2>
+    <p class="pt-0 astro-GVPN4U4B">2023-05-18</p>
+    <p>Emacs has a certain je ne sais quoi about it. It has this unspeakable quality that just makes it a joy to use. I have found it a breath of fresh air in the soulless era of VSCode.</p>
+<p>I was resistant to Emacs as a vim user because I thought there was no easy way to replicate the FZF plugin for fuzzy file finding. Not only can you use FZF, IDO mode also has fuzzy search functionality that I find nicer. Additionally, working with buffers just feels so much better in Emacs than vim (better out of the box at least, anyway - which is important to me since I always run both with a relatively minimal config).</p>
+<h3 id="useful-linksresources">Useful links/resources</h3>
+<ul>
+<li><a href="https://www.masteringemacs.org/">Mastering Emacs</a> (Book) This book gave me the motivation to get stuck in to learning Emacs. It teaches some of the philosophy behind the design which actually provides useful insight to using Emacs on a daily basis. You can treat it as a reference but I also just spent two evenings reading it cover to cover.</li>
+<li><a href="https://www.masteringemacs.org/article/introduction-to-ido-mode">A useful article</a> from the Mastering Emacs website on IDO mode. An essential feature in using Emacs as a daily driver.</li>
+<li><a href="https://www.youtube.com/@emacselements">Emacs Elements</a> (Youtube) Covers a broad range of general and niche features and packages. The tutorials are clear and thorough.</li>
+<li><a href="https://www.youtube.com/watch?v=avrrioT-mDg">A particularly good video</a> on the rectangle feature, as an example.</li>
+</ul>
+<hr>
+<h3 id="general">General</h3>
+<p>Things I can’t be bothered to categorise properly.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>C-/</td><td>Undo</td><td></td></tr><tr><td>M-k</td><td>Kill sentence</td><td></td></tr><tr><td>C-M-k</td><td>Kill sexp (or balanced expr)</td><td></td></tr><tr><td>C-S-<bs></bs></td><td>Kill current line</td><td>Equivalent to C-a C-k C-k</td></tr><tr><td>M-y</td><td>Cycle kill ring</td><td></td></tr><tr><td>C-o</td><td>Insert line after point</td><td>Doesn’t move the point</td></tr><tr><td>M-j</td><td>Insert line before</td><td>Avoids context sensitive RET</td></tr><tr><td>C-x C-o</td><td>Delete blank links after point</td><td></td></tr><tr><td>C-M-o</td><td>Split line after point</td><td>Unclear how this differs from C-o</td></tr><tr><td>M-^</td><td>Join with line above</td><td></td></tr><tr><td>M-SPC</td><td>Trim extra whitespace before and after point</td><td></td></tr><tr><td>M-\</td><td>Delete whitespace around point</td><td></td></tr><tr><td>M-i</td><td>Insert  spaces to next tabstop</td><td></td></tr><tr><td>M-z</td><td>zap to char</td><td>Equivalent to df in vim</td></tr><tr><td>M-S-z</td><td>zap up to char</td><td>Equivalent to dt in vim</td></tr><tr><td>M-;</td><td>Comment or uncomment DWIM</td><td></td></tr><tr><td>C-x C-;</td><td>Comment or uncomment line</td><td></td></tr><tr><td>M-q</td><td>Fill paragraph</td><td>Word wrapping</td></tr><tr><td>C-h i</td><td>Info manual</td><td></td></tr><tr><td>C-x s</td><td>Save all files</td><td></td></tr><tr><td>C-M-{fb}</td><td>Move around sexps</td><td></td></tr><tr><td>C-M-{ud}</td><td>Move in and out of balanced expr</td><td>Up/down levels/scopes</td></tr><tr><td>C-M-{np}</td><td>Move to next/prev balanced expr</td><td></td></tr><tr><td>M-}</td><td>Move to end of paragraph</td><td></td></tr><tr><td>M-{</td><td>Move to start of paragraph</td><td></td></tr><tr><td>M-{ae}</td><td>Move to start/end of sentence</td><td></td></tr><tr><td>C-x C-{ul}</td><td>Upper/lower case region</td><td></td></tr><tr><td>M-c</td><td>Capitalise next word</td><td></td></tr><tr><td>M-u</td><td>Uppercase next word</td><td></td></tr><tr><td>M-l</td><td>Lowercase next word</td><td></td></tr><tr><td>C-x r m</td><td>Set a bookmark</td><td></td></tr><tr><td>C-x r l</td><td>List bookmarks</td><td></td></tr><tr><td>C-x r b</td><td>Jump to bookmark</td><td></td></tr><tr><td>C-x r s</td><td>Store region in register</td><td></td></tr><tr><td>C-x r i</td><td>Insert content of register</td><td></td></tr><tr><td>C-x r SPC</td><td>Store point in register</td><td></td></tr><tr><td>C-x r j</td><td>Jump to register</td><td>Works across files</td></tr><tr><td>C-x 1</td><td>Close all but current buffer</td><td></td></tr><tr><td>C-x 0</td><td>Close current buffer</td><td></td></tr><tr><td>C-x 2</td><td>Split horizontally</td><td></td></tr><tr><td>C-x 3</td><td>Split vertically</td><td></td></tr><tr><td>C-x o</td><td>Switch to other pane</td><td>Rebind to M-o</td></tr></tbody></table>
+<hr>
+<h3 id="commands">Commands</h3>
+<ul>
+<li><code>M-x delete-trailing-whitespace</code> Works on the whole buffer</li>
+<li><code>M-x comment-box</code> Comment region (I think?)</li>
+<li><code>M-x subword-mode</code> Treat PascalCase and camelCase as distinct words</li>
+<li><code>M-x superword-mode</code> Treat snake_case as one word</li>
+<li><code>M-x compile</code> Useful for running a command over and over. Use <code>g</code> in compile mode to rerun the command.</li>
+<li><code>M-x dictionary</code> Self explanatory. Good for Rich Hickey aficionados.</li>
+<li><code>M-x count-...</code> Various count commands.</li>
+<li><code>M-x sort-...</code> Various sort commands.</li>
+<li><code>M-x align-...</code> Various align commands.</li>
+<li><code>M-: (load user-init-file)</code> Reload config file.</li>
+<li><code>M-x term</code> Terminal. Note C-c becomes the prefix rather than C-x, e.g. C-c b to switch buffer.</li>
+</ul>
+<hr>
+<h3 id="searching">Searching</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>C-M-{rs}</td><td>Regex search</td><td></td></tr><tr><td>M-s r</td><td>Toggle regex mode while searching</td><td></td></tr><tr><td>M-s SPC</td><td>Lax whitespace matching in search</td><td></td></tr><tr><td>M-s w</td><td>Toggle word mode while in search</td><td>Finds words possibly separated by non-ws chars</td></tr><tr><td>M-%</td><td>Query search and replace</td><td>Hard to press on Mac - rebind to C-% (or use from menu)</td></tr><tr><td>C-M-%</td><td>Query regex search and replace</td><td>Regex special chars must be escaped</td></tr><tr><td>M-{np}</td><td>Move through search history</td><td></td></tr><tr><td>M-e</td><td>Edit search string while searching</td><td></td></tr><tr><td>C-w</td><td>Add word at point to search string</td><td>While in search mode</td></tr><tr><td>C-M-y</td><td>Add char at point to search string</td><td>While in search mode</td></tr><tr><td>M-s C-e</td><td>Add rest of line to search string</td><td>While in search mode</td></tr><tr><td>M-s (M-).</td><td>Search symbol or thing at point</td><td>M-. enables “thing” search</td></tr><tr><td>C-s C-s</td><td>Open search and recall last query</td><td></td></tr><tr><td>SPC, y</td><td>Replace match and continue</td><td>While in query mode</td></tr><tr><td>.</td><td>Replace match and exit</td><td>While in query mode</td></tr><tr><td>,</td><td>Replace and stay at match</td><td>While in query mode</td></tr><tr><td>RET, q</td><td>Exit</td><td>While in query mode</td></tr><tr><td>!</td><td>Replace matches in buffer</td><td>While in query mode</td></tr><tr><td>^</td><td>Move to prev match</td><td>While in query mode</td></tr><tr><td>u, U</td><td>Undo last/all replacements</td><td>While in query mode</td></tr><tr><td>M-s o</td><td>Find lines in buffer that match query</td><td>Like grep for your current file (M-x occur)</td></tr><tr><td>M-g M-{np}</td><td>Jump through occur results</td><td>While in occur mode</td></tr><tr><td>e</td><td>Occur edit mode</td><td>While in occur mode</td></tr><tr><td>g</td><td>Refresh results</td><td>While in occur mode</td></tr><tr><td>C-c C-c</td><td>Exit occur and apply changes</td><td>While in occur mode</td></tr></tbody></table>
+<p>Note: Replace can also use elisp.</p>
+<hr>
+<h3 id="marking-jumping">Marking, Jumping</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>C-v</td><td>Move down a page</td><td></td></tr><tr><td>M-v</td><td>Move up a page</td><td></td></tr><tr><td>C-u C-SPC</td><td>Jump to last mark</td><td></td></tr><tr><td>C-SPC C-SPC</td><td>Set and deactivate mark</td><td>Useful for jumps, like m in vim</td></tr><tr><td>M-h</td><td>Mark next paragraph</td><td>Cumulative</td></tr><tr><td>C-x h</td><td>Mark whole buffer</td><td></td></tr><tr><td>C-M-h</td><td>Mark next defun</td><td>Cumulative</td></tr><tr><td>M-@</td><td>Mark next word</td><td>Cumulative</td></tr><tr><td>C-M-SPC</td><td>Mark next sexp</td><td>Cumulative</td></tr><tr><td>M-r</td><td>Rotate point through Top/Middle/Bottom</td><td>Equivalent to H/M/L in vim</td></tr><tr><td>C-l</td><td>Recentre point to Top/Middle/Bottom</td><td>Equivalent to zz, zt(, zb?) in vim</td></tr><tr><td>M-g (M-)g</td><td>Go to line</td><td></td></tr><tr><td>M-g TAB</td><td>Go to column</td><td></td></tr><tr><td>M-g c</td><td>Go to char position</td><td>Absolute  position in whole buffer</td></tr></tbody></table>
+<hr>
+<h3 id="rectangle-mode">Rectangle Mode</h3>
+<p>Simple usage will get you pretty far here, but you can refer to the video at the top of this article for a more in-depth look.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>C-x SPC</td><td>Start a rectangle region</td><td></td></tr><tr><td>C-x r t</td><td>Insert a string on each line of the rectangle</td><td>Mimics multiple cursors without a plugin</td></tr></tbody></table>
+<hr>
+<h3 id="macros">Macros</h3>
+<p>It’s important that you don’t rebind F3 and F4. Emacs elements has a good video about macros.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>F3</td><td>Start macro</td><td></td></tr><tr><td>F4</td><td>Stop or Run macro</td><td></td></tr><tr><td>C-u F3</td><td>Append to last macro</td><td></td></tr><tr><td>C-u F4</td><td>Play 2nd macro in ring</td><td></td></tr><tr><td>C-x e</td><td>Play last macro</td><td></td></tr></tbody></table>
+<hr>
+<h3 id="dired">Dired</h3>
+<p>I feel like the more you get used to buffers, the better this gets. Alleviates some use of the CLI which sounds super nitpicky but honestly the more time you can spend in Emacs, the better it feels to use. All the following apply while in Dired mode. To enter dired mode, you use the keybind <code>C-x d</code> and choose a directory.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Keybind</th><th>Description</th><th>Notes</th></tr></thead><tbody><tr><td>^</td><td>Go up dir</td><td></td></tr><tr><td>q</td><td>Quit</td><td></td></tr><tr><td>n, p</td><td>Next, prev</td><td></td></tr><tr><td>m</td><td>Mark</td><td></td></tr><tr><td>u</td><td>Unmark</td><td></td></tr><tr><td>U</td><td>Unmark all</td><td></td></tr><tr><td>d</td><td>Flag for delete</td><td></td></tr><tr><td>* m</td><td>Mark region</td><td></td></tr><tr><td>* u</td><td>Unmark region</td><td></td></tr><tr><td>* %</td><td>Mark by regex</td><td></td></tr><tr><td>* .</td><td>Mark by ext</td><td></td></tr><tr><td>t, * t</td><td>Toggle mark</td><td></td></tr><tr><td>* c</td><td>Change mark</td><td></td></tr><tr><td>C</td><td>Copy files</td><td></td></tr><tr><td>R</td><td>Rename or move</td><td></td></tr><tr><td>O</td><td>Change owner</td><td></td></tr><tr><td>M</td><td>Change permissions</td><td></td></tr><tr><td>D</td><td>Deletes marked</td><td></td></tr><tr><td>x</td><td>Deletes flagged</td><td></td></tr><tr><td>c</td><td>Compress</td><td>[1]</td></tr><tr><td>g</td><td>Refresh</td><td></td></tr><tr><td>+</td><td>Create subdir</td><td></td></tr><tr><td>s</td><td>Toggle sort</td><td></td></tr><tr><td>&#x3C;, ></td><td>Jump through dirs</td><td></td></tr><tr><td>j</td><td>Jump to file</td><td></td></tr><tr><td>F, RET</td><td>Open file</td><td></td></tr><tr><td>C-u F</td><td>Open in bg</td><td></td></tr><tr><td>Q</td><td>Call C-M-% on marked</td><td>Query regex replace (save with C-x s)</td></tr></tbody></table>
+<p>[1] I rebind this to <code>dired-create-empty-file</code> which I think requires Emacs 28+. It works like <code>touch</code>.</p>
+  </article>
+                </div>
+            </main>
+        </div>
+
+        <script type="text/javascript">
+            const button = document.getElementById("toggle-btn");
+            const navItems = document.getElementById("nav-items");
+
+            button.addEventListener('click', () => {
+                navItems.classList.toggle('hidden');
+                if (navItems.classList.contains('hidden')) {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path></svg>';
+                } else {
+                    button.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>';
+                }
+            });
+        </script>
+    </body>
+</html>

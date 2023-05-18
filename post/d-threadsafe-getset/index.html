@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Thread-safe getters/setters for Global State in D</title>
-    <link rel="stylesheet" href="/_astro/birds.c2f26490.css" />
+    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
 <link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.263b47d8.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.7b7ee69d.css" /></head>
+<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -51,7 +51,7 @@
                 <div class="main-w flex-1 astro-SCKKX6R4">
                     <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Thread-safe getters/setters for Global State in D</h2>
-    <p class="pt-0 mb-5 astro-GVPN4U4B">2019-10-26</p>
+    <p class="pt-0 astro-GVPN4U4B">2019-10-26</p>
     <p>First, note that to make an object globally shared across threads in D we use the <code>__gshared</code> attribute. Caveat: using this is basically cowboy mode since <code>__gshared</code> provides no safety checks or guarantees, so really it should be limited in scope and for plumbing code generally speaking, but this is more of a proof of concept. Plus - as of writing - the safe(r) <code>shared</code> attribute still needs some work according to Walter/Andrei/Atila.</p>
 <p>Nonetheless! We create a state struct anyway.</p>
 <pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">struct</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">State</span></span>
