@@ -15,6 +15,7 @@ I was resistant to Emacs as a vim user because I thought there was no easy way t
 - [A useful article](https://www.masteringemacs.org/article/introduction-to-ido-mode) from the Mastering Emacs website on IDO mode. An essential feature in using Emacs as a daily driver.
 - [Emacs Elements](https://www.youtube.com/@emacselements) (Youtube) Covers a broad range of general and niche features and packages. The tutorials are clear and thorough.
 - [A particularly good video](https://www.youtube.com/watch?v=avrrioT-mDg) on the rectangle feature, as an example.
+- [Another excellent video](https://www.youtube.com/watch?v=qHaEkTZ3XCk) about regular expressions in Emacs.
 
 ---
 
@@ -80,7 +81,7 @@ Things I can't be bothered to categorise properly.
 - `M-x sort-...` Various sort commands.
 - `M-x align-...` Various align commands.
 - `M-: (load user-init-file)` Reload config file.
-- `M-x term` Terminal. Note C-c becomes the prefix rather than C-x, e.g. C-c b to switch buffer.
+- `M-x term` Terminal. Note C-c becomes the prefix rather than C-x, e.g. C-c b to switch buffer. Also useful: `C-c C-j` to switch to term-line-mode (treat the terminal like a normal buffer) and `C-c C-k` to switch to term-char-mode (treat the terminal like a terminal).
 
 ---
 

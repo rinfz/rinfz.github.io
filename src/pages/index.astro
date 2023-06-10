@@ -17,7 +17,7 @@ import blogroll from "../data/blogroll.json";
 
 const linkCollection = (await getCollection("link")).sort(sortLink);
 
-const latestPost = (await Astro.glob("./post/*.md")).sort(
+const latestPost = (await Astro.glob("./post/*.md*")).sort(
   (a, b) =>
     new Date(b.frontmatter.date).valueOf() -
     new Date(a.frontmatter.date).valueOf()
