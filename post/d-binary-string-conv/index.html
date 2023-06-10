@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Convert binary string representation to integer</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,25 +49,27 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Convert binary string representation to integer</h2>
     <p class="pt-0 astro-GVPN4U4B">2019-07-15</p>
-    <pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">void</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">main</span><span style="color: #C9D1D9">() {</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">std</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #D2A8FF">write</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"enter binary number: "</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FFA657">readln</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">strip</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">compose</span><span style="color: #C9D1D9">!(</span><span style="color: #FFA657">retro</span><span style="color: #FF7B72">,</span><span style="color: #FFA657">s</span><span style="color: #C9D1D9">=></span><span style="color: #FFA657">s.all</span><span style="color: #FF7B72">!</span><span style="color: #A5D6FF">"a=='0'||a=='1'"</span><span style="color: #C9D1D9">?</span><span style="color: #FFA657">s:</span><span style="color: #A5D6FF">""</span><span style="color: #C9D1D9">)</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">enumerate</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">map</span><span style="color: #FF7B72">!</span><span style="color: #A5D6FF">"a[1]&#x26;'1'-48?2^^a[0]:0"</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">sum</span></span>
-<span class="line"><span style="color: #C9D1D9">    .</span><span style="color: #FFA657">writeln</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+    <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">void</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">std</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">write</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"enter binary number: "</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">readln</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">strip</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">compose</span><span style="color: #E1E4E8">!(</span><span style="color: #FFAB70">retro</span><span style="color: #F97583">,</span><span style="color: #FFAB70">s</span><span style="color: #E1E4E8">=></span><span style="color: #FFAB70">s.all</span><span style="color: #F97583">!</span><span style="color: #9ECBFF">"a=='0'||a=='1'"</span><span style="color: #E1E4E8">?</span><span style="color: #B392F0">s:</span><span style="color: #9ECBFF">""</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">enumerate</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">map</span><span style="color: #F97583">!</span><span style="color: #9ECBFF">"a[1]&#x26;'1'-48?2^^a[0]:0"</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">sum</span></span>
+<span class="line"><span style="color: #E1E4E8">    .</span><span style="color: #FFAB70">writeln</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
 <p>Example output:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">enter binary number: 111</span></span>
-<span class="line"><span style="color: #c9d1d9">7</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">enter binary number: 111</span></span>
+<span class="line"><span style="color: #e1e4e8">7</span></span></code></pre>
 <p>Where 111 is user input.</p>
   </article>
+
                 </div>
             </main>
         </div>

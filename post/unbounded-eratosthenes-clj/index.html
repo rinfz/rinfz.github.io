@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Unbounded sieve of Eratosthenes in Clojure</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,52 +49,54 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Unbounded sieve of Eratosthenes in Clojure</h2>
     <p class="pt-0 astro-GVPN4U4B">2022-07-29</p>
     <p>Recently I have restarted doing some <a href="https://projecteuler.net/about">project euler</a> problems. I have been implementing the solutions in Clojure because it’s been a while since I’ve played around with the language, and I rather enjoy it. Plus it’s a good excuse to learn how to think with a functional programming mindset.</p>
 <p>Question 7 simply tells you to find the 10,001st prime number. Straight forward enough with a prime sieve. Because you need to find the nth prime, an unbounded prime sieve is required - usually you provide a limit and find all primes below that. We don’t know the value of the 10,001st prime so naturally we can’t provide a limit.</p>
 <p>Since I’m doing this to learn Clojure, I’m not bothered about constructing an unbounded sieve from first principles. So I found the <a href="https://www.kylem.net/stuff/sieve_eratosthenes.html">following article</a> with a straightforward implementation in Python. It’s written in an imperative style so figuring out the details regarding tracking state, making it recursive etc provided a good learning experience.</p>
 <p>First, I ported dict.setdefault (the version is hard-coded to resemble <code>defaultdict(list)</code>):</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">defn</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">setdefault</span><span style="color: #C9D1D9"> [m k v]</span></span>
-<span class="line"><span style="color: #C9D1D9">  (</span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">contains?</span><span style="color: #C9D1D9"> m k)</span></span>
-<span class="line"><span style="color: #C9D1D9">    (</span><span style="color: #D2A8FF">update-in</span><span style="color: #C9D1D9"> m [k] conj v) </span><span style="color: #8B949E">; k exists, append value to the vector at k</span></span>
-<span class="line"><span style="color: #C9D1D9">    (</span><span style="color: #D2A8FF">assoc</span><span style="color: #C9D1D9"> m k [v])))        </span><span style="color: #8B949E">; create a vector at k with v as the only elem</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">(</span><span style="color: #F97583">defn</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">setdefault</span><span style="color: #E1E4E8"> [m k v]</span></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">contains?</span><span style="color: #E1E4E8"> m k)</span></span>
+<span class="line"><span style="color: #E1E4E8">    (</span><span style="color: #B392F0">update-in</span><span style="color: #E1E4E8"> m [k] conj v) </span><span style="color: #6A737D">; k exists, append value to the vector at k</span></span>
+<span class="line"><span style="color: #E1E4E8">    (</span><span style="color: #B392F0">assoc</span><span style="color: #E1E4E8"> m k [v])))        </span><span style="color: #6A737D">; create a vector at k with v as the only elem</span></span></code></pre>
 <p>Next, I worked my way out from the inner loop. I recognised that the for loop is just a reduction of setdefault on counters:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">defn</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">update-counters</span><span style="color: #C9D1D9"> [counters p]</span></span>
-<span class="line"><span style="color: #C9D1D9">  (</span><span style="color: #D2A8FF">reduce</span><span style="color: #C9D1D9"> #(</span><span style="color: #D2A8FF">setdefault</span><span style="color: #C9D1D9"> % (</span><span style="color: #D2A8FF">+</span><span style="color: #C9D1D9"> p %</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">) %</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">) counters (</span><span style="color: #D2A8FF">get</span><span style="color: #C9D1D9"> counters p)))</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">(</span><span style="color: #F97583">defn</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">update-counters</span><span style="color: #E1E4E8"> [counters p]</span></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #B392F0">reduce</span><span style="color: #E1E4E8"> #(</span><span style="color: #B392F0">setdefault</span><span style="color: #E1E4E8"> % (</span><span style="color: #B392F0">+</span><span style="color: #E1E4E8"> p %</span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">) %</span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">) counters (</span><span style="color: #B392F0">get</span><span style="color: #E1E4E8"> counters p)))</span></span></code></pre>
 <p>The harder part was getting the inner while loop working. It does, however, translate well into a recursive function. The bottom-out clause is the same the while loop (<code>p in counters</code> / <code>(contains? sieve p)</code>). Otherwise we calculate the state for the next call with <code>update-counters</code>, <code>dissoc</code> and <code>(inc n)</code>. Counters and p are placed in a vector ready to be handled by the next iteration.</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">defn</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">primes-impl</span><span style="color: #C9D1D9"> [counters p]</span></span>
-<span class="line"><span style="color: #C9D1D9">  (</span><span style="color: #FF7B72">loop</span><span style="color: #C9D1D9"> [sieve counters n p]</span></span>
-<span class="line"><span style="color: #C9D1D9">    (</span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">not</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">contains?</span><span style="color: #C9D1D9"> sieve n))</span></span>
-<span class="line"><span style="color: #C9D1D9">      [(</span><span style="color: #D2A8FF">assoc</span><span style="color: #C9D1D9"> sieve n [n]) n] </span><span style="color: #8B949E">; loop terminates, update state</span></span>
-<span class="line"><span style="color: #C9D1D9">      (</span><span style="color: #FF7B72">recur</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">dissoc</span><span style="color: #C9D1D9"> (</span><span style="color: #D2A8FF">update-counters</span><span style="color: #C9D1D9"> sieve n) n) (</span><span style="color: #D2A8FF">inc</span><span style="color: #C9D1D9"> n)))))</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">(</span><span style="color: #F97583">defn</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">primes-impl</span><span style="color: #E1E4E8"> [counters p]</span></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #F97583">loop</span><span style="color: #E1E4E8"> [sieve counters n p]</span></span>
+<span class="line"><span style="color: #E1E4E8">    (</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">not</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">contains?</span><span style="color: #E1E4E8"> sieve n))</span></span>
+<span class="line"><span style="color: #E1E4E8">      [(</span><span style="color: #B392F0">assoc</span><span style="color: #E1E4E8"> sieve n [n]) n] </span><span style="color: #6A737D">; loop terminates, update state</span></span>
+<span class="line"><span style="color: #E1E4E8">      (</span><span style="color: #F97583">recur</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">dissoc</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">update-counters</span><span style="color: #E1E4E8"> sieve n) n) (</span><span style="color: #B392F0">inc</span><span style="color: #E1E4E8"> n)))))</span></span></code></pre>
 <p>Since <code>primes-impl</code> returns the state which can be used for the next call, iterate is perfect for creating an infinite sequence of primes. <code>apply</code> is needed because <code>primes-impl</code> returns a vector but expects seperate args (I suppose primes-impl could also just take a vector to simplify the <code>iterate</code> call). Iterating <code>primes-impl</code> results in a sequence which includes all the state used for tracking, therefore <code>(map second ...)</code> is needed to just extract the primes.</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">defn</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">primes</span><span style="color: #C9D1D9"> []</span></span>
-<span class="line"><span style="color: #C9D1D9">  (</span><span style="color: #D2A8FF">map</span><span style="color: #C9D1D9"> second (</span><span style="color: #D2A8FF">iterate</span><span style="color: #C9D1D9"> #(</span><span style="color: #D2A8FF">apply</span><span style="color: #C9D1D9"> primes-impl %) [{} </span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">])))</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">(</span><span style="color: #F97583">defn</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">primes</span><span style="color: #E1E4E8"> []</span></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #B392F0">map</span><span style="color: #E1E4E8"> second (</span><span style="color: #B392F0">iterate</span><span style="color: #E1E4E8"> #(</span><span style="color: #B392F0">apply</span><span style="color: #E1E4E8"> primes-impl %) [{} </span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">])))</span></span></code></pre>
 <p>As for the actual problem, we can just use the <code>nth</code> function to get whichever prime we need:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">user=> (nth (primes) 10001)</span></span>
-<span class="line"><span style="color: #c9d1d9">104743</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">user=> (nth (primes) 10001)</span></span>
+<span class="line"><span style="color: #e1e4e8">104743</span></span></code></pre>
 <p>Some benchmarks (no idea if these are performant or not):</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 1000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 40.3351 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">7919</span></span>
-<span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 5000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 183.4985 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">48611</span></span>
-<span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 10000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 209.0829 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">104729</span></span>
-<span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 50000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 1351.956 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">611953</span></span>
-<span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 100000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 3054.6579 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">1299709</span></span>
-<span class="line"><span style="color: #c9d1d9">user=> (time (nth (primes) 1000000))</span></span>
-<span class="line"><span style="color: #c9d1d9">"Elapsed time: 42555.3956 msecs"</span></span>
-<span class="line"><span style="color: #c9d1d9">15485863</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 1000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 40.3351 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">7919</span></span>
+<span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 5000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 183.4985 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">48611</span></span>
+<span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 10000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 209.0829 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">104729</span></span>
+<span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 50000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 1351.956 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">611953</span></span>
+<span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 100000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 3054.6579 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">1299709</span></span>
+<span class="line"><span style="color: #e1e4e8">user=> (time (nth (primes) 1000000))</span></span>
+<span class="line"><span style="color: #e1e4e8">"Elapsed time: 42555.3956 msecs"</span></span>
+<span class="line"><span style="color: #e1e4e8">15485863</span></span></code></pre>
   </article>
+
                 </div>
             </main>
         </div>

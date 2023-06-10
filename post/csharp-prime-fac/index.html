@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - C# Prime Factorisation</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,30 +49,32 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">C# Prime Factorisation</h2>
     <p class="pt-0 astro-GVPN4U4B">2022-12-12</p>
     <p>Based on an answer on stack overflow, I wrote a prime factorisation function in C#. Then I converted the code to use the generic math functionality which was just added in .Net 7. After benchmarking the two versions, there was no difference in runtime (1.447us mean percall) which is always nice to see.</p>
 <p>Here is the snippet:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">public</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">IEnumerable</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">> </span><span style="color: #D2A8FF">PrimeFactors</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">>(</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">n</span><span style="color: #C9D1D9">)</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">where</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">T</span><span style="color: #C9D1D9"> : </span><span style="color: #FFA657">INumber</span><span style="color: #C9D1D9">&#x3C;</span><span style="color: #FFA657">T</span><span style="color: #C9D1D9">></span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">div</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> T.</span><span style="color: #D2A8FF">CreateChecked</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">2</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">while</span><span style="color: #C9D1D9"> (div </span><span style="color: #FF7B72">*</span><span style="color: #C9D1D9"> div </span><span style="color: #FF7B72">&#x3C;=</span><span style="color: #C9D1D9"> n)</span></span>
-<span class="line"><span style="color: #C9D1D9">    {</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (n </span><span style="color: #FF7B72">%</span><span style="color: #C9D1D9"> div </span><span style="color: #FF7B72">!=</span><span style="color: #C9D1D9"> T.Zero)</span></span>
-<span class="line"><span style="color: #C9D1D9">        {</span></span>
-<span class="line"><span style="color: #C9D1D9">            div</span><span style="color: #FF7B72">++</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">        }</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">else</span></span>
-<span class="line"><span style="color: #C9D1D9">        {</span></span>
-<span class="line"><span style="color: #C9D1D9">            n </span><span style="color: #FF7B72">/=</span><span style="color: #C9D1D9"> div;</span></span>
-<span class="line"><span style="color: #C9D1D9">            </span><span style="color: #FF7B72">yield</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> div;</span></span>
-<span class="line"><span style="color: #C9D1D9">        }</span></span>
-<span class="line"><span style="color: #C9D1D9">    }</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> (n </span><span style="color: #FF7B72">></span><span style="color: #C9D1D9"> T.One) </span><span style="color: #FF7B72">yield</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> n;</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">public</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">IEnumerable</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">T</span><span style="color: #E1E4E8">> </span><span style="color: #B392F0">PrimeFactors</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">T</span><span style="color: #E1E4E8">>(</span><span style="color: #B392F0">T</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">n</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">where</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">T</span><span style="color: #E1E4E8"> : </span><span style="color: #B392F0">INumber</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">T</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">div</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> T.</span><span style="color: #B392F0">CreateChecked</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">2</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">while</span><span style="color: #E1E4E8"> (div </span><span style="color: #F97583">*</span><span style="color: #E1E4E8"> div </span><span style="color: #F97583">&#x3C;=</span><span style="color: #E1E4E8"> n)</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (n </span><span style="color: #F97583">%</span><span style="color: #E1E4E8"> div </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> T.Zero)</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">            div</span><span style="color: #F97583">++</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">else</span></span>
+<span class="line"><span style="color: #E1E4E8">        {</span></span>
+<span class="line"><span style="color: #E1E4E8">            n </span><span style="color: #F97583">/=</span><span style="color: #E1E4E8"> div;</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #F97583">yield</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> div;</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (n </span><span style="color: #F97583">></span><span style="color: #E1E4E8"> T.One) </span><span style="color: #F97583">yield</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> n;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
   </article>
+
                 </div>
             </main>
         </div>

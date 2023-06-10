@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Thread-safe getters/setters for Global State in D</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,76 +49,78 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Thread-safe getters/setters for Global State in D</h2>
     <p class="pt-0 astro-GVPN4U4B">2019-10-26</p>
     <p>First, note that to make an object globally shared across threads in D we use the <code>__gshared</code> attribute. Caveat: using this is basically cowboy mode since <code>__gshared</code> provides no safety checks or guarantees, so really it should be limited in scope and for plumbing code generally speaking, but this is more of a proof of concept. Plus - as of writing - the safe(r) <code>shared</code> attribute still needs some work according to Walter/Andrei/Atila.</p>
 <p>Nonetheless! We create a state struct anyway.</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">struct</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">State</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">serverName</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">accessToken</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// ...</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">struct</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">State</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">serverName</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">accessToken</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// ...</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #FF7B72">__gshared</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">static</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">State</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">STATE</span><span style="color: #C9D1D9">;</span></span></code></pre>
+<span class="line"><span style="color: #F97583">__gshared</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">static</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">State</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">STATE</span><span style="color: #E1E4E8">;</span></span></code></pre>
 <p>Now across any threads, we can access our state. But we might get race conditions so the lazy way is to use <code>@property</code> methods and put everything in synchronized blocks. Luckily D can help us live up to our true lazy potential with template mixins. These will just let us drop the body of the mixin template into our struct. Combine that with the <code>mixin</code> function which will parse a string at compile time and output code and we get the full power of stringly typed programming.</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">mixin template</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">StateProperty</span><span style="color: #C9D1D9">(</span><span style="color: #FFA657">T</span><span style="color: #FF7B72">,</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9">)</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mixin(</span><span style="color: #A5D6FF">`private `</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">T.stringof</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">` _`</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">`;</span></span>
-<span class="line"><span style="color: #A5D6FF">        @property `</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">T.stringof</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">` `</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">`() nothrow</span></span>
-<span class="line"><span style="color: #A5D6FF">        {</span></span>
-<span class="line"><span style="color: #A5D6FF">            synchronized</span></span>
-<span class="line"><span style="color: #A5D6FF">            {</span></span>
-<span class="line"><span style="color: #A5D6FF">                return _`</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">`;</span></span>
-<span class="line"><span style="color: #A5D6FF">            }</span></span>
-<span class="line"><span style="color: #A5D6FF">        }</span></span>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">mixin template</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">StateProperty</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">T</span><span style="color: #F97583">,</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">mixin(</span><span style="color: #9ECBFF">`private `</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">T.stringof</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">` _`</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">`;</span></span>
+<span class="line"><span style="color: #9ECBFF">        @property `</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">T.stringof</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">` `</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">`() nothrow</span></span>
+<span class="line"><span style="color: #9ECBFF">        {</span></span>
+<span class="line"><span style="color: #9ECBFF">            synchronized</span></span>
+<span class="line"><span style="color: #9ECBFF">            {</span></span>
+<span class="line"><span style="color: #9ECBFF">                return _`</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">`;</span></span>
+<span class="line"><span style="color: #9ECBFF">            }</span></span>
+<span class="line"><span style="color: #9ECBFF">        }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #A5D6FF">        @property void `</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">`(`</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">T.stringof</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">` prop) nothrow</span></span>
-<span class="line"><span style="color: #A5D6FF">        {</span></span>
-<span class="line"><span style="color: #A5D6FF">            synchronized</span></span>
-<span class="line"><span style="color: #A5D6FF">            {</span></span>
-<span class="line"><span style="color: #A5D6FF">                _`</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">Name</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">` = prop;</span></span>
-<span class="line"><span style="color: #A5D6FF">            }</span></span>
-<span class="line"><span style="color: #A5D6FF">        }`</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">)</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<span class="line"><span style="color: #9ECBFF">        @property void `</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">`(`</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">T.stringof</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">` prop) nothrow</span></span>
+<span class="line"><span style="color: #9ECBFF">        {</span></span>
+<span class="line"><span style="color: #9ECBFF">            synchronized</span></span>
+<span class="line"><span style="color: #9ECBFF">            {</span></span>
+<span class="line"><span style="color: #9ECBFF">                _`</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">Name</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">~</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">` = prop;</span></span>
+<span class="line"><span style="color: #9ECBFF">            }</span></span>
+<span class="line"><span style="color: #9ECBFF">        }`</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">)</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
 <p>When expanded, this will create a private member variable (an opaque type means we can’t access members here in a thread-unsafe manner) with a given type T and a given name prefixed with an ”_“. Then create getter and setter property methods which retrieve or update the value of the variable within a mutex.</p>
 <p>So from our state example above, the serverName variable would expand to the following when using <code>StateProperty</code>:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">private</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">_serverName</span><span style="color: #C9D1D9">;</span></span>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">private</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">_serverName</span><span style="color: #E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #7EE787">@property</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">serverName</span><span style="color: #C9D1D9">() </span><span style="color: #FF7B72">nothrow</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">synchronized</span></span>
-<span class="line"><span style="color: #C9D1D9">    {</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">_serverName</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">    }</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span>
+<span class="line"><span style="color: #85E89D">@property</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">serverName</span><span style="color: #E1E4E8">() </span><span style="color: #F97583">nothrow</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">synchronized</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">_serverName</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #7EE787">@property</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">void</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">serverName</span><span style="color: #C9D1D9">(</span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">prop</span><span style="color: #C9D1D9">) </span><span style="color: #FF7B72">nothrow</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">synchronized</span></span>
-<span class="line"><span style="color: #C9D1D9">    {</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FFA657">_serverName</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">prop</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">    }</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<span class="line"><span style="color: #85E89D">@property</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">void</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">serverName</span><span style="color: #E1E4E8">(</span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">prop</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">nothrow</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">synchronized</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #FFAB70">_serverName</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">prop</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
 <p>But all it takes is one line of code, making this metaprogramming technique rather cost efficient and scalable. And of course we pay nothing for this at runtime when compared to hand writing all those awful getters and setters.</p>
 <p>Note that we do pollute the namespace of the struct with the additional variables prefixed with underscores. Personally I find this an acceptable trade off.</p>
 <p>So our updated struct code looks like the following:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">struct</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">State</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mixin</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">StateProperty</span><span style="color: #C9D1D9">!(</span><span style="color: #FF7B72">string,</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"serverName"</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mixin</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">StateProperty</span><span style="color: #C9D1D9">!(</span><span style="color: #FF7B72">string,</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"accessToken"</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// ...</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">struct</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">State</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">mixin</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">StateProperty</span><span style="color: #E1E4E8">!(</span><span style="color: #F97583">string,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"serverName"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">mixin</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">StateProperty</span><span style="color: #E1E4E8">!(</span><span style="color: #F97583">string,</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"accessToken"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// ...</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
 <p>Finally, you could also alias the <code>StateProperty</code> within the struct body for shorter mixin template instantiations:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">struct</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">State</span></span>
-<span class="line"><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">alias</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">_</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">StateProperty</span><span style="color: #C9D1D9">;</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">mixin</span><span style="color: #C9D1D9"> </span><span style="color: #FFA657">_</span><span style="color: #C9D1D9">!(</span><span style="color: #8B949E">/* ... */</span><span style="color: #C9D1D9">);</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #8B949E">// etc</span></span>
-<span class="line"><span style="color: #C9D1D9">}</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">struct</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">State</span></span>
+<span class="line"><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">alias</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">_</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">StateProperty</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">mixin</span><span style="color: #E1E4E8"> </span><span style="color: #FFAB70">_</span><span style="color: #E1E4E8">!(</span><span style="color: #6A737D">/* ... */</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// etc</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
   </article>
+
                 </div>
             </main>
         </div>

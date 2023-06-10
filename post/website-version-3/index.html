@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - b5 version 3 (in nim)</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,7 +49,8 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">b5 version 3 (in nim)</h2>
     <p class="pt-0 astro-GVPN4U4B">2021-01-14</p>
     <p>Another installment in the long line of barely laughing websites has arrived - version three! This one
@@ -74,24 +75,24 @@ and either extracts the data or in the case of snippets, finds the relevant file
 gives the benefit of having snippets being implemented as proper source files and having them be runnable
 as standalone files/scripts/apps etc. as well as keeping the code nicely decoupled from the articles themselves.</p>
 <p>Here is the snippet for preprocessing the files:</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">proc</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">parseSnippet</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">discard</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># omitted for the purposes of the post</span></span>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">proc</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">parseSnippet</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">discard</span><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># omitted for the purposes of the post</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #FF7B72">proc</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">processPost</span><span style="color: #C9D1D9">(path</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span><span style="color: #C9D1D9">)</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">Post</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">=</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># posts have their own dir and the text for each is always in post.md</span></span>
-<span class="line"><span style="color: #C9D1D9">  </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> line </span><span style="color: #FF7B72">in</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">lines</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">joinPath</span><span style="color: #C9D1D9">(path, </span><span style="color: #A5D6FF">"post.md"</span><span style="color: #C9D1D9">))</span><span style="color: #FF7B72">:</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">var</span><span style="color: #C9D1D9"> tag, tagBody</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">string</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">if</span><span style="color: #C9D1D9"> line</span><span style="color: #FF7B72">.</span><span style="color: #79C0FF">scanf</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">"@$w $*"</span><span style="color: #C9D1D9">, tag, tagBody)</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9">  </span><span style="color: #8B949E"># scan each line in the post looking for @&#x3C;tag></span></span>
-<span class="line"><span style="color: #C9D1D9">      </span><span style="color: #FF7B72">case</span><span style="color: #C9D1D9"> tag</span><span style="color: #FF7B72">:</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"title"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># matches @title</span></span>
-<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">header</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">title </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> tagBody</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"date"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># similar</span></span>
-<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">header</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">date </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> tagBody</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">of</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">"snippet"</span><span style="color: #FF7B72">:</span><span style="color: #C9D1D9"> </span><span style="color: #8B949E"># similar</span></span>
-<span class="line"><span style="color: #C9D1D9">          result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">body </span><span style="color: #FF7B72">&#x26;=</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">parseSnippet</span><span style="color: #C9D1D9">(path, tagBody)</span></span>
-<span class="line"><span style="color: #C9D1D9">        </span><span style="color: #FF7B72">else:</span></span>
-<span class="line"><span style="color: #C9D1D9">          </span><span style="color: #79C0FF">doAssert</span><span style="color: #C9D1D9">(</span><span style="color: #79C0FF">false</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">"unknown tag: "</span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">&#x26;</span><span style="color: #C9D1D9"> tag)</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">else:</span></span>
-<span class="line"><span style="color: #C9D1D9">      result</span><span style="color: #FF7B72">.</span><span style="color: #C9D1D9">body </span><span style="color: #FF7B72">&#x26;=</span><span style="color: #C9D1D9"> line </span><span style="color: #FF7B72">&#x26;</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'</span><span style="color: #79C0FF">\n</span><span style="color: #A5D6FF">'</span></span></code></pre>
+<span class="line"><span style="color: #F97583">proc</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">processPost</span><span style="color: #E1E4E8">(path</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">string</span><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Post</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># posts have their own dir and the text for each is always in post.md</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">for</span><span style="color: #E1E4E8"> line </span><span style="color: #F97583">in</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">lines</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">joinPath</span><span style="color: #E1E4E8">(path, </span><span style="color: #9ECBFF">"post.md"</span><span style="color: #E1E4E8">))</span><span style="color: #F97583">:</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> tag, tagBody</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">string</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> line</span><span style="color: #F97583">.</span><span style="color: #79B8FF">scanf</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"@$w $*"</span><span style="color: #E1E4E8">, tag, tagBody)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># scan each line in the post looking for @&#x3C;tag></span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">case</span><span style="color: #E1E4E8"> tag</span><span style="color: #F97583">:</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">of</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"title"</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># matches @title</span></span>
+<span class="line"><span style="color: #E1E4E8">          result</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">header</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> tagBody</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">of</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"date"</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># similar</span></span>
+<span class="line"><span style="color: #E1E4E8">          result</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">header</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">date </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> tagBody</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">of</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"snippet"</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D"># similar</span></span>
+<span class="line"><span style="color: #E1E4E8">          result</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">body </span><span style="color: #F97583">&#x26;=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">parseSnippet</span><span style="color: #E1E4E8">(path, tagBody)</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">else:</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #79B8FF">doAssert</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">false</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"unknown tag: "</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8"> tag)</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">else:</span></span>
+<span class="line"><span style="color: #E1E4E8">      result</span><span style="color: #F97583">.</span><span style="color: #E1E4E8">body </span><span style="color: #F97583">&#x26;=</span><span style="color: #E1E4E8"> line </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'</span><span style="color: #79B8FF">\n</span><span style="color: #9ECBFF">'</span></span></code></pre>
 <p>I feel that the case statement for each type of tag skips a lot of the line noise you tend to get with
 either <code>switch</code> statements (<code>break</code>) or the monolith of <code>if</code>/<code>else</code> statements you get in python.</p>
 <p><code>result</code> is implicitly created in procs which have a return type. This allows you to skip the “boilerplate”
@@ -102,6 +103,7 @@ I’ve been writing on and off for about 6 years now). I’ve got what seems to 
 a nice setup with nim in another project that I’ll talk about some other time, but I’m feeling hopeful. And
 it was cool to get all of this done in an evening too!</p>
   </article>
+
                 </div>
             </main>
         </div>

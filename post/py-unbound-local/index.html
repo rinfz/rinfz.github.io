@@ -6,10 +6,10 @@
         <meta name="description" content="Personal website of Matt R: programming, music, tech, bird watching and other interests">
         <link rel="icon" type="image/x-icon" href="/images/favicon.png">
         <title>Barely Laughing - Python Unbound Local Error</title>
-    <link rel="stylesheet" href="/_astro/birds.391704aa.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.fd71cfdf.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.0cc430a3.css" />
-<link rel="stylesheet" href="/_astro/asm-collatz.2d88b9a9.css" /></head>
+    <link rel="stylesheet" href="/_astro/birds.a42b81e3.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.d84417d5.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.8c1b21d6.css" />
+<link rel="stylesheet" href="/_astro/asm-collatz.417652d1.css" /></head>
 
     <body class="astro-SCKKX6R4">
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5 astro-SCKKX6R4">
@@ -49,31 +49,33 @@
                 </nav>
 
                 <div class="main-w flex-1 astro-SCKKX6R4">
-                    <article class="text-justify astro-GVPN4U4B">
+                    
+  <article class="text-justify astro-GVPN4U4B">
     <h2 class="astro-GVPN4U4B">Python Unbound Local Error</h2>
     <p class="pt-0 astro-GVPN4U4B">2019-06-08</p>
-    <pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">>>> import os</span></span>
-<span class="line"><span style="color: #c9d1d9">>>> def foo():</span></span>
-<span class="line"><span style="color: #c9d1d9">    os.environ['a'] = '1'</span></span>
-<span class="line"><span style="color: #c9d1d9">    import os</span></span>
-<span class="line"><span style="color: #c9d1d9">    return 1</span></span>
-<span class="line"><span style="color: #c9d1d9">>>> foo()</span></span>
-<span class="line"><span style="color: #c9d1d9">Traceback (most recent call last):</span></span>
-<span class="line"><span style="color: #c9d1d9">  File "", line 1, in</span></span>
-<span class="line"><span style="color: #c9d1d9">    foo()</span></span>
-<span class="line"><span style="color: #c9d1d9">  File "", line 2, in foo</span></span>
-<span class="line"><span style="color: #c9d1d9">    os.environ['a'] = '1'</span></span>
-<span class="line"><span style="color: #c9d1d9">UnboundLocalError: local variable 'os' referenced before assignment</span></span></code></pre>
+    <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">>>> import os</span></span>
+<span class="line"><span style="color: #e1e4e8">>>> def foo():</span></span>
+<span class="line"><span style="color: #e1e4e8">    os.environ['a'] = '1'</span></span>
+<span class="line"><span style="color: #e1e4e8">    import os</span></span>
+<span class="line"><span style="color: #e1e4e8">    return 1</span></span>
+<span class="line"><span style="color: #e1e4e8">>>> foo()</span></span>
+<span class="line"><span style="color: #e1e4e8">Traceback (most recent call last):</span></span>
+<span class="line"><span style="color: #e1e4e8">  File "", line 1, in</span></span>
+<span class="line"><span style="color: #e1e4e8">    foo()</span></span>
+<span class="line"><span style="color: #e1e4e8">  File "", line 2, in foo</span></span>
+<span class="line"><span style="color: #e1e4e8">    os.environ['a'] = '1'</span></span>
+<span class="line"><span style="color: #e1e4e8">UnboundLocalError: local variable 'os' referenced before assignment</span></span></code></pre>
 <p>Turns out if you import a module within the same function body as it’s used, but import it after, some weird name resolution happens (I came accross this when debugging a for loop so it wasn’t particularly intuitive).</p>
 <p>To avoid it, either know what you’re importing or have a global at the start of the function body, i.e.</p>
-<pre is:raw="" class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">>>></span><span style="color: #C9D1D9"> </span><span style="color: #FF7B72">def</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">bar</span><span style="color: #C9D1D9">():</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">global</span><span style="color: #C9D1D9"> os</span></span>
-<span class="line"><span style="color: #C9D1D9">    os.environ[</span><span style="color: #A5D6FF">'a'</span><span style="color: #C9D1D9">] </span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">'1'</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">import</span><span style="color: #C9D1D9"> os</span></span>
-<span class="line"><span style="color: #C9D1D9">    </span><span style="color: #FF7B72">return</span><span style="color: #C9D1D9"> </span><span style="color: #79C0FF">1</span></span>
-<span class="line"><span style="color: #FF7B72">>>></span><span style="color: #C9D1D9"> bar()</span></span>
-<span class="line"><span style="color: #79C0FF">1</span></span></code></pre>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">>>></span><span style="color: #E1E4E8"> </span><span style="color: #F97583">def</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">bar</span><span style="color: #E1E4E8">():</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">global</span><span style="color: #E1E4E8"> os</span></span>
+<span class="line"><span style="color: #E1E4E8">    os.environ[</span><span style="color: #9ECBFF">'a'</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'1'</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">import</span><span style="color: #E1E4E8"> os</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span></span>
+<span class="line"><span style="color: #F97583">>>></span><span style="color: #E1E4E8"> bar()</span></span>
+<span class="line"><span style="color: #79B8FF">1</span></span></code></pre>
   </article>
+
                 </div>
             </main>
         </div>
