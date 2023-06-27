@@ -11,6 +11,7 @@ const { page } = Astro.props;
 const { data, url } = page;
 
 const { name, location, src, fullW } = data[0];
+const borderCss = fullW ? "border-2" : "";
 ---
 
 <Photo title="Photography by Matt R">
@@ -71,7 +72,7 @@ const { name, location, src, fullW } = data[0];
       <Image
         src={import(/* @vite-ignore */ `../../photos/${src}.jpg`)}
         alt={`${name}, ${location}`}
-        class="border-2 max-h-screen object-contain"
+        class={`${borderCss} max-h-screen object-contain`}
       />
       <div class="text-center">
         <p

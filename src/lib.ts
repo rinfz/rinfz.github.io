@@ -26,7 +26,7 @@ export function writeUpLink(link: CollectionEntry<'link'>) {
         // TODO
         return 'some writeup';
     }
-    return 'no write-up';
+    return 'no notes';
 }
 
 export function sortLink(a: CollectionEntry<'link'>, b: CollectionEntry<'link'>) {

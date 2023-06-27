@@ -1,4 +1,13 @@
 [
+  {"name": "Moorhen", "location": "Devon, UK", "src": "moorhen-01", "fullW": true},
+  {"name": "Lime Kiln", "location": "Cornwall, UK", "src": "lime-kiln", "fullW": true},
+  {"name": "Kestrels", "location": "Devon, UK", "src": "kestrel-01", "fullW": true},
+  {"name": "Reed Warbler", "location": "Devon, UK", "src": "reedw-01", "fullW": true},
+  {"name": "Sedge Warbler", "location": "Devon, UK", "src": "sedge-02", "fullW": false},
+  {"name": "Rock Pipit", "location": "Cornwall, UK", "src": "rock-pipit-01", "fullW": true},
+  {"name": "Lesser Spotted Woodpecker", "location": "Devon, UK", "src": "lsw-01", "fullW": false},
+  {"name": "Pied Flycatcher", "location": "Devon, UK", "src": "pied-fly-01", "fullW": true},
+  {"name": "Puffin Island", "location": "Cornwall, UK", "src": "puffin-island", "fullW": true},
   {
     "name": "Breakwater",
     "location": "Dorset, UK",
