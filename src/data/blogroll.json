@@ -15,11 +15,6 @@
         "name": "lukeplant.me.uk"
     },
     {
-        "link": "https://fasterthanli.me/articles",
-        "tag": "Rust, Go",
-        "name": "fasterthanli.me"
-    },
-    {
         "link": "https://craftofcoding.wordpress.com/",
         "tag": "General computing",
         "name": "craftofcoding.wordpress.com"
@@ -28,11 +23,6 @@
         "link": "https://protesilaos.com/",
         "tag": "Philosophy-ish",
         "name": "protesilaos.com"
-    },
-    {
-        "link": "https://www.dramface.com/all-reviews",
-        "tag": "Whisky reviews",
-        "name": "dramface.com"
     },
     {
         "link": "https://lemire.me/blog/",

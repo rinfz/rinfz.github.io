@@ -1,5 +1,89 @@
 [
   {
+    "name": "Green Grass & High Tides",
+    "artist": "Outlaws",
+    "link": "https://www.youtube.com/watch?v=cz2CAtExXgQ",
+    "genre": "Country"
+  },
+  {
+    "name": "Jean de Florette",
+    "artist": "Jean Claude Petit",
+    "link": "https://www.youtube.com/watch?v=RZ-u2nLqcEk",
+    "genre": "Classical"
+  },
+  {
+    "name": "S.S.D",
+    "artist": "La Femme",
+    "link": "https://www.youtube.com/watch?v=zXeAwlJVYqo",
+    "genre": "Pop"
+  },
+  {
+    "name": "Sur la planche 2013",
+    "artist": "La Femme",
+    "link": "https://www.youtube.com/watch?v=v3rMJ6BOMRA",
+    "genre": "Pop"
+  },
+  {
+    "name": "Suivre le Soleil",
+    "artist": "Vanille",
+    "link": "https://www.youtube.com/watch?v=Ysou07vw51A",
+    "genre": "Pop"
+  },
+  {
+    "name": "Si tu m'aimes demain",
+    "artist": "iliona",
+    "link": "https://www.youtube.com/watch?v=cyqHNKvJsqA",
+    "genre": "Pop"
+  },
+  {
+    "name": "Every 1's a Winner",
+    "artist": "Hot Chocolate",
+    "link": "https://www.youtube.com/watch?v=xubCItLvNhE",
+    "genre": "Rock"
+  },
+  {
+    "name": "You're the Doctor",
+    "artist": "Ty Segall",
+    "link": "https://www.youtube.com/watch?v=Zm4ge8iOcoY",
+    "genre": "Rock"
+  },
+  {
+    "name": "As the Footsteps Die out Forever",
+    "artist": "Streetlight Manifesto",
+    "link": "https://www.youtube.com/watch?v=S86HPDeI9M4",
+    "genre": "Ska"
+  },
+  {
+    "name": "All My Best Friends Are Metalheads",
+    "artist": "Less Than Jake",
+    "link": "https://www.youtube.com/watch?v=Z_63ZZRLylE",
+    "genre": "Ska"
+  },
+  {
+    "name": "PERSONAL SHOPPER",
+    "artist": "Steven Wilson",
+    "link": "https://www.youtube.com/watch?v=sX22dFMSNcg",
+    "genre": "Pop"
+  },
+  {
+    "name": "Amsterdam",
+    "artist": "Scott Walker",
+    "link": "https://www.youtube.com/watch?v=uF_eVJ7WYaY",
+    "genre": "Pop"
+  },
+  {
+    "name": "Jackie",
+    "artist": "Scott Walker",
+    "link": "https://www.youtube.com/watch?v=d128q1GQQ2c",
+    "genre": "Pop"
+  },
+  {
+    "name": "The Girls and the Dogs",
+    "artist": "Scott Walker",
+    "link": "https://www.youtube.com/watch?v=8p70xFGQTOs",
+    "genre": "Pop"
+  },
+  {
     "name": "Cult of Personality",
     "artist": "Living Colour",
     "link": "https://www.youtube.com/watch?v=7xxgRUyzgs0",
