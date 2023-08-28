@@ -6,7 +6,7 @@ export interface Props {
 const { title } = Astro.props as Props;
 
 const c_navBtn =
-    "block w-full text-center md:text-left bg-orange-600 px-1 py-2 hover:bg-orange-500";
+    "block w-full text-center md:text-left bg-[#FFB999] rounded-lg px-4 py-2 hover:bg-[#FFAB85] border-2 border-black";
 ---
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ const c_navBtn =
     <body>
         <div class="max-w-5xl min-h-screen w-full px-5 pb-0 sm:pb-5">
             <header
-                class="bg-gradient-to-t from-gray-900 to-gray-8 00 text-center py-10 border border-gray-700 text-white mb-2.5 mt-2.5 text-sm font-semibold"
+                class="bg-[#00A878] text-center py-10 border-4 border-[#C1D7AE] text-white mb-2.5 mt-2.5 text-xs font-semibold rounded-xl"
             >
                 <h1><a href="/">A Delightful Abstraction</a></h1>
             </header>
@@ -39,28 +39,12 @@ const c_navBtn =
                         <li>
                             <a class={c_navBtn} href="/photos">Photography</a>
                         </li>
-                        <li>
-                            <a
-                                class={c_navBtn}
-                                href="https://larusreader.com/"
-                                target="_blank">Online Reading App</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                class={c_navBtn}
-                                href="https://www.goodreads.com/review/list/164595825-matt-r?order=d&shelf=read&sort=date_updated"
-                                target="_blank"
-                            >
-                                My Goodreads
-                            </a>
-                        </li>
                     </ul>
 
                     <div
                         class="flex md:block justify-between md:justify-items-start items-center md:items-start"
                     >
-                        <p class="text-xs">
+                        <p class="text-xs text-center">
                             <a
                                 href="https://creativecommons.org/licenses/by-sa/4.0/"
                                 target="_blank">&copy; CC BY-SA 4.0</a
@@ -114,9 +98,9 @@ const c_navBtn =
 
 <style>
     body {
-        @apply text-white;
-        background-color: #000000;
-        font-family: system-ui, sans-serif;
+        @apply text-black;
+        background-color: #FFCAB1;
+        font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand, Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri, source-sans-pro, sans-serif;
     }
 
     .main-w {

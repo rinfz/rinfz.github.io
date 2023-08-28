@@ -12,9 +12,9 @@ const linkCollection = (await getCollection("link")).sort(sortLink);
         The notes are a work in progress because I decided to do them after
         adding loads of links.
     </p>
-    <table class="table-fixed border border-gray-700 w-full overflow-x-auto block">
-        <thead class="bg-gray-800">
-            <th class="w-9/12">Title</th>
+    <table class="table-fixed w-full overflow-x-auto block">
+        <thead class="text-xs">
+            <th>Title</th>
             <th>Date Added</th>
             <th>Notes</th>
         </thead>
@@ -23,17 +23,15 @@ const linkCollection = (await getCollection("link")).sort(sortLink);
                 linkCollection.map((link, i) => {
                     return (
                         <tr
-                            class={`${
-                                i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"
-                            }`}
+                            class={`${i % 2 == 0 ? "bg-[#FFB999]" : "bg-[#FFAB85]"}`}
                         >
                             <td class="py-2 px-1">
-                                <a href={link.data.url}>{link.data.title}</a>
+                                <a href={link.data.url} class="text-[#5E2BFF]">{link.data.title}</a>
                             </td>
-                            <td>{formatDate(link.data.date)}</td>
+                            <td class="text-xs">{formatDate(link.data.date)}</td>
                             <td class="text-center">
                                 {link.body.length > 0 ? (
-                                    <a href={`/links/${link.slug}`} class="w-full block">View</a>
+                                    <a href={`/links/${link.slug}`} class="w-full block text-[#5E2BFF]">View</a>
                                 ) : null}
                             </td>
                         </tr>

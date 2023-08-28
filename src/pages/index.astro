@@ -30,13 +30,13 @@ const latestPhoto = photos[0];
   <main class="grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-2">
     <section class="col-span-1 md:col-span-2">
       <div
-        class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+        class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mb-2"
       >
         <h2 class="flex-1">Latest Photo</h2>
         <a href="/photos">see more &raquo;</a>
       </div>
-      <div class="border border-gray-700">
-        <div class="flex justify-between items-center bg-gray-800 p-1">
+      <div class="border-2 border-black rounded-t-lg bg-[#5E2BFF]">
+        <div class="flex justify-between items-center p-1 text-white">
           <h3>{latestPhoto.name}</h3>
           <p class="text-xs">&copy; Copyright 2023 All Rights Reserved</p>
         </div>
@@ -51,14 +51,14 @@ const latestPhoto = photos[0];
     <section>
       <div>
         <div
-          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+          class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mb-2"
         >
           <h2 class="flex-1">Latest Post</h2>
           <a href="/posts">see more &raquo;</a>
         </div>
         <p class="p-2 text-center">
           {simpleDate(latestPost.frontmatter.date)}
-          <a href={latestPost.url} class="text-orange-500"
+          <a href={latestPost.url} class="text-[#5E2BFF]"
             >{latestPost.frontmatter.title}</a
           >
         </p>
@@ -66,25 +66,26 @@ const latestPhoto = photos[0];
 
       <div class="mt-2">
         <div
-          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+          class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mb-2"
         >
           <h2 class="flex-1">Cool Links</h2>
           <a href="/links">see more &raquo;</a>
         </div>
-        <div class="divide-y divide-gray-700">
+        <div>
           {
             linkCollection.slice(0, 10).map((link) => (
-              <p class="py-0.5">
+              <p class="p-1 bg-[#FFB999] mb-1">
                 <a
-                  class="flex items-center text-orange-500"
+                  class="flex items-center text-[#5E2BFF]"
                   href={link.data.url}
                   target="_blank"
                 >
                   <span class="flex-1">{link.data.title}</span>
+                  <span class="text-xs">
+                    {formatDate(link.data.date)}
+                  </span>
                 </a>
-                <span class="text-xs">
-                  {formatDate(link.data.date)} {link.body.length > 0 ? <>&bull; <a href={`/links/${link.slug}`} class="text-orange-500">notes</a></> : null}
-                </span>
+                {link.body.length > 0 ? <><a href={`/links/${link.slug}`} class="text-[#5E2BFF] text-xs">notes</a></> : null}
               </p>
             ))
           }
@@ -94,13 +95,13 @@ const latestPhoto = photos[0];
         </p>
 
         <div
-          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2"
+          class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mt-2 mb-2"
         >
           <h2>Cool Blogs</h2>
         </div>
         <div>
           <p
-            class="text-xs border border-gray-700 bg-gray-800 p-1 text-justify"
+            class="text-xs p-1 text-justify"
           >
             Just a small section here to list a couple of blogs with high
             quality posts. May read infrequently but nice to have even a small
@@ -110,7 +111,7 @@ const latestPhoto = photos[0];
             {
               blogroll.map((blog) => (
                 <li class="my-1">
-                  <a href={blog.link} class="text-orange-500" target="_blank">
+                  <a href={blog.link} class="text-[#5E2BFF]" target="_blank">
                     {blog.name}
                   </a>{" "}
                   - {blog.tag}
@@ -125,24 +126,22 @@ const latestPhoto = photos[0];
     <section>
       <div>
         <div
-          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mb-2"
+          class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mb-2"
         >
           <h2 class="flex-1">Cool Songs</h2>
           <a href="/songs">see more &raquo;</a>
         </div>
-        <div class="border border-gray-700 divide-y divide-gray-700">
+        <div>
           {
             songs.slice(0, 5).map((song, i) => (
               <p>
                 <a
                   href={song.link}
                   target="_blank"
-                  class={`p-1 block hover:bg-gray-700 ${
-                    i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"
-                  }`}
+                  class="p-1 block bg-[#FFB999] mb-1"
                 >
                   <>
-                    <span>{song.name}</span>
+                    <span class="text-[#5E2BFF]">{song.name}</span>
                     <br />
                   </>
                   <span class="text-xs">{song.artist}</span>
@@ -158,13 +157,12 @@ const latestPhoto = photos[0];
 
       <div>
         <div
-          class="flex items-center bg-gradient-to-t from-gray-600 to-gray-700 px-4 mt-2 mb-2"
+          class="flex items-center bg-[#5E2BFF] text-white rounded-lg border-2 border-black px-4 mt-2 mb-2"
         >
           <h2 class="flex-1">Whisky List</h2>
-          <a href="/posts">see more &raquo;</a>
         </div>
-        <table class="table-auto border border-gray-700 w-full">
-          <thead class="bg-gray-800">
+        <table class="table-auto w-full">
+          <thead>
             <th>Name</th>
             <th>Rating</th>
             <th>Value*</th>
@@ -172,7 +170,7 @@ const latestPhoto = photos[0];
           <tbody>
             {
               whiskies.sort(sortWhisky).map((whisky, i) => (
-                <tr class={`${i % 2 == 0 ? "bg-gray-900" : "bg-gray-800"}`}>
+                <tr class={`${i % 2 == 0 ? "bg-[#FFB999]" : "bg-[#FFAB85]"}`}>
                   <td class="tl">{whisky.name}</td>
                   <td>{whisky.rating}</td>
                   <td>{whisky.value}</td>
@@ -181,14 +179,14 @@ const latestPhoto = photos[0];
             }
           </tbody>
         </table>
-        <p class="text-sm">
+        <p class="text-xs">
           * Rating when accounting for price paid. Prices are historic and may
           not reflect the value of the whisky at it's current price. May also
           factor integrity, i.e. <abbr title="No Age Statement">NAS</abbr>,
           <abbr title="Non-Chill Filtered">NCF</abbr>,
           <abbr title="No Colour Added">NCA</abbr>.
         </p>
-        <p class="text-sm">
+        <p class="text-xs">
           ** ? denotes a whisky which was gifted or part of a set, so no value
           can be determined.
         </p>

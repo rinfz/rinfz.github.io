@@ -24,12 +24,12 @@ article > blockquote {
 }
 
 article a {
-  @apply text-orange-500;
+  @apply text-[#5E2BFF];
   @apply underline;
 }
 
 article a:hover {
-  @apply text-orange-400;
+  @apply text-[#3900F5];
   @apply no-underline;
 }
 

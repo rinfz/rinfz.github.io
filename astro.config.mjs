@@ -13,7 +13,7 @@ export default defineConfig({
   }), mdx()],
   markdown: {
     shikiConfig: {
-      theme: "github-dark"
+      theme: "rose-pine"
     }
   }
 });
