@@ -1,0 +1,41 @@
+---
+import Photo from "../layouts/Photo.astro";
+import { Image } from "@astrojs/image/components";
+import photos from "../photos/data.json";
+
+function photoUrl(i) {
+  i += 1;
+  if (i === 1) return "";
+  else return `/${i}`;
+}
+---
+
+<Photo title="Photography by Matt R">
+  <h2 class="text-center mb-2 text-lg md:text-3xl">My Photo Gallery</h2>
+  <h3 class="text-center mb-5"><a href="/" class="text-[#9270ff]">return to main website</a></h3>
+  <div class="g grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 w-full gap-5">
+    {photos.map((p, i) => {
+      return (<a href={`/photos${photoUrl(i)}`} class="border-2 border-[#9270ff]">
+        <Image
+          src={import(/* @vite-ignore */ `../photos/${p.src}.jpg`)}
+          alt={`${p.name}, ${p.location}`}
+          class="w-full h-full object-cover block"
+          width="600"
+        /></a>);
+    })}
+  </div>
+  <p class="text-center text-xs mt-10 py-2">
+    &copy; Copyright 2023 All Rights Reserved
+  </p>
+</Photo>
+
+<style>
+  a {
+    @apply text-[#9270ff];
+  }
+
+  .g {
+     grid-template-rows: 300px;
+     grid-auto-rows: 300px;
+  }
+</style>
