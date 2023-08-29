@@ -24,6 +24,7 @@ const latestPost = (await Astro.glob("./post/*.md*")).sort(
 )[0];
 
 const latestPhoto = photos[0];
+const latestPhotoSrc = (await import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)).default;
 ---
 
 <Layout title="Barely Laughing">
@@ -41,7 +42,7 @@ const latestPhoto = photos[0];
           <p class="text-xs">&copy; Copyright 2023 All Rights Reserved</p>
         </div>
         <Image
-          src={import(/* @vite-ignore */ `../photos/${latestPhoto.src}.jpg`)}
+          src={latestPhotoSrc}
           alt={`Latest photo: ${latestPhoto.name}, ${latestPhoto.location}`}
           format="webp"
           width="1089"
