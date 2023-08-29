@@ -614,6 +614,13 @@ declare module 'astro:content' {
   collection: "link";
   data: InferEntrySchema<"link">
 } & { render(): Render[".md"] };
+"elixir-for-cynical-curmudgeons.md": {
+	id: "elixir-for-cynical-curmudgeons.md";
+  slug: "elixir-for-cynical-curmudgeons";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
 "empirical-analysis-of-programming-language-adoption-(pdf).md": {
 	id: "empirical-analysis-of-programming-language-adoption-(pdf).md";
   slug: "empirical-analysis-of-programming-language-adoption-pdf";
@@ -680,6 +687,27 @@ declare module 'astro:content' {
 "fortune's-algorithm_-the-details.md": {
 	id: "fortune's-algorithm_-the-details.md";
   slug: "fortunes-algorithm_-the-details";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"fortune-s-algorithm-the-details.md": {
+	id: "fortune-s-algorithm-the-details.md";
+  slug: "fortune-s-algorithm-the-details";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"fortunes-algorithm-an-intuitive-explanation.md": {
+	id: "fortunes-algorithm-an-intuitive-explanation.md";
+  slug: "fortunes-algorithm-an-intuitive-explanation";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"fortunes-algorithm-part-2-some-implementation-details.md": {
+	id: "fortunes-algorithm-part-2-some-implementation-details.md";
+  slug: "fortunes-algorithm-part-2-some-implementation-details";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
@@ -764,6 +792,13 @@ declare module 'astro:content' {
 "getting-started-with-org-mode.md": {
 	id: "getting-started-with-org-mode.md";
   slug: "getting-started-with-org-mode";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"git-magic-preface.md": {
+	id: "git-magic-preface.md";
+  slug: "git-magic-preface";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
@@ -859,6 +894,13 @@ declare module 'astro:content' {
   collection: "link";
   data: InferEntrySchema<"link">
 } & { render(): Render[".md"] };
+"how-to-roman-republic-101-part-i-spqr.md": {
+	id: "how-to-roman-republic-101-part-i-spqr.md";
+  slug: "how-to-roman-republic-101-part-i-spqr";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
 "how-to-solve-it.md": {
 	id: "how-to-solve-it.md";
   slug: "how-to-solve-it";
@@ -901,6 +943,13 @@ declare module 'astro:content' {
   collection: "link";
   data: InferEntrySchema<"link">
 } & { render(): Render[".md"] };
+"it-s-2023-so-of-course-i-m-learning-common-lisp.md": {
+	id: "it-s-2023-so-of-course-i-m-learning-common-lisp.md";
+  slug: "it-s-2023-so-of-course-i-m-learning-common-lisp";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
 "its-worth-putting-in-the-effort-to-update-deps.md": {
 	id: "its-worth-putting-in-the-effort-to-update-deps.md";
   slug: "its-worth-putting-in-the-effort-to-update-deps";
@@ -911,6 +960,13 @@ declare module 'astro:content' {
 "janet-for-mortals.md": {
 	id: "janet-for-mortals.md";
   slug: "janet-for-mortals";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"je-ne-sais-quoi.md": {
+	id: "je-ne-sais-quoi.md";
+  slug: "je-ne-sais-quoi";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
@@ -953,6 +1009,13 @@ declare module 'astro:content' {
 "learning-skills-you-can-practice.md": {
 	id: "learning-skills-you-can-practice.md";
   slug: "learning-skills-you-can-practice";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"leaving-haskell-behind.md": {
+	id: "leaving-haskell-behind.md";
+  slug: "leaving-haskell-behind";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
@@ -1405,6 +1468,13 @@ declare module 'astro:content' {
   collection: "link";
   data: InferEntrySchema<"link">
 } & { render(): Render[".md"] };
+"taboo-oo.md": {
+	id: "taboo-oo.md";
+  slug: "taboo-oo";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
 "terrain-erosion-3-ways.md": {
 	id: "terrain-erosion-3-ways.md";
   slug: "terrain-erosion-3-ways";
@@ -1450,6 +1520,20 @@ declare module 'astro:content' {
 "the-construction-and-use-of-c++-algorithms.md": {
 	id: "the-construction-and-use-of-c++-algorithms.md";
   slug: "the-construction-and-use-of-c-algorithms";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"the-elmish-book.md": {
+	id: "the-elmish-book.md";
+  slug: "the-elmish-book";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"the-gentle-art-of-patch-review.md": {
+	id: "the-gentle-art-of-patch-review.md";
+  slug: "the-gentle-art-of-patch-review";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
@@ -1604,6 +1688,13 @@ declare module 'astro:content' {
 "why-and-how-to-write-things-on-the-internet.md": {
 	id: "why-and-how-to-write-things-on-the-internet.md";
   slug: "why-and-how-to-write-things-on-the-internet";
+  body: string;
+  collection: "link";
+  data: InferEntrySchema<"link">
+} & { render(): Render[".md"] };
+"without-belief-in-a-god-but-never-without-belief-in-a-devil.md": {
+	id: "without-belief-in-a-god-but-never-without-belief-in-a-devil.md";
+  slug: "without-belief-in-a-god-but-never-without-belief-in-a-devil";
   body: string;
   collection: "link";
   data: InferEntrySchema<"link">
