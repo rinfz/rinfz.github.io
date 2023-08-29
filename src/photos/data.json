@@ -1,4 +1,12 @@
 [
+  {"name": "White Wagtail", "location": "Devon, UK", "src": "wagtail-01", "fullW": true},
+  {"name": "Turnstone", "location": "Devon, UK", "src": "turnstone-02", "fullW": true},
+  {"name": "Ada", "location": "Home", "src": "ada-01", "fullW": true},
+  {"name": "Palmtree Firework", "location": "Plymouth, UK", "src": "firework-01", "fullW": false},
+  {"name": "Great Grey Owl", "location": "Owl Sanctuary", "src": "great-grey-owl-01", "fullW": true},
+  {"name": "Nuthatch", "location": "Devon, UK", "src": "nuthatch-02", "fullW": true},
+  {"name": "Siskin", "location": "Devon, UK", "src": "siskin-01", "fullW": true},
+  {"name": "Dunnock", "location": "Devon, UK", "src": "dunnock-01", "fullW": true},
   {"name": "Moorhen", "location": "Devon, UK", "src": "moorhen-01", "fullW": true},
   {"name": "Lime Kiln", "location": "Cornwall, UK", "src": "lime-kiln", "fullW": true},
   {"name": "Kestrels", "location": "Devon, UK", "src": "kestrel-01", "fullW": true},
